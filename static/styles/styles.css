@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=Ysabeau+Infant&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+    background: url(../images/jennvmy_-uWpggIb3iHs-unsplash.jpg) no-repeat;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+    font-family: "Ysabeau Infant", sans-serif;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    /*background-color: rgba(255, 255, 255, 0.01); !* Translucent white background color *!*/
+    /*border-radius: 10px;*/
+    /*border: 1px solid rgba(255, 255, 255, 0.3); !* Translucent white border *!*/
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Shadow for the glass effect *!*/
+    /*backdrop-filter: blur(10px); !* Adds a blur effect to the background behind the element *!*/
+    /*opacity: 0.9; !* Adjust the opacity to control the overall transparency *!*/
+}
+
+#logo, ul {
+    -webkit-text-stroke: 1px #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo > a {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin: 2%;
+}
+
+#logo > a > img {
+    width: 20%;
+    margin: 10px 3px 10px 10px;
+    transition: transform .7s ease-in-out;
+}
+
+#logo > a > img:hover {
+    transform: rotateY(360deg);
+}
+
+#logo > a > p {
+    margin-top: 7px;
+}
+
+#searchbar {
+    display: flex;
+    margin: 35px 100px 20px auto;
+    /*margin: 2.5% 100px 1% auto;*/
+}
+
+#searchbar input {
+    padding: 0 180px 0 5px;
+    border-radius: 3px 0 0 3px;
+    border: none;
+}
+
+#searchbar input:focus {
+    outline: none;
+}
+
+#searchbar button {
+    border-radius:0 3px 3px 0;
+    color: #fff;
+    border: none;
+    background-color: #85D1CD;
+    padding: 4px 20px;
+}
+
+#searchbar button:hover {
+    background-color: transparent;
+    border: 5px solid #85D1CD;
+    cursor: pointer;
+    padding: 4px 15px;
+}
+
+ul {
+    list-style: none;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    margin-right: 10rem;
+    margin-top: 2%;
+}
+
+nav a {
+    color: #5127A0;
+}
+
+nav a:hover {
+    color: #00BDCD;
+}
+
+#main-content {
+    font-size: 4.5rem;
+    font-weight: bolder;
+    text-align: center;
+    color: #9a5e33;
+    margin: 2% 20% 0 20%;
+}
+
+footer {
+    position: absolute;
+    bottom: 3%;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    width: 100%;
+}
+
+i {
+    color: #fff;
+}
+
