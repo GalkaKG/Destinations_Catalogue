@@ -7,16 +7,6 @@ from django.urls import reverse_lazy
 UserModel = get_user_model()
 
 
-def details_profile(request):
-    user = User.objects.filter(username=request.user.username).get()
-
-    context = {
-        'user': user
-    }
-
-    return render(request, 'profiles/details-profile.html', context)
-
-
 class ProfileCreateView(CreateView):
     model = UserModel
     template_name = 'profiles/create-profile.html'
@@ -27,3 +17,13 @@ class ProfileCreateView(CreateView):
         # Assign the user to the profile being created
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+def details_profile(request):
+    user = User.objects.filter(username=request.user.username).get()
+
+    context = {
+        'user': user
+    }
+
+    return render(request, 'profiles/details-profile.html', context)
