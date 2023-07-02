@@ -4,7 +4,7 @@
     background-color: #00BDCD;
     max-width: 440px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 50px;
     padding: 45px;
     text-align: center;
@@ -37,7 +37,7 @@
   text-transform: uppercase;
   outline: 0;
   background: #FCAB73;
-  /*background: #9A5E33;*/
+  margin-top: 15px;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -45,7 +45,6 @@
   font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
-
 }
 .form button:hover,
 .form button:active,

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=Ysabeau+Infant&display=swap');
 @import 'forms.css';
+@import "profile.css";
 
 * {
   margin: 0;

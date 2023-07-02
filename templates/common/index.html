@@ -23,7 +23,7 @@
             <button type="submit">Search</button>
         </form>
       <ul>
-        {% if profile %}
+        {% if user %}
             <li><a href="{% url 'details profile' %}">Profile</a></li>
         {% else %}
             <li><a href="{% url 'profile create' %}">Profile</a></li>
