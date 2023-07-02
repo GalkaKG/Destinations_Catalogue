@@ -2,10 +2,10 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
-from django.views.generic import CreateView, DetailView, TemplateView
+from django.views.generic import CreateView, DetailView, TemplateView, UpdateView
 from django.urls import reverse_lazy
 
-from Destinations_Catalogue.profiles.models import CustomUser
+from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 UserModel = get_user_model()
 
@@ -14,7 +14,7 @@ class ProfileCreateView(CreateView):
     model = CustomUser
     template_name = 'profiles/create-profile.html'
     fields = ['username', 'email', 'password']
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
         # Assign the user to the profile being created
@@ -57,3 +57,26 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
     def get_object(self, queryset=None):
         # Return the profile associated with the currently logged-in user
         return self.request.user or None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.request.user.pk
+        current_user = ProfileModel.objects.filter(username_id=pk).get()
+        context['profile'] = current_user
+        return context
+
+
+class CustomEditView(LoginRequiredMixin, UpdateView):
+    model = ProfileModel
+    fields = ['first_name', 'last_name', 'age', 'image']
+    template_name = 'profiles/edit-profile.html'
+    success_url = reverse_lazy('details profile')
+
+    def get_object(self, queryset=None):
+        pk = self.request.user.pk
+        current_user = ProfileModel.objects.filter(username_id=pk).get()
+        return current_user
+
+    def form_valid(self, form):
+        form.instance.username = self.request.user.username
+        return super().form_valid(form)

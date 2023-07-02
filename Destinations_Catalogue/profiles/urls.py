@@ -7,4 +7,6 @@ urlpatterns = (
     path('details/', views.UserDetailsView.as_view(), name='details profile'),
     path('login/', views.CustomLoginView.as_view(template_name='profiles/login.html'), name='login'),
     path('logout/', views.CustomLogoutView.as_view(), name='logout'),
+    path('edit/', views.CustomEditView.as_view(), name='edit profile'),
+
 )

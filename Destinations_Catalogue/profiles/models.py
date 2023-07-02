@@ -42,13 +42,27 @@ class CustomUser(AbstractBaseUser):
 
 
 class ProfileModel(models.Model):
+    first_name = models.CharField(
+        max_length=34,
+        blank=True,
+        null=True,
+    )
+    last_name = models.CharField(
+        max_length=34,
+        blank=True,
+        null=True,
+    )
+    age = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+
     image = models.URLField(
         blank=True,
         null=True,
     )
 
-    # user = models.OneToOneField(
-    #     CustomUser,
-    #     on_delete=models.CASCADE,
-    #     # primary_key=True,
-    # )
+    username = models.OneToOneField(
+        CustomUser,
+        on_delete=models.CASCADE,
+    )

@@ -1,6 +1,14 @@
 {% extends 'common/index.html' %}
+{% load static %}
 
 {% block content %}
-     <h1>Details user page</h1>
-   {{ user }}
+     <h1>Details profile</h1>
+    {% if not profile.image %}
+         <img src=" {% static 'images/user.png' %}" alt="profile pic" style="width: 200px;height: 200px">
+    {% else %}
+         <img src="{{ profile.image }}" alt="profile pic">
+    {% endif %}
+   <h1>{{ profile.username }}</h1>
+    <button><a class="" href="{% url 'edit profile' %}">Edit</a></button>
+    <button><a class="" href="">Delete</a></button>
 {% endblock %}
