@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, TemplateView, UpdateView
 from django.urls import reverse_lazy
 
+from Destinations_Catalogue.profiles.forms import EditProfileForm
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 UserModel = get_user_model()
@@ -68,15 +69,14 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
 
 class CustomEditView(LoginRequiredMixin, UpdateView):
     model = ProfileModel
-    fields = ['first_name', 'last_name', 'age', 'image']
+    form_class = EditProfileForm  # Replace with your custom profile form
     template_name = 'profiles/edit-profile.html'
     success_url = reverse_lazy('details profile')
 
     def get_object(self, queryset=None):
-        pk = self.request.user.pk
-        current_user = ProfileModel.objects.filter(username_id=pk).get()
-        return current_user
+        return self.request.user
 
-    def form_valid(self, form):
-        form.instance.username = self.request.user.username
-        return super().form_valid(form)
+    # def get_object(self, queryset=None):
+    #     pk = self.request.user.pk
+    #     current_user = ProfileModel.objects.filter(username_id=pk).get()
+    #     return current_user
