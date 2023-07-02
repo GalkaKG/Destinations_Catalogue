@@ -1,9 +1,8 @@
-from django.contrib.auth import get_user_model, logout
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
-from django.views.generic import CreateView, DetailView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.shortcuts import redirect
+from django.views.generic import CreateView, DetailView, TemplateView
 from django.urls import reverse_lazy
 
 from Destinations_Catalogue.profiles.models import CustomUser
@@ -26,16 +25,6 @@ class ProfileCreateView(CreateView):
         return super().form_valid(form)
 
 
-# def details_profile(request):
-#     user = User.objects.filter(username=request.user.username).get()
-#
-#     context = {
-#         'user': user
-#     }
-#
-#     return render(request, 'profiles/details-profile.html', context)
-
-
 class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
@@ -43,16 +32,28 @@ class CustomLoginView(LoginView):
         return reverse_lazy('home')
 
 
-def logout_user(request):
-    logout(request)
-    return redirect('home')
+class CustomLogoutView(LogoutView, TemplateView, LoginRequiredMixin):
+    template_name = 'profiles/logout.html'
+    login_url = reverse_lazy('home')
+
+    def post(self, request, *args, **kwargs):
+        logout_option = request.POST.get('logout_option')
+
+        if logout_option == 'yes':
+            return redirect('home')
+
+        elif logout_option == 'no':
+            return redirect('home')
+
+        return super().get(request, *args, **kwargs)
 
 
 class UserDetailsView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'profiles/details-profile.html'
     context_object_name = 'user'
+    login_url = '/profile/login/'
 
     def get_object(self, queryset=None):
         # Return the profile associated with the currently logged-in user
-        return self.request.user
+        return self.request.user or None

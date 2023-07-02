@@ -1,7 +1,15 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-    <h1>Are you sure you want to log out?</h1>
-    <button type="submit">Yes</button>
-    <button type="submit">No</button>
+    <h1 class="profile">Are you sure you want to log out?</h1>
+{#    <button type="submit">Yes</button>#}
+{#    <button type="submit">No</button>#}
+{#    {% csrf_token %}#}
+    <form class="form" method="post">
+    {% csrf_token %}
+{#    <button type="submit">Yes</button>#}
+{#    <button type="submit">No</button>#}
+    <button type="submit" name="logout_option" value="yes">Yes</button>
+    <button type="submit" name="logout_option" value="no">No</button>
+  </form>
 {% endblock %}
