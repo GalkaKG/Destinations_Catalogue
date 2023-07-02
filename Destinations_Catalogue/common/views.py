@@ -9,7 +9,7 @@ UserModel = get_user_model()
 
 class IndexView(views.TemplateView):
     template_name = 'common/index.html'
-    # user = User.objects.filter(username=request.user.username).get()
+    # user = UserModel.objects().get()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
