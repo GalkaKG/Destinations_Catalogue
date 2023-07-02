@@ -43,9 +43,9 @@ class CustomLoginView(LoginView):
         return reverse_lazy('home')
 
 
-# def logout_user(request):
-#     logout(request)
-#     return redirect('home')
+def logout_user(request):
+    logout(request)
+    return redirect('home')
 
 
 class UserDetailsView(LoginRequiredMixin, DetailView):
