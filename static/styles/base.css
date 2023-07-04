@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
-
 
 body {
     background: url(../images/jennvmy_-uWpggIb3iHs-unsplash.jpg) no-repeat;
@@ -16,6 +16,7 @@ body {
 
 nav {
     display: flex;
+    position: relative;
     /*justify-content: space-between;*/
     /*background-color: rgba(255, 255, 255, 0.01); !* Translucent white background color *!*/
     /*border-radius: 10px;*/
@@ -25,43 +26,43 @@ nav {
     /*opacity: 0.9; !* Adjust the opacity to control the overall transparency *!*/
 }
 
-#logo, ul {
-    -webkit-text-stroke: 1px #fff;
-}
-
 a {
     text-decoration: none;
 }
 
-#logo > a {
+#logo {
     display: flex;
     align-items: center;
     font-size: 2rem;
-    margin: 2%;
+    margin-left: 1%;
+    margin-top: 10px;
 }
 
-#logo > a > img {
+#logo img {
     width: 20%;
     margin: 10px 3px 10px 10px;
     transition: transform .7s ease-in-out;
 }
 
-#logo > a > img:hover {
+#logo img:hover {
     transform: rotateY(360deg);
-}
-
-#logo > a > p {
-    margin-top: 7px;
 }
 
 #searchbar {
     display: flex;
     margin: 35px 50px 20px auto;
-    /*margin: 2.5% 100px 1% auto;*/
+    right: 30px;
+    top: 2px;
+}
+
+nav div:nth-child(2) {
+   margin-right: 80px;
+   margin-top: 10px;
 }
 
 #searchbar input {
-    padding: 0 180px 0 5px;
+    /*padding: 10px 100px 12px 5px;*/
+    width: 300px;
     border-radius: 3px 0 0 3px;
     border: none;
 }
@@ -112,8 +113,6 @@ nav a:hover {
 }
 
 footer {
-    position: absolute;
-    bottom: 3%;
     font-weight: bolder;
     font-size: 1.4rem;
     color: #fff;

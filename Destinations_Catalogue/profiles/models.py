@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
 class CustomUserManager(BaseUserManager):
@@ -24,10 +24,22 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser):
-    username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(unique=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    username = models.CharField(
+        max_length=150,
+        unique=True,
+    )
+
+    email = models.EmailField(
+        unique=True,
+    )
+
+    is_active = models.BooleanField(
+        default=True,
+    )
+
+    is_staff = models.BooleanField(
+        default=False,
+    )
 
     # Specify the field used as the unique identifier for the user
     USERNAME_FIELD = 'username'
@@ -47,11 +59,13 @@ class ProfileModel(models.Model):
         blank=True,
         null=True,
     )
+
     last_name = models.CharField(
         max_length=34,
         blank=True,
         null=True,
     )
+
     age = models.PositiveIntegerField(
         blank=True,
         null=True,

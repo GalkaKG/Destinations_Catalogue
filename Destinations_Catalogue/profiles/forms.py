@@ -1,6 +1,16 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from Destinations_Catalogue.profiles.models import ProfileModel
+from Destinations_Catalogue.profiles.models import ProfileModel, CustomUser
+
+
+class CustomUserCreationForm(UserCreationForm):
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'type': 'password'}), label='Type password:')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'type': 'password'}), label='Retype password:')
+
+    class Meta(UserCreationForm.Meta):
+        model = CustomUser
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 class ProfileBaseForm(forms.ModelForm):

@@ -12,17 +12,16 @@
   <header>
     <nav>
         <div id="logo">
-         <a href="{% url 'home' %}">
-             <img src="{% static 'images/clipart904585.png' %}"/>
-             <p>Home</p>
-         </a>
+            <img src="{% static 'images/clipart904585.png' %}"/>
+            <a href="{% url 'home' %}">Home</a>
         </div>
         <div>
             <form id="searchbar" method="post">
-            <input type="text" placeholder="Type here to search">
-            {% csrf_token %}
-            <button type="submit">Search</button>
-        </form>
+{#                <input type="text" placeholder="Type here to search">#}
+                {{ form.target }}
+                {% csrf_token %}
+                <button type="submit">Search</button>
+            </form>
         </div>
       <ul>
         <li><a href="#">About</a></li>
@@ -49,20 +48,6 @@
       <p>Discover amazing destinations and plan your next adventure.</p>
     </section>
     {% endblock %}
-{#    <section>#}
-{#      <h2>Latest Posts</h2>#}
-{#      <article>#}
-{#        <h3>Post Title 1</h3>#}
-{#        <p>Post content goes here...</p>#}
-{#        <a href="#">Read More</a>#}
-{#      </article>#}
-{##}
-{#      <article>#}
-{#        <h3>Post Title 2</h3>#}
-{#        <p>Post content goes here...</p>#}
-{#        <a href="#">Read More</a>#}
-{#      </article>#}
-{#    </section>#}
   </main>
 
   <footer>
