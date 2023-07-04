@@ -1,5 +1,79 @@
-{% extends 'common/index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destinations</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-{% block content %}
-    <h1>Catalogue page</h1>
-{% endblock %}
+    <body>
+  <header>
+    <div id="logo">
+        <img src="{% static 'images/clipart904585.png' %}"/>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <nav>
+      <div>
+            <form id="searchbar" method="post">
+                {{ form.target }}
+                {% csrf_token %}
+                {% if form.target %}
+                    <button type="submit">Search</button>
+                {% endif %}
+            </form>
+        </div>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="{% url 'catalogue' %}">Destinations</a></li>
+      </ul>
+      {% if not user.is_authenticated %}
+        <ul class="register-btns">
+            <li><a href="#">About</a></li>
+            <li><a href="{% url 'create profile' %}">SignIn</a></li>
+            <li><a href="{% url 'login' %}">LogIn</a></li>
+        </ul>
+      {% else %}
+          <ul>
+            <li><a href="{% url 'create destination' %}">Add Destination</a></li>
+            <li><a href="{% url 'details profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">LogOut</a></li>
+          </ul>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% for destination in destinations %}
+        <div class="destination-catalogue">
+            <div class="picture-content-catalogue">
+                <div>
+                    <img src="{{ destination.image.url }}">
+
+                </div>
+                <div>
+                    <h1>{{ destination.location }}</h1>
+                    <p>{{ destination.description }}</p>
+                </div>
+            </div>
+            <div class="buttons-catalogue">
+                <button>Like</button>
+                <button>Comment</button>
+            </div>
+        </div>
+    {% endfor %}
+  </main>
+
+<footer>
+    <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>
+      <div id="connect">
+          <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" target="_blank" class="googleplus"><i class="fa-brands fa-google-plus"></i></a>
+      </div>
+  </footer>
+</body>
+</html>
+

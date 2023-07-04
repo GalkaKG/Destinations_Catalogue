@@ -1,0 +1,59 @@
+.destination-catalogue {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    width: 70%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /*border-radius: 20px;*/
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-top: 20px;
+    padding: 50px;
+    margin-left: 50px;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    float: left;
+    height: auto;
+    position: relative;
+    left: 12%;
+    margin-bottom: 5%;
+}
+
+
+.picture-content-catalogue {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.destination-catalogue h1 {
+    font-family: "Ysabeau Infant", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 30%;
+}
+
+.destination-catalogue img {
+    max-width: 350px;
+    max-height: 400px;
+    border-radius: 15px;
+}
+
+.destination-catalogue p {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.buttons-catalogue button {
+    background-color: #FCAB73;
+    color: #fff;
+    border: none;
+    padding: 5px;
+}

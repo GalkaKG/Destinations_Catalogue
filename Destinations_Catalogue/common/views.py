@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views import generic as views
 
 from Destinations_Catalogue.common.forms import SearchForm
+from Destinations_Catalogue.destinations.models import Destination
 
 UserModel = get_user_model()
 
@@ -33,8 +34,8 @@ class IndexView(views.TemplateView):
         return context
 
 
-
-
 def catalogue(request):
-    return render(request, 'common/catalogue.html')
-
+    context = {
+        'destinations': Destination.objects.all()
+    }
+    return render(request, 'common/catalogue.html', context)

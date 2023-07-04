@@ -8,27 +8,13 @@ from django.urls import reverse_lazy
 from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
-UserModel = get_user_model()
+# UserModel = get_user_model()
 
 
 class ProfileCreateView(CreateView):
-    # model = UserModel
     template_name = 'profiles/create-profile.html'
-    # fields = ['username', 'email', 'password']
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
-
-    # def form_valid(self, form):
-    #     # Assign the user to the profile being created
-    #     form.instance.user = self.request.user
-    #
-    #     # Hash the password before saving the user
-    #     form.instance.set_password(form.cleaned_data['password'])
-    #     return super().form_valid(form)
-
-    # def form_valid(self, form):
-    #     user = form.cleaned_data
-    #     return super().form_valid(form)
 
 
 class CustomLoginView(LoginView):
@@ -61,7 +47,6 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
     login_url = '/profile/login/'
 
     def get_object(self, queryset=None):
-        # Return the profile associated with the currently logged-in user
         return self.request.user or None
 
     def get_context_data(self, **kwargs):
@@ -74,7 +59,7 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
 
 class CustomEditView(LoginRequiredMixin, UpdateView):
     model = ProfileModel
-    form_class = EditProfileForm  # Replace with your custom profile form
+    form_class = EditProfileForm
     template_name = 'profiles/edit-profile.html'
     success_url = reverse_lazy('details profile')
 

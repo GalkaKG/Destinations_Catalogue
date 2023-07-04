@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&family=Roboto&family=Ysabeau+Infant&display=swap');
 @import "reset.css";
 @import "base.css";
+@import "catalogue.css";
 @import 'forms.css';
 @import "profile.css";
 @import "responsive.css";
