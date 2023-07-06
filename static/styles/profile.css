@@ -5,3 +5,42 @@
     text-align: center;
     margin-top: 5px;
 }
+
+.profile-details {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    width: 40%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /*border-radius: 20px;*/
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-top: 20px;
+    padding: 50px;
+    margin-left: 50px;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    /*float: left;*/
+    height: auto;
+    position: relative;
+    left: 30%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-details h1 {
+    color: #fff;
+    font-size: 3rem;
+}
+
+.profile-details h2 {
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.profile-details p {
+    color: #fff;
+    font-size: 1.8rem;
+}

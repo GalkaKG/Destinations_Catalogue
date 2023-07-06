@@ -45,44 +45,14 @@ def catalogue(request):
     return render(request, 'common/catalogue.html', context)
 
 
-# def add_comment_to_post(request, pk):
-#     post = get_object_or_404(Comment, pk=pk)
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.post = post
-#             comment.author = request.user  # Assuming you have authentication in place
-#             comment.save()
-#             return redirect('catalogue')
-# return redirect(request.META['HTTP_REFERER'] + f'{post.pk}')
-# else:
-#     form = CommentForm()
-#     return render(request, 'common/catalogue.html', context={'form': form})
-#
+def comment_create(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save()
+            # Redirect to the destination or comment list view
+            return redirect('destination_detail', destination_id=comment.destination.id)
+    else:
+        form = CommentForm()
 
-
-class CommentCreateView(CreateView):
-    model = Comment
-    form_class = CommentForm
-    template_name = 'common/comment-create.html'
-
-    def form_valid(self, form):
-        # destination_id = self.kwargs['destination']
-        #
-        # image = Destination.objects.get(id=destination_id)
-        # form.instance.author = self.request.user
-        #
-        # form.instance.destination = image
-        # return super().form_valid(form)
-
-        destination_id = self.kwargs['destination_id']
-        destination = Destination.objects.get(id=destination_id)
-        form.instance.destination = destination
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    #
-    def get_success_url(self):
-        image_id = self.kwargs['image_id']
-        return redirect('home')
+    return render(request, 'common/comment-create.html', {'form': form})
