@@ -1,12 +1,14 @@
+from enum import Enum
+
 from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, password=None, **extra_fields):
+    def create_user(self, username, email=None, password=None):
         if not username:
             raise ValueError("The Username field must be set.")
-        user = self.model(username=username, **extra_fields)
+        user = self.model(username=username, email=email)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -23,7 +25,17 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(username, password, **extra_fields)
 
 
-class CustomUser(AbstractBaseUser):
+# class Gender(Enum):
+#     Male = 'Male'
+#     Female = 'Female'
+#     Other = 'Other'
+#
+#     @classmethod
+#     def choices(cls):
+#         return [(choice.value, choice.name) for choice in cls]
+
+
+class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         max_length=150,
         unique=True,
@@ -54,6 +66,12 @@ class CustomUser(AbstractBaseUser):
 
 
 class ProfileModel(models.Model):
+    CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    )
+
     first_name = models.CharField(
         max_length=34,
         blank=True,
@@ -71,12 +89,30 @@ class ProfileModel(models.Model):
         null=True,
     )
 
+    gender = models.CharField(
+        blank=True,
+        null=True,
+        choices=CHOICES,
+    )
+
     image = models.URLField(
         blank=True,
         null=True,
     )
 
-    username = models.OneToOneField(
+    profile = models.OneToOneField(
         CustomUser,
         on_delete=models.CASCADE,
     )
+
+    def get_full_name(self):
+        # return f'{self.first_name} {self.last_name}'
+
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
+        elif self.first_name:
+            return self.first_name
+        elif self.last_name:
+            return self.last_name
+        else:
+            return None

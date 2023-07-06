@@ -49,11 +49,18 @@
 .destination-catalogue p {
     font-size: 1.5rem;
     color: #fff;
+    text-align: center;
 }
 
-.buttons-catalogue button {
-    background-color: #FCAB73;
-    color: #fff;
-    border: none;
-    padding: 5px;
+.buttons-catalogue {
+  display: flex;
+  gap: 30px;
+}
+
+.buttons-catalogue i {
+    color: #00348e;
+    /*color: #004cc3;*/
+    font-size: 1.8rem;
+    padding-top: 20px;
+
 }

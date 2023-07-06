@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/index.html' %}
 
-</body>
-</html>
+{% block content %}
+    <h1>Are you sure you want to delete your profile?</h1>
+    <form method="post">
+    {% csrf_token %}
+        <button type="submit">Yes</button>
+        <button type="submit">No</button>
+    </form>
+{% endblock %}

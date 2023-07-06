@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-    <body>
+  <body>
   <header>
     <div id="logo">
         <img src="{% static 'images/clipart904585.png' %}"/>
@@ -25,7 +25,6 @@
             </form>
         </div>
       <ul>
-        <li><a href="#">About</a></li>
         <li><a href="{% url 'catalogue' %}">Destinations</a></li>
       </ul>
       {% if not user.is_authenticated %}
@@ -50,19 +49,33 @@
             <div class="picture-content-catalogue">
                 <div>
                     <img src="{{ destination.image.url }}">
-
+                    <a class="buttons-catalogue">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    </a>
+                     <button><a href="{% url 'create comment' destination.pk %}">Comment</a></button>
+{#                    <h2>Add a comment</h2>#}
+{#                    <form method="post">#}
+{#                        {% csrf_token %}#}
+{#                        {{ form }}#}
+{#                        <button type="submit">Submit</button>#}
+{#                    </form>#}
+                 </div>
+            </div>
                 </div>
                 <div>
                     <h1>{{ destination.location }}</h1>
                     <p>{{ destination.description }}</p>
+{#                     <button>Details</button>#}
+{#                     <button>Edit</button>#}
                 </div>
-            </div>
-            <div class="buttons-catalogue">
-                <button>Like</button>
-                <button>Comment</button>
             </div>
         </div>
     {% endfor %}
+    {% if not destinations %}
+        <div class="destination-catalogue">
+            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>
+        </div>
+    {% endif %}
   </main>
 
 <footer>

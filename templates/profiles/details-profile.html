@@ -3,12 +3,21 @@
 
 {% block content %}
      <h1>Details profile</h1>
+    {% if profile.get_full_name %}
+        <h1>{{ profile.get_full_name }}</h1>
+    {% endif %}
+    {% if profile.gender %}
+        <p>{{ profile.gender }}</p>
+    {% endif %}
+    {% if profile.age %}
+         <p>{{ profile.age }}</p>
+    {% endif %}
     {% if not profile.image %}
          <img src=" {% static 'images/user.png' %}" alt="profile pic" style="width: 200px;height: 200px">
     {% else %}
          <img src="{{ profile.image }}" alt="profile pic">
     {% endif %}
-   <h1>{{ profile.username }}</h1>
+   <h1>{{ user }}</h1>
     <button><a class="" href="{% url 'edit profile' %}">Edit</a></button>
-    <button><a class="" href="">Delete</a></button>
+    <button><a class="" href="{% url 'delete profile' %}">Delete</a></button>
 {% endblock %}

@@ -16,14 +16,14 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileBaseForm(forms.ModelForm):
     class Meta:
         model = ProfileModel
-        fields = ['first_name', 'last_name', 'age', 'image']
-
+        # fields = ['first_name', 'last_name', 'gender', 'age', 'image']
+        exclude = ['profile']
 
 class EditProfileForm(ProfileBaseForm):
-    ...
+    pass
 
 
-class DeleteProfileForm(EditProfileForm):
+class DeleteProfileForm(ProfileBaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__set_disabled_fields()

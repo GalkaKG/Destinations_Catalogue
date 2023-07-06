@@ -8,23 +8,27 @@ class Destination(models.Model):
         max_length=100,
     )
 
-    description = models.TextField()
-
     location = models.CharField(
         max_length=100,
     )
+
+    description = models.TextField()
 
     image = models.ImageField(
         upload_to='destinations/',
     )
 
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-    )
+    price = models.PositiveIntegerField(null=True, blank=True)
 
-    updated_at = models.DateTimeField(
-        auto_now=True,
-    )
+    hotel = models.CharField(null=True, blank=True)
+
+    # created_at = models.DateTimeField(
+    #     auto_now_add=True,
+    # )
+    #
+    # updated_at = models.DateTimeField(
+    #     auto_now=True,
+    # )
 
     # user = models.ForeignKey(
     #     CustomUser,
