@@ -12,6 +12,10 @@ class DestinationCreateView(CreateView):
     form_class = DestinationCreateForm
     success_url = reverse_lazy('catalogue')
 
+    def form_valid(self, form):
+        form.instance.creator_id = self.request.user.id
+        return super().form_valid(form)
+
 
 class DestinationDetailsView(DetailView):
     model = Destination

@@ -24,22 +24,20 @@
                 {% endif %}
             </form>
         </div>
-      <ul>
+      <ul role="list">
         <li><a href="{% url 'catalogue' %}">Destinations</a></li>
       </ul>
+      <ul role="list" class="register-btns">
       {% if not user.is_authenticated %}
-        <ul class="register-btns">
             <li><a href="#">About</a></li>
             <li><a href="{% url 'create profile' %}">SignIn</a></li>
             <li><a href="{% url 'login' %}">LogIn</a></li>
-        </ul>
       {% else %}
-          <ul>
             <li><a href="{% url 'create destination' %}">Add Destination</a></li>
             <li><a href="{% url 'details profile' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">LogOut</a></li>
-          </ul>
       {% endif %}
+      </ul>
     </nav>
   </header>
 

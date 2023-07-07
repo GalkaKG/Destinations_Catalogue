@@ -80,3 +80,21 @@
     cursor: pointer;
     padding: 0 5px;
 }
+
+
+
+
+/*.catalogue {*/
+/*    background: rgb(34,193,195);*/
+/*    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(27,97,224,1) 100%);*/
+/*}*/
+
+
+/*.header-catalogue {*/
+/*    background-color: rgba(255, 255, 255, 0.01); !* Translucent white background color *!*/
+/*    border-radius: 10px;*/
+/*    border: 1px solid rgba(255, 255, 255, 0.3); !* Translucent white border *!*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Shadow for the glass effect *!*/
+/*    backdrop-filter: blur(10px); !* Adds a blur effect to the background behind the element *!*/
+/*    opacity: 0.9; !* Adjust the opacity to control the overall transparency *!*/
+/*}*/

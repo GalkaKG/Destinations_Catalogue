@@ -22,30 +22,19 @@ body {
     top: 14%;
 }
 
-.catalogue {
-    background: rgb(34,193,195);
-    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(27,97,224,1) 100%);
-}
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin-top: 15px;
 }
 
 nav {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
-
-/*.header-catalogue {*/
-/*    background-color: rgba(255, 255, 255, 0.01); !* Translucent white background color *!*/
-/*    border-radius: 10px;*/
-/*    border: 1px solid rgba(255, 255, 255, 0.3); !* Translucent white border *!*/
-/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Shadow for the glass effect *!*/
-/*    backdrop-filter: blur(10px); !* Adds a blur effect to the background behind the element *!*/
-/*    opacity: 0.9; !* Adjust the opacity to control the overall transparency *!*/
-/*}*/
 
 a {
     text-decoration: none;
@@ -57,12 +46,9 @@ a {
     display: flex;
     align-items: center;
     font-size: 2rem;
-    margin-left: 1%;
-    margin-top: 10px;
 }
 
 #logo img {
-    /*width: 20%;*/
     width: 60px;
     margin: 10px 3px 10px 10px;
     transition: transform .7s ease-in-out;
@@ -75,12 +61,7 @@ a {
 #searchbar {
     display: flex;
     margin-right: 45px;
-    margin-top: 25px;
-}
-
-nav div:nth-child(2) {
-   margin-right: 80px;
-   margin-top: 10px;
+    margin-top: 10px;
 }
 
 #searchbar input {
@@ -110,20 +91,17 @@ nav div:nth-child(2) {
 }
 
 ul {
-    list-style: none;
-    font-size: 2rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    margin-right: 50px;
-    margin-top: 2%;
+    gap: 20px
 }
+
 
 nav a {
     color: #5127A0;
 }
 
-nav a:hover {
+header a:hover {
     color: #00BDCD;
 }
 
@@ -141,6 +119,7 @@ footer {
     color: #fff;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 4%;
     width: 100%;
     position: fixed;
@@ -163,4 +142,9 @@ i {
     /*background-color: #a99e91;*/
     border: 5px solid;
 }
+
+#connect a {
+    margin-right: 0.5rem;
+}
+
 

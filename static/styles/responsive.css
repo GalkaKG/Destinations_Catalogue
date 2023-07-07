@@ -1,7 +1,22 @@
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {*/
+/*@media screen and (max-width: 900px) {*/
+@media screen and (max-width: 1165px) {
   body {
     background-size: auto;
   }
+
+  header li {
+    margin: auto;
+  }
+
+ #searchbar input {
+   margin-left: 10%;
+ }
+
+ #searchbar input,
+ #searchbar button {
+   margin-bottom: 10%;
+ }
 
   header, nav, nav ul , footer{
     flex-direction: column;
