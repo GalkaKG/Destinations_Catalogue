@@ -1,16 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import generic as views, View
 from django.views.generic import CreateView, DeleteView, UpdateView
 
-# from .models import Comment, Favorite
-
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm
-from Destinations_Catalogue.common.models import Comment
+from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
 
 UserModel = get_user_model()
@@ -91,19 +88,36 @@ class CommentDeleteView(LoginRequiredMixin, DeleteView):
         return reverse('details destination', kwargs={'pk': destination_id})
 
 
-# class ToggleFavoriteView(LoginRequiredMixin, View):
-#     def post(self, request, destination_id, *args, **kwargs):
-#         destination = get_object_or_404(Destination, id=destination_id)
-#         favorite, created = Favorite.objects.get_or_create(user=request.user, destination=destination)
+class AddFavoriteView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        destination_id = self.kwargs.get('pk')
+        destination = get_object_or_404(Destination, pk=destination_id)
+        Favorite.objects.get_or_create(user=request.user, destination=destination)
+        return redirect('catalogue')
+
+
+class LikeView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        destination_id = self.kwargs.get('pk')
+        destination = get_object_or_404(Destination, pk=destination_id)
+        Like.objects.get_or_create(user=request.user, destination=destination)
+        return redirect('catalogue')
+
+
+# class AddFavoriteView(LoginRequiredMixin, CreateView):
+#     model = Favorite
+#     fields = ['destination']
+#     success_url = reverse_lazy('catalogue')
 #
-#         if created:
-#             # Favorite was added
-#             # Perform any additional actions or display a success message if needed
-#             pass
-#         else:
-#             # Favorite already existed, so remove it
-#             favorite.delete()
-#             # Perform any additional actions or display a success message if needed
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super().form_valid(form)
 #
-#         # Redirect to the destination detail page or any other desired page
-#         return redirect('details destination', pk=destination_id)
+#     def get_form_kwargs(self):
+#         kwargs = super().get_form_kwargs()
+#         destination_id = self.kwargs.get('destination_id')
+#         destination = get_object_or_404(Destination, pk=destination_id)
+#         kwargs['initial'] = {'destination': destination}
+#         return kwargs
+#
+#

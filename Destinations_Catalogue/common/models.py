@@ -15,16 +15,23 @@ class Comment(models.Model):
         return self.content
 
 
-# class Like(models.Model):
-#     pass
-#
+class Like(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
 
-# class Favorite(models.Model):
-#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-#     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
-#
-#     class Meta:
-#         unique_together = ('user', 'destination')
-#
-#     def __str__(self):
-#         return f'{self.user.username} - {self.destination.name}'
+    class Meta:
+        unique_together = ('user', 'destination')
+
+    def __str__(self):
+        return f'{self.user.username} - {self.destination.name}'
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'destination')
+
+    def __str__(self):
+        return f'{self.user.username} - {self.destination.name}'
