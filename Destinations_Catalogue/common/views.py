@@ -38,9 +38,15 @@ class IndexView(views.TemplateView):
 
 
 def catalogue(request):
+    user = request.user
     context = {
-        'destinations': Destination.objects.all()
+        'destinations': Destination.objects.all(),
     }
+    if user.is_authenticated:
+        favorites = Favorite.objects.filter(user=user)
+        favorite_destinations = favorites.values_list('destination', flat=True)
+        context['favorite_destinations'] = favorite_destinations
+
     return render(request, 'common/catalogue.html', context)
 
 
@@ -102,7 +108,6 @@ class LikeView(LoginRequiredMixin, View):
         destination = get_object_or_404(Destination, pk=destination_id)
         Like.objects.get_or_create(user=request.user, destination=destination)
         return redirect('catalogue')
-
 
 # class AddFavoriteView(LoginRequiredMixin, CreateView):
 #     model = Favorite

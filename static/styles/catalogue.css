@@ -67,6 +67,11 @@
     padding-top: 20px;
 }
 
+.buttons-catalogue i:hover {
+    cursor: pointer;
+    color: #00BDCD;
+}
+
 .destination-details {
 	border: none;
     display: flex;
@@ -80,6 +85,8 @@
     cursor: pointer;
     padding: 0 5px;
 }
+
+
 
 
 

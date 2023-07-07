@@ -50,8 +50,12 @@
                     <img src="{{ destination.image.url }}">
                      <div class="buttons-catalogue">
                          <a href="{% url 'like' destination.pk %}"><i class="fa-regular fa-thumbs-up"></i> Like</a>
-                         <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i> Favorite</a>
 
+                         {% if destination.id in favorite_destinations %}
+                            <a href=""><i class="fa-solid fa-star"></i>Favorite</a>
+                         {% else %}
+                            <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i> Favorite</a>
+                         {% endif %}
                      </div>
                 </div>
 
