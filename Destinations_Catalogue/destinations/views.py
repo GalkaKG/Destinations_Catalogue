@@ -21,4 +21,9 @@ class DestinationDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()
+        context['comments'] = self.object.comment_set.all()
         return context
+
+    # destination = Destination.objects.get(id=destination_id)
+    # comments = destination.comment_set.all()
+    # form = CommentForm()

@@ -1,14 +1,16 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.views import generic as views
-from django.views.generic import CreateView
+from django.views import generic as views, View
+from django.views.generic import CreateView, DeleteView, UpdateView
 
-from .models import Comment
+# from .models import Comment, Favorite
 
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm
+from Destinations_Catalogue.common.models import Comment
 from Destinations_Catalogue.destinations.models import Destination
 
 UserModel = get_user_model()
@@ -45,14 +47,63 @@ def catalogue(request):
     return render(request, 'common/catalogue.html', context)
 
 
-def comment_create(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save()
-            # Redirect to the destination or comment list view
-            return redirect('destination_detail', destination_id=comment.destination.id)
-    else:
-        form = CommentForm()
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'destinations/details-destination.html'
 
-    return render(request, 'common/comment-create.html', {'form': form})
+    def form_valid(self, form):
+        destination_id = self.kwargs['destination_id']
+        destination = get_object_or_404(Destination, id=destination_id)
+        form.instance.destination = destination
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        destination_id = self.kwargs['destination_id']
+        return reverse('destination_detail', kwargs={'pk': destination_id})
+
+
+class CommentUpdateView(LoginRequiredMixin, UpdateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'destinations/details-destination.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(author=self.request.user)
+
+    def get_success_url(self):
+        destination_id = self.object.destination.id
+        return reverse('destination_detail', kwargs={'pk': destination_id})
+
+
+class CommentDeleteView(LoginRequiredMixin, DeleteView):
+    model = Comment
+    template_name = 'destinations/details-destination.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(author=self.request.user)
+
+    def get_success_url(self):
+        destination_id = self.object.destination.id
+        return reverse('details destination', kwargs={'pk': destination_id})
+
+
+# class ToggleFavoriteView(LoginRequiredMixin, View):
+#     def post(self, request, destination_id, *args, **kwargs):
+#         destination = get_object_or_404(Destination, id=destination_id)
+#         favorite, created = Favorite.objects.get_or_create(user=request.user, destination=destination)
+#
+#         if created:
+#             # Favorite was added
+#             # Perform any additional actions or display a success message if needed
+#             pass
+#         else:
+#             # Favorite already existed, so remove it
+#             favorite.delete()
+#             # Perform any additional actions or display a success message if needed
+#
+#         # Redirect to the destination detail page or any other desired page
+#         return redirect('details destination', pk=destination_id)

@@ -37,7 +37,8 @@
     text-align: center;
     text-transform: uppercase;
     color: #fff;
-    margin-top: 30%;
+    /*margin-top: 30%;*/
+    margin-top: 10%;
 }
 
 .destination-catalogue img {
@@ -53,15 +54,29 @@
 }
 
 .buttons-catalogue {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
 }
 
 .buttons-catalogue i {
     color: #00348e;
-    /*color: #004cc3;*/
     font-size: 1.8rem;
     padding-top: 20px;
-    /*display: flex;*/
-    /*justify-content: end;*/
+}
+
+.destination-details {
+	border: none;
+    display: flex;
+    margin-top: 10%;
+}
+
+.destination-details button {
+    color: #fff;
+    background-color: #FCAB73;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
 }

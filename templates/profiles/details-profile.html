@@ -3,7 +3,7 @@
 
 {% block content %}
      <div class="profile-details">
-         <h1>Details profile:</h1>
+         <h1>Profile details:</h1>
         {% if profile.get_full_name %}
             <h2>{{ profile.get_full_name }}</h2>
         {% endif %}
@@ -20,8 +20,8 @@
         {% endif %}
        <p>Username: {{ user }}</p>
         <div>
-            <button><a class="" href="{% url 'edit profile' %}">Edit</a></button>
-            <button><a class="" href="{% url 'delete profile' %}">Delete</a></button>
+            <button class="btn"><a class="" href="{% url 'edit profile' %}">Edit</a></button>
+            <button class="btn"><a class="" href="{% url 'delete profile' %}">Delete</a></button>
         </div>
 
      </div>

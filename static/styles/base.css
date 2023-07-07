@@ -14,8 +14,15 @@ body {
     width: 100%;
 }
 
+.welcome-user {
+    font-size: 1.8rem;
+    color: #33fd01;
+    position: absolute;
+    left: 3%;
+    top: 14%;
+}
+
 .catalogue {
-    /*background: linear-gradient(to top, #9de3d7, #1b61e0);*/
     background: rgb(34,193,195);
     background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(27,97,224,1) 100%);
 }
@@ -144,4 +151,16 @@ i {
     color: #fff;
 }
 
+.btn {
+    border: none;
+    background-color: #FCAB73;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    /*background-color: #a99e91;*/
+    border: 5px solid;
+}
 

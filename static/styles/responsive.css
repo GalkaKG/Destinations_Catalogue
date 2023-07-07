@@ -1,14 +1,17 @@
-@media screen and (max-width: 360px){
-     nav{
-        display: flex;
-        flex-direction: column;
-    }
+@media screen and (max-width: 768px) {
+  body {
+    background-size: auto;
+  }
 
-}
+  header, nav, nav ul , footer{
+    flex-direction: column;
+  }
 
-@media screen and (max-width: 600px){
-    nav{
-        display: flex;
-        flex-direction: column;
-    }
+  .welcome-user {
+    display: none;
+  }
+
+  footer {
+    align-items: center;
+  }
 }

@@ -5,10 +5,12 @@ from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, 
 
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, email=None, password=None):
+    # def create_user(self, username, email=None, password=None, is_staff=False, is_superuser=False):
+    def create_user(self, username, password=None, is_staff=False, is_superuser=False):
         if not username:
             raise ValueError("The Username field must be set.")
-        user = self.model(username=username, email=email)
+        # user = self.model(username=username, email=email, is_staff=is_staff, is_superuser=is_superuser)
+        user = self.model(username=username, is_staff=is_staff, is_superuser=is_superuser)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -25,17 +27,7 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(username, password, **extra_fields)
 
 
-# class Gender(Enum):
-#     Male = 'Male'
-#     Female = 'Female'
-#     Other = 'Other'
-#
-#     @classmethod
-#     def choices(cls):
-#         return [(choice.value, choice.name) for choice in cls]
-
-
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class CustomUser(PermissionsMixin, AbstractBaseUser):
     username = models.CharField(
         max_length=150,
         unique=True,
@@ -52,6 +44,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(
         default=False,
     )
+
+    is_superuser = models.BooleanField(default=False)
 
     # Specify the field used as the unique identifier for the user
     USERNAME_FIELD = 'username'
@@ -114,3 +108,15 @@ class ProfileModel(models.Model):
             return self.last_name
         else:
             return None
+
+
+
+
+# class Gender(Enum):
+#     Male = 'Male'
+#     Female = 'Female'
+#     Other = 'Other'
+#
+#     @classmethod
+#     def choices(cls):
+#         return [(choice.value, choice.name) for choice in cls]

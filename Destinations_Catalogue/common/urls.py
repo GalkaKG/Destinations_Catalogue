@@ -5,5 +5,4 @@ from . import views
 urlpatterns = (
     path('', views.IndexView.as_view(), name='home'),
     path('catalogue/', views.catalogue, name='catalogue'),
-    path('destination/comment/', views.comment_create, name='create comment'),
 )
