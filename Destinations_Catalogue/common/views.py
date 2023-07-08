@@ -39,9 +39,12 @@ class IndexView(views.TemplateView):
 
 def catalogue(request):
     user = request.user
+    form = CommentForm()
+
     context = {
         'destinations': Destination.objects.all(),
-        'likes': Like.objects.all()
+        'likes': Like.objects.all(),
+        'form': form
     }
     if user.is_authenticated:
         favorites = Favorite.objects.filter(user=user)

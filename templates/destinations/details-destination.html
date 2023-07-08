@@ -14,11 +14,6 @@
                 {% if destination.price %}
                     <p>Price per night: {{ destination.price }}$</p>
                 {% endif %}
-                <form class="destination-details" method="post" action="{% url 'catalogue' %}">
-                    {{ form }}
-                    {% csrf_token %}
-                    <button>Submit</button>
-                </form>
             </div>
 
         </div>

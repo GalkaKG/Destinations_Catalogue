@@ -62,6 +62,11 @@
                              <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i>Favorite</a>
                          {% endif %}
                      </div>
+                      <form class="destination-details" method="post" action="{% url 'catalogue' %}">
+                    {{ form }}
+                    {% csrf_token %}
+                    <button>Submit</button>
+                    </form>
                 </div>
 
                  <div>
