@@ -1,4 +1,6 @@
 {% load static %}
+{% load custom_filter %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,12 +51,15 @@
                 <div>
                     <img src="{{ destination.image.url }}">
                      <div class="buttons-catalogue">
-                         <a href="{% url 'like' destination.pk %}"><i class="fa-regular fa-thumbs-up"></i> Like</a>
-
-                         {% if destination.id in favorite_destinations %}
-                            <a href=""><i class="fa-solid fa-star"></i>Favorite</a>
+                         {% if destination.id in liked_destination %}
+                             <a href="{% url 'like' destination.pk %}"><i class="fa-sharp fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
                          {% else %}
-                            <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i> Favorite</a>
+                             <a href="{% url 'like' destination.pk %}"><i class="fa-regular fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
+                         {% endif %}
+                         {% if destination.id in favorite_destinations %}
+                             <a href="{% url 'add favorite' destination.pk %}"><i class="fa-solid fa-star"></i>Favorite</a>
+                         {% else %}
+                             <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i>Favorite</a>
                          {% endif %}
                      </div>
                 </div>

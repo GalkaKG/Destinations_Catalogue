@@ -5,6 +5,8 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, TemplateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+from Destinations_Catalogue.common.models import Favorite
+from Destinations_Catalogue.destinations.models import Destination
 from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
@@ -60,6 +62,11 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
         pk = self.request.user.pk
         current_user = ProfileModel.objects.filter(profile_id=pk).get()
         context['profile'] = current_user
+        favorites = Favorite.objects.filter(user=current_user.pk)
+        favorite_destinations_id = favorites.values_list('destination', flat=True)
+        favorite_destinations = [Destination.objects.filter(id=d).get() for d in favorite_destinations_id]
+        context['favorite_destinations'] = favorite_destinations
+        print([d for d in favorite_destinations])
         return context
 
 

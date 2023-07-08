@@ -27,12 +27,12 @@ ol[role='list'] {
   margin: 0px;
 }
 
-/* Set core root defaults */
+/* Set templatetags root defaults */
 html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* Set core body defaults */
+/* Set templatetags body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;

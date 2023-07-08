@@ -41,11 +41,15 @@ def catalogue(request):
     user = request.user
     context = {
         'destinations': Destination.objects.all(),
+        'likes': Like.objects.all()
     }
     if user.is_authenticated:
         favorites = Favorite.objects.filter(user=user)
         favorite_destinations = favorites.values_list('destination', flat=True)
         context['favorite_destinations'] = favorite_destinations
+        like = Like.objects.filter(user=user)
+        liked_destination = like.values_list('destination', flat=True)
+        context['liked_destination'] = liked_destination
 
     return render(request, 'common/catalogue.html', context)
 
@@ -98,7 +102,11 @@ class AddFavoriteView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         destination_id = self.kwargs.get('pk')
         destination = get_object_or_404(Destination, pk=destination_id)
-        Favorite.objects.get_or_create(user=request.user, destination=destination)
+        is_favorite = Favorite.objects.filter(user=request.user, destination=destination).all()
+        if is_favorite:
+            is_favorite.delete()
+        else:
+            Favorite.objects.get_or_create(user=request.user, destination=destination)
         return redirect('catalogue')
 
 
@@ -106,23 +114,10 @@ class LikeView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         destination_id = self.kwargs.get('pk')
         destination = get_object_or_404(Destination, pk=destination_id)
-        Like.objects.get_or_create(user=request.user, destination=destination)
+        is_liked = Like.objects.filter(user=request.user, destination=destination).all()
+        if is_liked:
+            is_liked.delete()
+        else:
+            Like.objects.get_or_create(user=request.user, destination=destination)
         return redirect('catalogue')
 
-# class AddFavoriteView(LoginRequiredMixin, CreateView):
-#     model = Favorite
-#     fields = ['destination']
-#     success_url = reverse_lazy('catalogue')
-#
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         return super().form_valid(form)
-#
-#     def get_form_kwargs(self):
-#         kwargs = super().get_form_kwargs()
-#         destination_id = self.kwargs.get('destination_id')
-#         destination = get_object_or_404(Destination, pk=destination_id)
-#         kwargs['initial'] = {'destination': destination}
-#         return kwargs
-#
-#

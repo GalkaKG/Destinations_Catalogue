@@ -23,6 +23,15 @@
             <button class="btn"><a class="" href="{% url 'edit profile' %}">Edit</a></button>
             <button class="btn"><a class="" href="{% url 'delete profile' %}">Delete</a></button>
         </div>
-
      </div>
+
+    {% if favorite_destinations %}
+        <div class="profile-details">
+            <p>Your favorite destinations:</p>
+            {% for destination in favorite_destinations %}
+                <h1>{{ destination.name }}, {{ destination.location }}</h1>
+                <img style="width: 200px" src="{{ destination.image.url }}">
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

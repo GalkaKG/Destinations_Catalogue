@@ -18,7 +18,7 @@ class Destination(models.Model):
         upload_to='destinations/',
     )
 
-    price = models.PositiveIntegerField(null=True, blank=True, verbose_name='Price per night: $...')
+    price = models.PositiveIntegerField(null=True, blank=True, verbose_name='Price per night in $:')
 
     hotel = models.CharField(null=True, blank=True)
 
