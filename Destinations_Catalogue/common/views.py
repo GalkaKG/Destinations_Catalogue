@@ -2,9 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
 from django.views import generic as views, View
-from django.views.generic import CreateView, DeleteView, UpdateView
 
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
@@ -18,7 +16,6 @@ class IndexView(views.TemplateView):
     context_object_name = 'user'
 
     def get_object(self, queryset=None):
-        # Return the profile associated with the currently logged-in user
         return self.request.user
 
     def post(self, request, *args, **kwargs):
@@ -46,6 +43,7 @@ def catalogue(request):
         'likes': Like.objects.all(),
         'form': form
     }
+
     if user.is_authenticated:
         favorites = Favorite.objects.filter(user=user)
         favorite_destinations = favorites.values_list('destination', flat=True)
@@ -57,48 +55,21 @@ def catalogue(request):
     return render(request, 'common/catalogue.html', context)
 
 
-class CommentCreateView(LoginRequiredMixin, CreateView):
-    model = Comment
-    form_class = CommentForm
-    template_name = 'destinations/details-destination.html'
+def comment_view(request, pk):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            print(pk)
+            print(form.cleaned_data)
+            comment = form.cleaned_data['content']
+            # destination_id = pk
+            # author_id =
+            # comment = form.save()
 
-    def form_valid(self, form):
-        destination_id = self.kwargs['destination_id']
-        destination = get_object_or_404(Destination, id=destination_id)
-        form.instance.destination = destination
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        destination_id = self.kwargs['destination_id']
-        return reverse('destination_detail', kwargs={'pk': destination_id})
-
-
-class CommentUpdateView(LoginRequiredMixin, UpdateView):
-    model = Comment
-    form_class = CommentForm
-    template_name = 'destinations/details-destination.html'
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.filter(author=self.request.user)
-
-    def get_success_url(self):
-        destination_id = self.object.destination.id
-        return reverse('destination_detail', kwargs={'pk': destination_id})
-
-
-class CommentDeleteView(LoginRequiredMixin, DeleteView):
-    model = Comment
-    template_name = 'destinations/details-destination.html'
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.filter(author=self.request.user)
-
-    def get_success_url(self):
-        destination_id = self.object.destination.id
-        return reverse('details destination', kwargs={'pk': destination_id})
+            return redirect('catalogue')
+    else:
+        form = CommentForm()
+    return redirect('home')
 
 
 class AddFavoriteView(LoginRequiredMixin, View):

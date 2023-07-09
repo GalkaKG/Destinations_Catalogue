@@ -44,3 +44,20 @@
     color: #fff;
     font-size: 1.8rem;
 }
+
+
+.created-destinations {
+    display: flex;
+    width: 500px;
+
+}
+
+.created-destinations .btn {
+    position: relative;
+    top: 60%;
+}
+
+.created-destinations div:nth-child(1) {
+    width: 300px;
+    margin-bottom: 20px;
+}

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{#    <script src="script.js"></script>#}
 </head>
 
   <body>
@@ -62,11 +63,17 @@
                              <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i>Favorite</a>
                          {% endif %}
                      </div>
-                      <form class="destination-details" method="post" action="{% url 'catalogue' %}">
-                    {{ form }}
-                    {% csrf_token %}
-                    <button>Submit</button>
-                    </form>
+                      <form class="destination-details" method="post" action="{% url 'comment' destination.pk %}">
+                          {{ form }}
+                          {% csrf_token %}
+                          <button id="comment-btn">Submit</button>
+                     </form>
+
+{#                     <div class="destination-details">#}
+{#                         <input type="text" class="comment-input" id="{{ user.pk }}" placeholder="Add comment...">#}
+{#                         {% csrf_token %}#}
+{#                         <button id="comment-btn">Submit</button>#}
+{#                    </div>#}
                 </div>
 
                  <div>
@@ -95,6 +102,9 @@
           <a href="#" target="_blank" class="googleplus"><i class="fa-brands fa-google-plus"></i></a>
       </div>
   </footer>
+  <script src="{% static 'js/comment-create.js' %}">
+
+  </script>
 </body>
 </html>
 

@@ -66,7 +66,8 @@ class UserDetailsView(LoginRequiredMixin, DetailView):
         favorite_destinations_id = favorites.values_list('destination', flat=True)
         favorite_destinations = [Destination.objects.filter(id=d).get() for d in favorite_destinations_id]
         context['favorite_destinations'] = favorite_destinations
-        print([d for d in favorite_destinations])
+        created_destinations = Destination.objects.filter(creator_id=current_user.id)
+        context['created_destinations'] = created_destinations
         return context
 
 

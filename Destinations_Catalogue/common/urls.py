@@ -6,5 +6,9 @@ urlpatterns = (
     path('', views.IndexView.as_view(), name='home'),
     path('catalogue/', views.catalogue, name='catalogue'),
     path('favorite/<int:pk>/', views.AddFavoriteView.as_view(), name='add favorite'),
-    path('like/<int:pk>/', views.LikeView.as_view(), name='like')
+    path('like/<int:pk>/', views.LikeView.as_view(), name='like'),
+    path('comment/<int:pk>', views.comment_view, name='comment')
 )
+
+
+

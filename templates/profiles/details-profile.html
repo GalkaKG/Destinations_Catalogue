@@ -7,7 +7,9 @@
         {% if profile.get_full_name %}
             <h2>{{ profile.get_full_name }}</h2>
         {% endif %}
-        {% if profile.gender %}
+        <p>You've got {{ favorite_destinations|length }} favorite destination\s</p>
+{#        <p>You have liked {{  }} destinations</p>#}
+         {% if profile.gender %}
             <p>Gender: {{ profile.gender }}</p>
         {% endif %}
         {% if profile.age %}
@@ -25,13 +27,32 @@
         </div>
      </div>
 
-    {% if favorite_destinations %}
+    {% if created_destinations %}
         <div class="profile-details">
-            <p>Your favorite destinations:</p>
-            {% for destination in favorite_destinations %}
-                <h1>{{ destination.name }}, {{ destination.location }}</h1>
-                <img style="width: 200px" src="{{ destination.image.url }}">
+            <p>These destinations were created by you:</p>
+            {% for destination in created_destinations %}
+                 <div class="created-destinations">
+                    <div>
+                        <h1>{{ destination.name }}, {{ destination.location }}</h1>
+                        <img style="width: 200px" src="{{ destination.image.url }}">
+                    </div>
+                    <div>
+
+                        <button class="btn"><a href="">Edit</a> </button>
+                        <button class="btn"><a href="">Delete</a> </button>
+                    </div>
+                 </div>
             {% endfor %}
         </div>
     {% endif %}
+
+{#    {% if favorite_destinations %}#}
+{#        <div class="profile-details">#}
+{#            <p>Your favorite destinations:</p>#}
+{#            {% for destination in favorite_destinations %}#}
+{#                <h1>{{ destination.name }}, {{ destination.location }}</h1>#}
+{#                <img style="width: 200px" src="{{ destination.image.url }}">#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    {% endif %}#}
 {% endblock %}
