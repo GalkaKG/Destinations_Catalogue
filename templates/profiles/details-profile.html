@@ -7,7 +7,6 @@
         {% if profile.get_full_name %}
             <h2>{{ profile.get_full_name }}</h2>
         {% endif %}
-        <p>You've got {{ favorite_destinations|length }} favorite destination\s</p>
 {#        <p>You have liked {{  }} destinations</p>#}
          {% if profile.gender %}
             <p>Gender: {{ profile.gender }}</p>
@@ -21,6 +20,7 @@
              <img src="{{ profile.image }}" alt="profile pic">
         {% endif %}
        <p>Username: {{ user }}</p>
+       <p>You've got {{ favorite_destinations|length }} favorite destinations</p>
         <div>
             <button class="btn"><a class="" href="{% url 'edit profile' %}">Edit</a></button>
             <button class="btn"><a class="" href="{% url 'delete profile' %}">Delete</a></button>

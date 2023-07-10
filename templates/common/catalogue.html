@@ -63,12 +63,12 @@
                              <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i>Favorite</a>
                          {% endif %}
                      </div>
-                      <form class="destination-details" method="post" action="{% url 'comment' destination.pk %}">
+                      <form class="destination-details" method="post" action="">
                           {{ form }}
+                          <input type="hidden" name="destination" value="{{ destination.pk }}">
                           {% csrf_token %}
                           <button id="comment-btn">Submit</button>
                      </form>
-
 {#                     <div class="destination-details">#}
 {#                         <input type="text" class="comment-input" id="{{ user.pk }}" placeholder="Add comment...">#}
 {#                         {% csrf_token %}#}

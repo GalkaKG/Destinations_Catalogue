@@ -52,24 +52,15 @@ def catalogue(request):
         liked_destination = like.values_list('destination', flat=True)
         context['liked_destination'] = liked_destination
 
-    return render(request, 'common/catalogue.html', context)
-
-
-def comment_view(request, pk):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = CommentForm(request.POST)
+        form.instance.author = request.user
+        form.instance.destination = Destination.objects.get(id=int(request.POST['destination']))
         if form.is_valid():
-            print(pk)
-            print(form.cleaned_data)
-            comment = form.cleaned_data['content']
-            # destination_id = pk
-            # author_id =
-            # comment = form.save()
-
+            form.save()
             return redirect('catalogue')
-    else:
-        form = CommentForm()
-    return redirect('home')
+
+    return render(request, 'common/catalogue.html', context)
 
 
 class AddFavoriteView(LoginRequiredMixin, View):
