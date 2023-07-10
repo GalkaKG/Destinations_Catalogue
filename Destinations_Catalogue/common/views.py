@@ -41,6 +41,7 @@ def catalogue(request):
     context = {
         'destinations': Destination.objects.all(),
         'likes': Like.objects.all(),
+        'comments': Comment.objects.all(),
         'form': form
     }
 
@@ -53,12 +54,15 @@ def catalogue(request):
         context['liked_destination'] = liked_destination
 
     if request.method == "POST":
-        form = CommentForm(request.POST)
-        form.instance.author = request.user
-        form.instance.destination = Destination.objects.get(id=int(request.POST['destination']))
-        if form.is_valid():
-            form.save()
-            return redirect('catalogue')
+        if user.is_authenticated:
+            form = CommentForm(request.POST)
+            form.instance.author = user
+            form.instance.destination = Destination.objects.get(id=int(request.POST['destination']))
+            if form.is_valid():
+                form.save()
+                return redirect('catalogue')
+        else:
+            return redirect('login')
 
     return render(request, 'common/catalogue.html', context)
 
