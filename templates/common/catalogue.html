@@ -82,12 +82,14 @@
                      <div class="commented-div">
 
                      {% for comment in destination|filter_comments %}
-                         <p>{{ comment|filter_author_comment }}</p>
-                         <p>{{ comment }}</p>
+                         <div class="comment-content">
+                         <p class="comment-user">@{{ comment|filter_author_comment }}</p>
+                         <p>{{ comment }} <a href=""><i class="fa-solid fa-trash"></i></a> </p>
+                         </div>
                      {% endfor %}
                      </div>
                      <button class="btn"><a href="{% url 'details destination' destination.pk %}">More info</a></button>
-                </div>
+                 </div>
             </div>
         </div>
     {% endfor %}

@@ -1,9 +1,7 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
-from Destinations_Catalogue.common.forms import CommentForm
-from Destinations_Catalogue.destinations.forms import DestinationCreateForm
+from Destinations_Catalogue.destinations.forms import DestinationCreateForm, DestinationEditForm
 from Destinations_Catalogue.destinations.models import Destination
 
 
@@ -27,6 +25,16 @@ class DestinationDetailsView(DetailView):
         context['comments'] = self.object.comment_set.all()
         return context
 
-    # destination = Destination.objects.get(id=destination_id)
-    # comments = destination.comment_set.all()
-    # form = CommentForm()
+
+class DestinationEditView(UpdateView):
+    template_name = 'destinations/edit-destination.html'
+    form_class = DestinationEditForm
+    success_url = reverse_lazy('details profile')
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return Destination.objects.get(pk=pk)
+
+
+
+

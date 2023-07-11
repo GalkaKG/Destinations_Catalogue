@@ -21,7 +21,7 @@
         {% endif %}
        <p>Username: {{ user }}</p>
        <p>You've got {{ favorite_destinations|length }} favorite destinations</p>
-        <div>
+        <div class="profile-details-btns">
             <button class="btn"><a class="" href="{% url 'edit profile' %}">Edit</a></button>
             <button class="btn"><a class="" href="{% url 'delete profile' %}">Delete</a></button>
         </div>
@@ -34,11 +34,12 @@
                  <div class="created-destinations">
                     <div>
                         <h1>{{ destination.name }}, {{ destination.location }}</h1>
-                        <img style="width: 200px" src="{{ destination.image.url }}">
+                        <img src="{{ destination.image.url }}">
                     </div>
-                    <div>
-
-                        <button class="btn"><a href="">Edit</a> </button>
+                    <div class="date-details">
+                        <p>Created at: {{ destination.created_at }}</p>
+                        <p>Updated at: {{ destination.updated_at }}</p>
+                        <button class="btn"><a href="{% url 'edit destination' destination.pk %}">Edit</a> </button>
                         <button class="btn"><a href="">Delete</a> </button>
                     </div>
                  </div>

@@ -45,6 +45,25 @@
     font-size: 1.8rem;
 }
 
+.profile-details img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.profile-details .btn {
+    margin-top: 10%;
+    padding: 0 5px;
+}
+
+.profile-details .btn:first-of-type {
+    margin-right: 8%;
+}
+
+.profile-details-btns {
+    width: 200px;
+}
+
 
 .created-destinations {
     display: flex;
@@ -52,9 +71,29 @@
 
 }
 
+.created-destinations p {
+    font-size: 16px;
+}
+
 .created-destinations .btn {
-    position: relative;
-    top: 60%;
+    /*position: relative;*/
+    /*top: 60%;*/
+}
+
+
+
+.created-destinations .date-details {
+    margin-top: 30%;
+    margin-left: 10%;
+}
+
+.created-destinations .date-details .btn {
+    margin-top: 10%;
+    padding: 0 5px;
+}
+
+.created-destinations .date-details .btn:first-of-type {
+    margin-right: 8%;
 }
 
 .created-destinations div:nth-child(1) {
