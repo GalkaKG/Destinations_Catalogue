@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic as views, View
 
-from Destinations_Catalogue.common.forms import SearchForm, CommentForm
+from Destinations_Catalogue.common.forms import SearchForm, CommentForm, EditCommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
 
@@ -39,7 +39,7 @@ def catalogue(request):
     form = CommentForm()
 
     context = {
-        'destinations': Destination.objects.all(),
+        'destinations': Destination.objects.all().order_by('id'),
         'likes': Like.objects.all(),
         'comments': Comment.objects.all(),
         'form': form
@@ -65,6 +65,42 @@ def catalogue(request):
             return redirect('login')
 
     return render(request, 'common/catalogue.html', context)
+
+
+def edit_comment(request, pk):
+    user = request.user
+    comment = Comment.objects.get(id=pk)
+
+    if user.is_authenticated:
+        if comment.author_id == user.id:
+
+            if request.method == 'GET':
+                form = EditCommentForm()
+            else:
+                form = EditCommentForm(request.POST, instance=comment)
+                print(form)
+                if form.is_valid():
+                    form.save()
+                return redirect('catalogue')
+
+        elif comment.author_id != user.id:
+            return render(request, 'error-messages/permission-denied.html')
+
+    return redirect('login')
+
+
+def delete_comment(request, pk):
+    user = request.user
+    comment = Comment.objects.get(id=pk)
+
+    if user.is_authenticated:
+        if comment.author_id == user.id:
+            comment.delete()
+            return redirect('catalogue')
+        elif comment.author_id != user.id:
+            return render(request, 'error-messages/permission-denied.html')
+
+    return redirect('login')
 
 
 class AddFavoriteView(LoginRequiredMixin, View):

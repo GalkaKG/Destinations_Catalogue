@@ -26,3 +26,5 @@ class CommentForm(forms.ModelForm):
         }
 
 
+class EditCommentForm(CommentForm):
+    ...
