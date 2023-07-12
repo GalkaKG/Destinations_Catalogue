@@ -1,7 +1,7 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-    <form class="form" method="post">
+    <form class="form login" method="post">
         {{ form.as_p }}
         {% csrf_token %}
     <button type="submit">Login</button>

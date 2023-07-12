@@ -41,11 +41,17 @@
     /*margin-top: 10%;*/
 }
 
-.destination-catalogue img {
-    width: 380px;
-    height: 220px;
+.picture-content-catalogue img {
+    width: 420px;
+    height: 300px;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.picture-content-catalogue .img-destination {
+    width: 380px;
+    height: 250px;
+
 }
 
 .destination-catalogue p {
@@ -95,15 +101,9 @@
     text-align: center;
     color: #33fd01;
     /*color: #00348e;*/
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-decoration: underline;
-    margin-bottom: 3px;
-}
-
-.comments-div .btn {
-    margin-left: 30%;
-    margin-top: 5px;
-    padding: 0 0;
+    margin-top: 2%;
 }
 
 .comments-div .fa-pencil {
@@ -122,7 +122,7 @@
 }
 
 .comment-user {
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     font-size: 0.6rem;
     line-height: 1.3rem;
     margin-top: 3px;
@@ -151,6 +151,12 @@
 
 .commented-div::-webkit-scrollbar-thumb:hover {
     background: #00348e;
+}
+
+.buttons-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
 }
 
 

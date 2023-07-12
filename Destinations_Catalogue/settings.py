@@ -153,3 +153,6 @@ AUTH_USER_MODEL = 'profiles.CustomUser'
 LOGIN_REDIRECT_URL = reverse_lazy('create profile')
 
 LOGIN_URL = reverse_lazy('login')
+
+# LOGOUT_REDIRECT_URL = reverse_lazy('home')
+

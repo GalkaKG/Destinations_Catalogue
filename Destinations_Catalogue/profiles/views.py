@@ -1,9 +1,9 @@
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, TemplateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from Destinations_Catalogue.common.models import Favorite
 from Destinations_Catalogue.destinations.models import Destination
@@ -32,20 +32,34 @@ class CustomLoginView(LoginView):
         return reverse_lazy('home')
 
 
-class CustomLogoutView(LogoutView, TemplateView, LoginRequiredMixin):
-    template_name = 'profiles/logout.html'
-    login_url = reverse_lazy('home')
+def option_logout(request):
+    return render(request, 'profiles/logout.html')
 
-    def post(self, request, *args, **kwargs):
-        logout_option = request.POST.get('logout_option')
 
-        if logout_option == 'yes':
-            return redirect('home')
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
-        elif logout_option == 'no':
-            return redirect('home')
+# class CustomLogoutView(LogoutView, LoginRequiredMixin):
+#     def post(self, request, *args, **kwargs):
+#         return super().get(request, *args, **kwargs)
 
-        return super().get(request, *args, **kwargs)
+
+
+    # template_name = 'profiles/logout.html'
+    # login_url = reverse_lazy('home')
+
+    # def post(self, request, *args, **kwargs):
+    #     logout_option = request.POST.get('logout_option')
+    #
+    #     if logout_option == 'yes':
+    #
+    #         return redirect('home')
+    #
+    #     elif logout_option == 'no':
+    #         return redirect('home')
+    #
+    #     return super().get(request, *args, **kwargs)
 
 
 class UserDetailsView(LoginRequiredMixin, DetailView):
@@ -86,6 +100,7 @@ class ProfileDeleteView(DeleteView):
     model = CustomUser
     template_name = 'profiles/delete-profile.html'
     next_page = reverse_lazy('home')
+
     # success_url = reverse_lazy('home')
 
     def get_object(self, queryset=None):

@@ -37,7 +37,7 @@
       {% else %}
             <li><a href="{% url 'create destination' %}">Add Destination</a></li>
             <li><a href="{% url 'details profile' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">LogOut</a></li>
+            <li><a href="{% url 'logout options' %}">LogOut</a></li>
       {% endif %}
       </ul>
     </nav>
@@ -48,7 +48,7 @@
         <div class="destination-catalogue">
             <div class="picture-content-catalogue">
                 <div>
-                    <img src="{{ destination.image.url }}">
+                    <img class="img-destination" src="{{ destination.image.url }}">
                      <div class="buttons-catalogue">
                          {% if destination.id in liked_destination %}
                              <a href="{% url 'like' destination.pk %}"><i class="fa-sharp fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
@@ -91,7 +91,9 @@
                          </div>
                      {% endfor %}
                      </div>
-                     <button class="btn"><a href="{% url 'details destination' destination.pk %}">More info</a></button>
+                    <div class="buttons-div">
+                         <button class="btn"><a href="{% url 'details destination' destination.pk %}">More info</a></button>
+                    </div>
                  </div>
             </div>
         </div>

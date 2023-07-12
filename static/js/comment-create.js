@@ -20,7 +20,7 @@
 //             headers: {
 //                 'Content-Type': 'application/json',
 //                  'X-CSRFToken': csrftoken,
-//                  'X-Requested-With': 'XMLHttpRequest'
+//                  // 'X-Requested-With': 'XMLHttpRequest'
 //             },
 //             body: JSON.stringify({
 //                 "author_id": userId,

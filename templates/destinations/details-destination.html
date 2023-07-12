@@ -14,6 +14,9 @@
                 {% if destination.price %}
                     <p>Price per night: {{ destination.price }}$</p>
                 {% endif %}
+                <div class="buttons-div">
+                    <button class="btn"><a href="{% url 'catalogue' %}">Back</a></button>
+                </div>
             </div>
 
         </div>
