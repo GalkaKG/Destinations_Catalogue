@@ -61,7 +61,8 @@
 }
 
 .profile-details-btns {
-    width: 200px;
+    width: 250px;
+    text-align: center;
 }
 
 
@@ -84,7 +85,7 @@
 
 .created-destinations .date-details {
     margin-top: 30%;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .created-destinations .date-details .btn {
@@ -113,3 +114,9 @@
 .btns-logout a:first-of-type {
     margin-right: 10px;
 }
+
+/*.created-destinations-h {*/
+/*    text-align: center;*/
+/*    color: #fff;*/
+/*    font-size: 2.5rem*/
+/*}*/

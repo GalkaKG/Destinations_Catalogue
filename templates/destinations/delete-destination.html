@@ -1,4 +1,16 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
+    <div class="destination-catalogue">
+        <h1>Are you sure you want to delete {{ destination.name }}?</h1>
+            <div class="btns-logout">
+                <a class="btn" href="{% url 'delete destination' destination.pk %}">Yes</a>
+                <a class="btn" href="{% url 'details profile' %}">No</a>
+            </div>
+    </div>
+{#    <form method="post">{% csrf_token %}#}
+{#    <p>Are you sure you want to delete "{{ object }}"?</p>#}
+{#    {{ form }}#}
+{#    <input type="submit" value="Confirm">#}
+{#</form>#}
 {% endblock %}

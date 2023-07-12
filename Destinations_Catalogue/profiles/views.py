@@ -11,9 +11,6 @@ from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCre
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 
-# UserModel = get_user_model()
-
-
 class ProfileCreateView(CreateView):
     template_name = 'profiles/create-profile.html'
     form_class = CustomUserCreationForm
@@ -39,27 +36,6 @@ def option_logout(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
-
-# class CustomLogoutView(LogoutView, LoginRequiredMixin):
-#     def post(self, request, *args, **kwargs):
-#         return super().get(request, *args, **kwargs)
-
-
-
-    # template_name = 'profiles/logout.html'
-    # login_url = reverse_lazy('home')
-
-    # def post(self, request, *args, **kwargs):
-    #     logout_option = request.POST.get('logout_option')
-    #
-    #     if logout_option == 'yes':
-    #
-    #         return redirect('home')
-    #
-    #     elif logout_option == 'no':
-    #         return redirect('home')
-    #
-    #     return super().get(request, *args, **kwargs)
 
 
 class UserDetailsView(LoginRequiredMixin, DetailView):

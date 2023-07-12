@@ -40,7 +40,7 @@
                         <p>Created at: {{ destination.created_at }}</p>
                         <p>Updated at: {{ destination.updated_at }}</p>
                         <button class="btn"><a href="{% url 'edit destination' destination.pk %}">Edit</a> </button>
-                        <button class="btn"><a href="">Delete</a> </button>
+                        <button class="btn"><a href="{% url 'delete destination options' destination.pk %}">Delete</a> </button>
                     </div>
                  </div>
             {% endfor %}
