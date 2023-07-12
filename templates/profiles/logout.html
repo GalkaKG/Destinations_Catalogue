@@ -2,13 +2,14 @@
 
 {% block content %}
     {% if request.user.is_authenticated %}
-        <h1 class="profile">Are you sure you want to log out?</h1>
-        <form class="form" method="post">
-        {% csrf_token %}
-         <button type="submit"><a href="{% url 'logout' %}">Yes, Logout</a></button>
-         <button type="submit"><a href="{% url 'home' %}">No, Cancel</a></button>
-        </form>
-        {% else %}
+        <div class="destination-catalogue">
+            <h1 class="profile">Are you sure you want to log out?</h1>
+        <div class="btns-logout">
+            <a class="btn" href="{% url 'logout' %}">Yes</a>
+            <a class="btn" href="{% url 'home' %}">No</a>
+        </div>
+        </div>
+    {% else %}
         <div class="destination-catalogue">
              <h1 >You are not logged in. Would you like to <a class="btn" href="{% url 'login' %}">login</a> </h1>
         </div>

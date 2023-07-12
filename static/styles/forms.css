@@ -11,6 +11,7 @@
     border-radius: 10px;
     border: 1px solid;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    position: relative;
 }
 
 .form h2 {
@@ -60,5 +61,19 @@
     color: #FF0000;
 }
 
+.fa-eye-slash,
+.fa-eye {
+    position: absolute;
+    top: 53%;
+    right: 16%;
+    color: #3267c0;
+    cursor: pointer;
 
+}
+
+.errorlist {
+    position: absolute;
+    top: 0;
+    color: red;
+}
 

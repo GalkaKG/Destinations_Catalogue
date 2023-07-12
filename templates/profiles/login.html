@@ -1,9 +1,12 @@
 {% extends 'common/index.html' %}
+{% load static %}
 
 {% block content %}
     <form class="form login" method="post">
-        {{ form.as_p }}
+        {{ form }}
         {% csrf_token %}
+        <i class="fa-solid fa-eye-slash"></i>
     <button type="submit">Login</button>
     </form>
+    <script src="{% static 'js/toggle-password.js' %}"></script>
 {% endblock %}
