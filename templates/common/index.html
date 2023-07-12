@@ -27,11 +27,11 @@
       </div>
       <nav>
           <ul role="list">
+            <li><a href="#">About</a></li>
             <li><a href="{% url 'catalogue' %}">Destinations</a></li>
           </ul>
           <ul role="list" class="nav-ul">
           {% if not user.is_authenticated %}
-                <li><a href="#">About</a></li>
                 <li><a href="{% url 'create profile' %}">SignIn</a></li>
                 <li><a href="{% url 'login' %}">LogIn</a></li>
           {% else %}
@@ -55,7 +55,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>
+    <p>&copy; 2023 Destination Catalogue. G.Georgieva - All rights reserved.</p>
       <div id="connect">
           <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i></a>

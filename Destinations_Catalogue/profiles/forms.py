@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 
 from Destinations_Catalogue.profiles.models import ProfileModel, CustomUser
 
@@ -16,8 +16,8 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileBaseForm(forms.ModelForm):
     class Meta:
         model = ProfileModel
-        # fields = ['first_name', 'last_name', 'gender', 'age', 'image']
         exclude = ['profile']
+
 
 class EditProfileForm(ProfileBaseForm):
     pass

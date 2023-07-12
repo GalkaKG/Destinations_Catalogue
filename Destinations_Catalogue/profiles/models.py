@@ -5,11 +5,9 @@ from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, 
 
 
 class CustomUserManager(BaseUserManager):
-    # def create_user(self, username, email=None, password=None, is_staff=False, is_superuser=False):
     def create_user(self, username, password=None, is_staff=False, is_superuser=False):
         if not username:
             raise ValueError("The Username field must be set.")
-        # user = self.model(username=username, email=email, is_staff=is_staff, is_superuser=is_superuser)
         user = self.model(username=username, is_staff=is_staff, is_superuser=is_superuser)
         user.set_password(password)
         user.save(using=self._db)

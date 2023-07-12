@@ -19,3 +19,8 @@ def filter_comments(value):
 @register.filter(name="filter_author_comment")
 def filter_author_comment(value):
     return CustomUser.objects.filter(id=value.author_id).get()
+
+
+@register.filter(name="filter_author")
+def filter_author(value):
+    return CustomUser.objects.get(id=value.creator_id).username

@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from Destinations_Catalogue.destinations.forms import DestinationCreateForm, DestinationEditForm
 from Destinations_Catalogue.destinations.models import Destination
@@ -11,7 +11,7 @@ from Destinations_Catalogue.destinations.models import Destination
 class DestinationCreateView(CreateView):
     template_name = 'destinations/create-destination.html'
     form_class = DestinationCreateForm
-    success_url = reverse_lazy('catalogue')
+    success_url = reverse_lazy('details profile')
 
     def form_valid(self, form):
         form.instance.creator_id = self.request.user.id
@@ -46,32 +46,6 @@ def options_delete(request, pk):
     }
 
     return render(request, 'destinations/delete-destination.html', context)
-
-
-# class DestinationDeleteView(LoginRequiredMixin, DeleteView):
-#     # model = Destination
-#     template_name = 'destinations/delete-destination.html'
-#     success_url = reverse_lazy('details profile')
-#     # pk_url_kwarg = 'pk'
-#
-#     def get_object(self, *args, **kwargs):
-#         pk = self.kwargs.get('id')
-#         return get_object_or_404(Destination, id=pk)
-
-#     #     return destination.delete()
-#
-#     def get_object(self, queryset=None):
-#         """
-#         Retrieves the object to be deleted.
-#         """
-#
-#         # You can customize how the object is retrieved here
-#         obj = super().get_object(queryset=queryset)
-#         print(queryset)
-#         pk = self.kwargs.get('pk')
-#         destination = Destination.objects.get(id=pk)
-#         destination.delete()
-#         return obj
 
 
 @login_required

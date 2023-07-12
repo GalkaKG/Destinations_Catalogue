@@ -27,11 +27,11 @@
             </form>
         </div>
       <ul role="list">
+        <li><a href="#">About</a></li>
         <li><a href="{% url 'catalogue' %}">Destinations</a></li>
       </ul>
       <ul role="list" class="register-btns">
       {% if not user.is_authenticated %}
-            <li><a href="#">About</a></li>
             <li><a href="{% url 'create profile' %}">SignIn</a></li>
             <li><a href="{% url 'login' %}">LogIn</a></li>
       {% else %}
@@ -49,6 +49,7 @@
             <div class="picture-content-catalogue">
                 <div>
                     <img class="img-destination" src="{{ destination.image.url }}">
+                    <p>Posted by {{ destination|filter_author }}</p>
                      <div class="buttons-catalogue">
                          {% if destination.id in liked_destination %}
                              <a href="{% url 'like' destination.pk %}"><i class="fa-sharp fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
@@ -61,17 +62,13 @@
                              <a href="{% url 'add favorite' destination.pk %}"><i class="fa-regular fa-star"></i>Favorite</a>
                          {% endif %}
                      </div>
+
+
                       <form class="destination-details" method="post" action="">
                           {{ form }}
-                          <input type="hidden" name="destination" value="{{ destination.pk }}">
                           {% csrf_token %}
                           <button id="comment-btn">Submit</button>
                      </form>
-{#                     <div class="destination-details">#}
-{#                         <input type="text" class="comment-input" id="{{ user.pk }}" placeholder="Add comment...">#}
-{#                         {% csrf_token %}#}
-{#                         <button id="comment-btn">Submit</button>#}
-{#                    </div>#}
                 </div>
 
                  <div class="comments-div">
@@ -82,7 +79,7 @@
                      <div class="commented-div">
 
                      {% for comment in destination|filter_comments %}
-                         <div class="comment-content">
+                         <div class="bubble">
                          <p class="comment-user">@{{ comment|filter_author_comment }}</p>
                          <p>{{ comment }}
                              <a href="{% url 'delete comment' comment.pk %}"><i class="fa-solid fa-trash"></i></a>
