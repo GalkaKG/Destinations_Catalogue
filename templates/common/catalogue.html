@@ -67,6 +67,7 @@
                       <form class="destination-details" method="post" action="">
                           {{ form }}
                           {% csrf_token %}
+                          <input type="hidden" name="destination" value="{{ destination.id }}">
                           <button id="comment-btn">Submit</button>
                      </form>
                 </div>
@@ -79,9 +80,9 @@
                      <div class="commented-div">
 
                      {% for comment in destination|filter_comments %}
-                         <div class="bubble">
-                         <p class="comment-user">@{{ comment|filter_author_comment }}</p>
-                         <p>{{ comment }}
+                         <div class="comment-content imessage">
+                         <p class="comment-user"><i class="fa-solid fa-at" style="font-size: 15px"></i>{{ comment|filter_author_comment }}</p>
+                         <p class="from-them">{{ comment }}
                              <a href="{% url 'delete comment' comment.pk %}"><i class="fa-solid fa-trash"></i></a>
                              <a href="{% url 'edit comment' comment.pk %}"><i class="fa-solid fa-pencil"></i></a>
                          </p>

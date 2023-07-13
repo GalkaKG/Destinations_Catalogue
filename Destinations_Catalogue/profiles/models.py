@@ -107,8 +107,8 @@ class ProfileModel(models.Model):
         else:
             return None
 
-
-
+    def __str__(self):
+        return f'{self.id} {self.get_full_name()}'
 
 # class Gender(Enum):
 #     Male = 'Male'

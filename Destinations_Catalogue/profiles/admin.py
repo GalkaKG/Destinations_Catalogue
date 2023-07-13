@@ -5,9 +5,9 @@ from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
-    pass
+    list_filter = ['username', 'is_superuser']
 
 
 @admin.register(ProfileModel)
 class ProfileModelAdmin(admin.ModelAdmin):
-    pass
+    ordering = ['first_name', 'last_name', 'gender', 'age']
