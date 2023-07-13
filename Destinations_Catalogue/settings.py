@@ -144,9 +144,6 @@ MEDIA_ROOT = (
         BASE_DIR / 'media/'
 )
 
-# LOGIN_REDIRECT_URL = reverse_lazy('')
-# LOGOUT_REDIRECT_URL = reverse_lazy('')
-# LOGIN_URL = reverse_lazy('')
 
 AUTH_USER_MODEL = 'profiles.CustomUser'
 

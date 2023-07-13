@@ -1,9 +1,6 @@
-// window.addEventListener('load', handleToggle)
-
 const toggleEl = document.querySelector('.login i')
 const inputEl = document.querySelector('#id_password')
 toggleEl.addEventListener('click', handleToggle)
-
 
 
 function handleToggle(e){
@@ -19,5 +16,3 @@ function handleToggle(e){
 }
 
 handleToggle()
-
-// {#        <i class="fa-solid fa-eye"></i>#}

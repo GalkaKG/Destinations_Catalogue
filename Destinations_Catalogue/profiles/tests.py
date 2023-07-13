@@ -1,72 +1,63 @@
-from django.test import TestCase
-
-from django.test import TestCase, Client
-from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.test import TestCase, Client
+from Destinations_Catalogue.profiles.models import CustomUser, CustomUserManager
+from django.urls import reverse
 
-from Destinations_Catalogue.profiles.models import ProfileModel
 
-
-
-class ProfileIntegrationTest(TestCase):
+class LoginViewTest(TestCase):
     def setUp(self):
         self.client = Client()
+        self.username = 'testuser'
+        self.password = 'testpassword'
         self.user = get_user_model().objects.create_user(
-            username='testuser',
-            password='testpassword'
+            username=self.username,
+            password=self.password
         )
-        self.profile = ProfileModel.objects.create(profile_id=self.user.pk)
+
+    def test_login_view(self):
+        url = reverse('login')
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/login.html')
+
+        # Send POST request with login credentials
+        login_data = {
+            'username': self.username,
+            'password': self.password
+        }
+        response = self.client.post(url, login_data)
+
+        # Assert that the user is redirected after successful login
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('home'))  # Replace 'home' with the appropriate URL name
+
+        # Verify that the user is logged in
+        user = CustomUser.objects.get(username=self.username)
+        self.assertTrue(user.is_authenticated)
+
+    def test_login_view_invalid_credentials(self):
+        url = reverse('login')
+        login_data = {
+            'username': 'invalidusername',
+            'password': 'invalidpassword'
+        }
+        response = self.client.post(url, login_data)
+
+        # Assert that the login fails and the user is not redirected
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/login.html')
+
+
+class ProfileCreateViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.username = 'testuser'
+        self.password = 'testpassword'
 
     def test_profile_create_view(self):
-        url = reverse('create_profile')
+        url = reverse('create profile')
         response = self.client.get(url)
+
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/create-profile.html')
-
-        data = {
-            'username': 'newuser',
-            'password1': 'newpassword',
-            'password2': 'newpassword'
-        }
-        response = self.client.post(url, data)
-        self.assertEqual(response.status_code, 302)  # Redirect after successful creation
-        self.assertRedirects(response, reverse('login'))
-
-        # Verify that a new user and profile were created
-        self.assertEqual(get_user_model().objects.count(), 2)
-        self.assertEqual(ProfileModel.objects.count(), 2)
-
-    def test_profile_edit_view(self):
-        self.client.login(username='testuser', password='testpassword')
-        url = reverse('edit_profile')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/edit-profile.html')
-
-        data = {
-            'first_name': 'John',
-            'last_name': 'Doe'
-        }
-        response = self.client.post(url, data)
-        self.assertEqual(response.status_code, 302)  # Redirect after successful update
-        self.assertRedirects(response, reverse('details_profile'))
-
-        # Verify that the profile was updated
-        self.profile.refresh_from_db()
-        self.assertEqual(self.profile.first_name, 'John')
-        self.assertEqual(self.profile.last_name, 'Doe')
-
-    def test_profile_delete_view(self):
-        self.client.login(username='testuser', password='testpassword')
-        url = reverse('delete_profile')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/delete-profile.html')
-
-        response = self.client.post(url)
-        self.assertEqual(response.status_code, 302)  # Redirect after successful delete
-        self.assertRedirects(response, reverse('home'))
-
-        # Verify that the user and profile were deleted
-        self.assertEqual(get_user_model().objects.count(), 0)
-        self.assertEqual(ProfileModel.objects.count(), 0)

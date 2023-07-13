@@ -14,7 +14,7 @@ from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 class ProfileCreateView(CreateView):
     template_name = 'profiles/create-profile.html'
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         result = super().form_valid(form)

@@ -9,6 +9,15 @@ class DestinationCreateForm(forms.ModelForm):
         model = Destination
         fields = ['name', 'location', 'image', 'hotel', 'price', 'description']
         widgets = {
+            'name': forms.TextInput(
+               attrs={'placeholder': 'City, town, resort, landmark...'}
+            ),
+            'location': forms.TextInput(
+                attrs={'placeholder': 'Country'}
+            ),
+            'hotel': forms.TextInput(
+               attrs={'placeholder': 'Not required'}
+            ),
             'description': forms.Textarea(
              attrs={'rows': 3, 'placeholder': 'Add comment...'}
             )
