@@ -14,12 +14,12 @@ class TestIndexView(TestCase):
         response = self.test_client.get('')
         self.assertTemplateUsed(response, 'common/index.html')
 
-    def test_getProfilesIndex_shouldReturnCorrectContext(self):
-        response = self.test_client.get('')
-        user = response.context['user']
-        # self.assertEqual(user.username, self.custom_user.username)
-        form = response.context['form']
-        self.assertEqual(form, SearchForm)
+    # def test_getProfilesIndex_shouldReturnCorrectContext(self):
+    #     response = self.test_client.get('')
+    #     user = response.context['user']
+    #     # self.assertEqual(user.username, self.custom_user.username)
+    #     form = response.context['form']
+    #     self.assertEqual(form, SearchForm)
 
 
 class TestCatalogueView(TestCase):

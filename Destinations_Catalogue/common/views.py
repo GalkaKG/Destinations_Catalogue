@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic as views, View
 
@@ -11,51 +10,43 @@ from Destinations_Catalogue.destinations.models import Destination
 UserModel = get_user_model()
 
 
-class IndexView(views.TemplateView):
+class IndexView(views.FormView):
     template_name = 'common/index.html'
-    context_object_name = 'user'
+    form_class = SearchForm
+    success_url = 'catalogue/'
 
-    def get_object(self, queryset=None):
-        return self.request.user
-
-    def post(self, request, *args, **kwargs):
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            search_query = form.cleaned_data['target']
-            google_url = f'https://www.google.com/search?q={search_query}'
-
-            return HttpResponseRedirect(google_url)
-
-        return self.render_to_response(self.get_context_data(form=form))
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = SearchForm
-        return context
+    def form_valid(self, form):
+        search_query = form.cleaned_data['target']
+        return redirect(self.get_success_url() + f'?search={search_query}')
 
 
 def catalogue(request):
-    user = request.user
-    form = CommentForm()
+    search_query = request.GET.get('search', '')
+
+    destinations = Destination.objects.all().order_by('id')
+
+    if search_query:
+        destinations = destinations.filter(name__icontains=search_query)
 
     context = {
-        'destinations': Destination.objects.all().order_by('id'),
+        'destinations': destinations,
         'likes': Like.objects.all(),
         'comments': Comment.objects.all(),
-        'form': form
+        'form': CommentForm(),
+        'search_query': search_query
     }
 
+    user = request.user
     if user.is_authenticated:
         favorites = Favorite.objects.filter(user=user)
         favorite_destinations = favorites.values_list('destination', flat=True)
         context['favorite_destinations'] = favorite_destinations
-        like = Like.objects.filter(user=user)
-        liked_destination = like.values_list('destination', flat=True)
-        context['liked_destination'] = liked_destination
+        liked_destinations = Like.objects.filter(user=user).values_list('destination', flat=True)
+        context['liked_destinations'] = liked_destinations
 
     if request.method == "POST":
+        form = CommentForm(request.POST)
         if user.is_authenticated:
-            form = CommentForm(request.POST)
             form.instance.author = user
             form.instance.destination = Destination.objects.get(id=int(request.POST['destination']))
             if form.is_valid():
@@ -125,4 +116,3 @@ class LikeView(LoginRequiredMixin, View):
         else:
             Like.objects.get_or_create(user=request.user, destination=destination)
         return redirect('catalogue')
-
