@@ -6,7 +6,7 @@ from Destinations_Catalogue.common.forms import SearchForm
 from Destinations_Catalogue.profiles.models import CustomUser, CustomUserManager
 
 
-class ProfileViewTest(TestCase):
+class TestIndexView(TestCase):
     def setUp(self):
         self.test_client = Client()
 

@@ -61,3 +61,26 @@ class ProfileCreateViewTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/create-profile.html')
+
+
+class LogoutViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.username = 'testuser'
+        self.password = 'testpassword'
+        self.user = get_user_model().objects.create_user(
+            username=self.username,
+            password=self.password
+        )
+
+    def test_logout_view(self):
+        # Log in the user
+        self.client.login(username=self.username, password=self.password)
+
+        url = reverse('logout')
+        response = self.client.get(url)
+
+        # Assert that the user is redirected after logout
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('login'))  # Replace 'home' with the appropriate URL name
+
