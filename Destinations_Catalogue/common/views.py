@@ -75,7 +75,7 @@ def edit_comment(request, pk):
                 return redirect('catalogue')
 
         elif comment.author_id != user.id:
-            return render(request, 'error-messages/permission-denied.html')
+            return render(request, 'error_pages/permission-denied.html')
 
     return redirect('login')
 
@@ -89,7 +89,7 @@ def delete_comment(request, pk):
             comment.delete()
             return redirect('catalogue')
         elif comment.author_id != user.id:
-            return render(request, 'error-messages/permission-denied.html')
+            return render(request, 'error_pages/permission-denied.html')
 
     return redirect('login')
 
@@ -116,3 +116,7 @@ class LikeView(LoginRequiredMixin, View):
         else:
             Like.objects.get_or_create(user=request.user, destination=destination)
         return redirect('catalogue')
+
+
+def page_not_found(request, exception):
+    return render(request, 'error_pages/404.html')

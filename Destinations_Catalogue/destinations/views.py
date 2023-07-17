@@ -57,4 +57,4 @@ def delete_destination(request, pk):
         destination.delete()
         return redirect('details profile')
 
-    return render(request, 'error-messages/permission-denied.html')
+    return render(request, 'error_pages/permission-denied.html')
