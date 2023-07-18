@@ -8,7 +8,7 @@
 
 .profile-details {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    width: 40%;
+    width: 45%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     /*border-radius: 20px;*/
@@ -23,7 +23,7 @@
     /*float: left;*/
     height: auto;
     position: relative;
-    left: 30%;
+    left: 25%;
     margin-bottom: 5%;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@
 .profile-details h1 {
     color: #fff;
     font-size: 3rem;
+    text-align: center;
 }
 
 .profile-details h2 {
@@ -68,8 +69,7 @@
 
 .created-destinations {
     display: flex;
-    width: 500px;
-
+    /*width: 500px;*/
 }
 
 .created-destinations p {
@@ -77,8 +77,9 @@
 }
 
 .created-destinations .date-details {
-    margin-top: 30%;
+    margin-top: 15%;
     margin-left: 5%;
+    text-align: center;
 }
 
 .created-destinations .date-details .btn {
@@ -91,7 +92,7 @@
 }
 
 .created-destinations div:nth-child(1) {
-    width: 300px;
+    /*width: 300px;*/
     margin-bottom: 20px;
 }
 
