@@ -9,6 +9,7 @@ body {
     background: url(../images/jennvmy_-uWpggIb3iHs-unsplash.jpg) no-repeat;
     background-size: cover ;
     display: flex;
+    flex: 1;
     flex-direction: column;
     font-family: "Ysabeau Infant", sans-serif;
     width: 100%;
@@ -96,7 +97,6 @@ ul {
     gap: 20px
 }
 
-
 nav a {
     color: #5127A0;
 }
@@ -113,19 +113,6 @@ header a:hover {
     margin: 2% 20% 0 20%;
 }
 
-footer {
-    font-weight: bolder;
-    font-size: 1.4rem;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4%;
-    width: 100%;
-    position: fixed;
-    bottom: 2%;
-}
-
 i {
     color: #fff;
 }
@@ -139,7 +126,6 @@ i {
 }
 
 .btn:hover {
-    /*background-color: #a99e91;*/
     border: 5px solid;
 }
 
@@ -147,4 +133,17 @@ i {
     margin-right: 0.5rem;
 }
 
+footer {
+    font-weight: bolder;
+    font-size: 1.4rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    gap: 4%;
+    width: 100%;
+    /*position: fixed;*/
+    bottom: 2%;
+}
 
