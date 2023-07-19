@@ -58,26 +58,26 @@ def catalogue(request):
     return render(request, 'common/catalogue.html', context)
 
 
-def edit_comment(request, pk):
-    user = request.user
-    comment = Comment.objects.get(id=pk)
-
-    if user.is_authenticated:
-        if comment.author_id == user.id:
-
-            if request.method == 'GET':
-                form = EditCommentForm()
-            else:
-                form = EditCommentForm(request.POST, instance=comment)
-                print(form)
-                if form.is_valid():
-                    form.save()
-                return redirect('catalogue')
-
-        elif comment.author_id != user.id:
-            return render(request, 'error_pages/permission-denied.html')
-
-    return redirect('login')
+# def edit_comment(request, pk):
+#     user = request.user
+#     comment = Comment.objects.get(id=pk)
+#
+#     if user.is_authenticated:
+#         if comment.author_id == user.id:
+#
+#             if request.method == 'GET':
+#                 form = EditCommentForm()
+#             else:
+#                 form = EditCommentForm(request.POST, instance=comment)
+#                 print(form)
+#                 if form.is_valid():
+#                     form.save()
+#                 return redirect('catalogue')
+#
+#         elif comment.author_id != user.id:
+#             return render(request, 'error_pages/permission-denied.html')
+#
+#     return redirect('login')
 
 
 def delete_comment(request, pk):
