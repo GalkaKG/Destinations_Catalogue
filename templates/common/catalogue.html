@@ -27,7 +27,7 @@
             </form>
         </div>
       <ul role="list">
-        <li><a href="#">About</a></li>
+        <li><a href="#">Explore</a></li>
         <li><a href="{% url 'catalogue' %}">Destinations</a></li>
       </ul>
       <ul role="list" class="register-btns">
@@ -51,8 +51,8 @@
                     <img class="img-destination" src="{{ destination.image.url }}">
                     <p>Posted by {{ destination|filter_author }}</p>
                      <div class="buttons-catalogue">
-                         {% if destination.id in liked_destination %}
-                             <a href="{% url 'like' destination.pk %}"><i class="fa-sharp fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
+                         {% if destination.id in liked_destinations %}
+                             <a href="{% url 'like' destination.pk %}"><i class="fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
                          {% else %}
                              <a href="{% url 'like' destination.pk %}"><i class="fa-regular fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
                          {% endif %}

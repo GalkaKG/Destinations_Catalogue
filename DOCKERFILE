@@ -10,4 +10,4 @@ COPY requiremets.txt /app/
 
 RUN pip install -r requirements.txt
 
-COPY Destinations_Catalogue /app/
+COPY . /app/

@@ -41,7 +41,8 @@ def catalogue(request):
         favorites = Favorite.objects.filter(user=user)
         favorite_destinations = favorites.values_list('destination', flat=True)
         context['favorite_destinations'] = favorite_destinations
-        liked_destinations = Like.objects.filter(user=user).values_list('destination', flat=True)
+        liked = Like.objects.filter(user=user)
+        liked_destinations = liked.values_list('destination', flat=True)
         context['liked_destinations'] = liked_destinations
 
     if request.method == "POST":
