@@ -96,6 +96,37 @@
             </div>
         </div>
     {% endfor %}
+
+
+{#  Paginator -- Start #}
+
+{#      <div class="pagination">#}
+{#    {% if page_obj.has_previous %}#}
+{#        <a class="previous" href="?page={{ page_obj.previous_page_number }}">#}
+{#            <span class="page-number">{{ page_obj.previous_page_number }}</span>#}
+{#            <i class="fa-solid fa-chevron-left"></i>#}
+{#        </a>#}
+{#    {% endif %}#}
+{##}
+{#    <span class="current-page">{{ page_obj.number }}</span>#}
+{##}
+{#    {% if page_obj.has_next %}#}
+{#        <a class="next" href="?page={{ page_obj.next_page_number }}">#}
+{#            <i class="fa-solid fa-chevron-right"></i>#}
+{#            <span class="page-number">{{ page_obj.next_page_number }}</span>#}
+{#        </a>#}
+{#    {% endif %}#}
+{#    </div>#}
+{##}
+{#    {% if not page_obj %}#}
+{#        <div class="destination-catalogue">#}
+{#            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+{#  Paginator --End #}
+
+
     {% if not destinations %}
         <div class="destination-catalogue">
             <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>

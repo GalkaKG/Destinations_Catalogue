@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic as views, View
 
@@ -22,8 +23,14 @@ class IndexView(views.FormView):
 
 def catalogue(request):
     search_query = request.GET.get('search', '')
-
     destinations = Destination.objects.all().order_by('id')
+
+    # items_per_page = 3  # Number of items to display per page
+    # queryset = Destination.objects.all()
+    #
+    # paginator = Paginator(queryset, items_per_page)
+    # page_number = request.GET.get('page')  # Get the page number from the query parameters
+    # page_obj = paginator.get_page(page_number)
 
     if search_query:
         destinations = destinations.filter(name__icontains=search_query)
@@ -33,7 +40,8 @@ def catalogue(request):
         'likes': Like.objects.all(),
         'comments': Comment.objects.all(),
         'form': CommentForm(),
-        'search_query': search_query
+        'search_query': search_query,
+        # 'page_obj': page_obj
     }
 
     user = request.user

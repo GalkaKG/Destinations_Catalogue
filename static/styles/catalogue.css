@@ -163,21 +163,101 @@
 
 
 
+/*Paginator CSS*/
 
+.next {
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
+.previous {
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
+.page-number {
+    color: white;
+}
 
-/*.catalogue {*/
-/*    background: rgb(34,193,195);*/
-/*    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(27,97,224,1) 100%);*/
+.section {
+    position: absolute;
+    left: 20px;
+    top: 250px;
+}
+
+/*.imessage p {*/
+/*  border-radius: 1.15rem;*/
+/*  line-height: 1.25;*/
+/*  max-width: 100%;*/
+/*  padding: 0.5rem .875rem;*/
+/*  position: relative;*/
+/*  word-wrap: break-word;*/
 /*}*/
 
+/*.imessage p::before,*/
+/*.imessage p::after {*/
+/*  bottom: -0.1rem;*/
+/*  content: "";*/
+/*  height: 1rem;*/
+/*  position: absolute;*/
+/*}*/
 
-/*.header-catalogue {*/
-/*    background-color: rgba(255, 255, 255, 0.01); !* Translucent white background color *!*/
-/*    border-radius: 10px;*/
-/*    border: 1px solid rgba(255, 255, 255, 0.3); !* Translucent white border *!*/
-/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Shadow for the glass effect *!*/
-/*    backdrop-filter: blur(10px); !* Adds a blur effect to the background behind the element *!*/
-/*    opacity: 0.9; !* Adjust the opacity to control the overall transparency *!*/
+/*p.from-them {*/
+/*  align-items: flex-start;*/
+/*  background-color: #e5e5ea;*/
+/*  color: #000;*/
+/*    padding-right: 20%;*/
+/*    position: relative;*/
+/*}*/
+
+/*p.from-them:before {*/
+/*  border-bottom-right-radius: 0.8rem 0.7rem;*/
+/*  border-left: 1rem solid #e5e5ea;*/
+/*  left: -0.35rem;*/
+/*  transform: translate(0, -0.1rem);*/
+/*}*/
+
+/*p.from-them::after {*/
+/*  background-color: #fff;*/
+/*  border-bottom-right-radius: 0.5rem;*/
+/*  left: 20px;*/
+/*  transform: translate(-30px, -2px);*/
+/*  width: 10px;*/
+/*}*/
+
+.pagination-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/*.pagination {*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
+/*    margin-top: 1.5rem;*/
+/*}*/
+
+/*.pagination div {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-basis: 33.33%;*/
+/*    flex-grow: 1;*/
+/*}*/
+
+/*.pagination a,*/
+/*.pagination span {*/
+/*    text-decoration: none;*/
+/*    color: #f3efec;*/
+/*    font-size: 24px;*/
+/*    !*text-shadow: 4px 4px 8px black;*!*/
+/*    !*background-color: black;*!*/
+/*    !*border-radius: 20px 0 20px 0;*!*/
+/*    !*padding: 5px 15px;*!*/
 /*}*/
