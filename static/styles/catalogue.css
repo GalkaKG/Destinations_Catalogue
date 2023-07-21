@@ -108,6 +108,7 @@
     font-size: 1rem;
     position: absolute;
     right: 30px;
+    bottom: 25px;
     color: #00348e;
 }
 
@@ -115,7 +116,7 @@
     font-size: 1rem;
     position: absolute;
     right: 30px;
-    bottom: 15px;
+    bottom: 5px;
     color: #00348e;
 }
 
@@ -132,6 +133,10 @@
     position: relative;
 }
 
+/*body > main > div:nth-child(3) > div > div.comments-div > div.commented-div > div > p.from-them {*/
+/*    border: 2px gray solid;*/
+/*    border-radius: 50px 20px 20px 0;*/
+/*}*/
 
 .commented-div {
     height: 150px;

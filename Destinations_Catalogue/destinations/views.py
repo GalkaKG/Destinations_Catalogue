@@ -32,11 +32,14 @@ class DestinationDetailsView(DetailView):
 class DestinationEditView(LoginRequiredMixin, UpdateView):
     template_name = 'destinations/edit-destination.html'
     form_class = DestinationEditForm
-    success_url = reverse_lazy('details profile')
+    # success_url = reverse_lazy('details destination')
 
     def get_object(self, queryset=None):
         pk = self.kwargs.get('pk')
         return Destination.objects.get(pk=pk)
+
+    def get_success_url(self):
+        return reverse_lazy('details destination', kwargs={'pk': self.kwargs.get('pk')})
 
 
 def options_delete(request, pk):
