@@ -46,7 +46,7 @@ class CustomUser(PermissionsMixin, AbstractBaseUser):
     # Specify the field used as the unique identifier for the user
     USERNAME_FIELD = 'username'
 
-    # Add the fields required for creating a user via the createsuperuser management command.
+    # Here are the fields required for creating a user via the createsuperuser management command.
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()

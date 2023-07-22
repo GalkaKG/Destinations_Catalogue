@@ -92,7 +92,6 @@ def show_map(request):
     if response.status_code == 200:
         data = response.json()
 
-        # Extract relevant information from the JSON data
         if data['status'] == 'OK':
             location = data['results'][0]['geometry']['location']
             latitude = location['lat']
