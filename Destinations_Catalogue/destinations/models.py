@@ -1,5 +1,4 @@
 from django.db import models
-
 from Destinations_Catalogue.profiles.models import CustomUser
 
 

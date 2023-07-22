@@ -18,9 +18,18 @@
                     <button class="btn"><a href="{% url 'catalogue' %}">Back</a></button>
                 </div>
             </div>
-
         </div>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM&callback=initMap&libraries=maps,marker&v=beta">
+    </script>
 
+{#    <script>#}
+{#      function initMap() {#}
+{#        console.log('Maps JavaScript API loaded.');#}
+{#      }#}
+{#    </script>#}
+    <gmp-map center="{{ latitude }},{{ longitude }}" zoom="10" map-id="DEMO_MAP_ID" ></gmp-map>
+{#     <gmp-marker position="{{ latitude }},{{ longitude }}" title="{{ destination.name }}"></gmp-marker>#}
     </div>
 
 
