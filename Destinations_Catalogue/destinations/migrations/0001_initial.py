@@ -19,8 +19,6 @@ class Migration(migrations.Migration):
                 ('location', models.CharField(max_length=100)),
                 ('description', models.TextField()),
                 ('image', models.ImageField(upload_to='destinations/')),
-                ('price', models.PositiveIntegerField(blank=True, null=True, verbose_name='Price per night: $...')),
-                ('hotel', models.CharField(blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],

@@ -7,7 +7,7 @@ from Destinations_Catalogue.destinations.models import Destination
 class DestinationCreateForm(forms.ModelForm):
     class Meta:
         model = Destination
-        fields = ['name', 'location', 'image', 'hotel', 'price', 'description']
+        fields = ['name', 'location', 'image', 'description']
         widgets = {
             'name': forms.TextInput(
                attrs={'placeholder': 'City, town, resort, landmark...'}
@@ -15,9 +15,9 @@ class DestinationCreateForm(forms.ModelForm):
             'location': forms.TextInput(
                 attrs={'placeholder': 'Country'}
             ),
-            'hotel': forms.TextInput(
-               attrs={'placeholder': 'Not required'}
-            ),
+            # 'hotel': forms.TextInput(
+            #    attrs={'placeholder': 'Not required'}
+            # ),
             'description': forms.Textarea(
              attrs={'rows': 3, 'placeholder': 'Add comment...'}
             )
