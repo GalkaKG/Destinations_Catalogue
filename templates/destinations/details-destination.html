@@ -3,19 +3,19 @@
 {% block content %}
     <div class="destination-catalogue">
         <div class="picture-content-catalogue">
-            <img src="{{ destination.image.url }}">
+            <img src="{{ destination.image }}">
             <div>
                 <h1>{{ destination.name }}</h1>
                 <p>{{ destination.location }}</p>
-                <p>{{ destination.description }}</p>
-                {% if destination.hotel %}
-                    <p>Hotel: {{ destination.hotel }}</p>
-                {% endif %}
-                {% if destination.price %}
-                    <p>Price per night: {{ destination.price }}$</p>
-                {% endif %}
+                <p class="destination-details commented-div">{{ destination.description }}</p>
+{#                {% if destination.hotel %}#}
+{#                    <p>Hotel: {{ destination.hotel }}</p>#}
+{#                {% endif %}#}
+{#                {% if destination.price %}#}
+{#                    <p>Price per night: {{ destination.price }}$</p>#}
+{#                {% endif %}#}
                 <div class="buttons-div">
-                    <button class="btn"><a href="{% url 'catalogue' %}">Back</a></button>
+                    <button class="btn back-btn"><a href="{% url 'catalogue' %}">Back</a></button>
                 </div>
             </div>
         </div>

@@ -42,8 +42,10 @@
 }
 
 .picture-content-catalogue img {
-    width: 420px;
-    height: 300px;
+    /*width: 420px;*/
+    /*height: 300px;*/
+    width: 450px;
+    height: 330px;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -101,7 +103,7 @@
     color: #33fd01;
     font-size: 1.6rem;
     text-decoration: underline;
-    margin-top: 2%;
+    margin: 7% 0 3% 0;
 }
 
 .comments-div .fa-pencil {
@@ -158,7 +160,7 @@
 .buttons-div {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    /*margin-top: 5%;*/
 }
 
 

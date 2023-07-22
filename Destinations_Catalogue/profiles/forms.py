@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import FileInput
 
 from Destinations_Catalogue.profiles.models import ProfileModel, CustomUser
 
@@ -20,7 +21,7 @@ class ProfileBaseForm(forms.ModelForm):
 
 
 class EditProfileForm(ProfileBaseForm):
-    pass
+    image = forms.ImageField(widget=FileInput)
 
 
 class DeleteProfileForm(ProfileBaseForm):

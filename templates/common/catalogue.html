@@ -48,7 +48,7 @@
         <div class="destination-catalogue">
             <div class="picture-content-catalogue">
                 <div>
-                    <img class="img-destination" src="{{ destination.image.url }}">
+                    <img class="img-destination" src="{{ destination.image }}">
                     <p>Posted by {{ destination|filter_author }}</p>
                      <div class="buttons-catalogue">
                          {% if destination.id in liked_destinations %}
@@ -75,7 +75,7 @@
                  <div class="comments-div">
                      <h1>{{ destination.name }}</h1>
                      <p>{{ destination.location }}</p>
-                     <p>{{ destination.description }}</p>
+{#                     <p>{{ destination.description }}</p>#}
                      <h2 class="comments-header">Comments:</h2>
                      <div class="commented-div">
 

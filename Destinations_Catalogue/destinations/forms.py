@@ -25,4 +25,5 @@ class DestinationCreateForm(forms.ModelForm):
 
 
 class DestinationEditForm(DestinationCreateForm):
-    image = forms.ImageField(widget=FileInput)
+    # image = forms.ImageField(widget=FileInput)
+    ...

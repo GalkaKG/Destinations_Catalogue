@@ -85,7 +85,9 @@ class ProfileModel(models.Model):
         choices=CHOICES,
     )
 
-    image = models.URLField(
+    image = models.ImageField(
+        # upload_to='destinations/',
+        upload_to='profile_pics/',
         blank=True,
         null=True,
     )

@@ -17,7 +17,7 @@
         {% if not profile.image %}
              <img src=" {% static 'images/user.png' %}" alt="profile pic" style="width: 200px;height: 200px">
         {% else %}
-             <img src="{{ profile.image }}" alt="profile pic">
+             <img src="{{ profile.image.url }}" alt="profile pic" style="object-fit: cover">
         {% endif %}
        <p>Username: {{ user }}</p>
        <p>You've got {{ favorite_destinations|length }} favorite destinations</p>
@@ -34,11 +34,11 @@
                  <div class="created-destinations">
                     <div>
                         <h1>{{ destination.name }}, {{ destination.location }}</h1>
-                        <img src="{{ destination.image.url }}">
+                        <img src="{{ destination.image }}">
                     </div>
                     <div class="date-details">
-                        <p>Created at: {{ destination.created_at }}</p>
-                        <p>Updated at: {{ destination.updated_at }}</p>
+                        <p>Created: {{ destination.created_at }}</p>
+                        <p>Last updated: {{ destination.updated_at }}</p>
                         <button class="btn"><a href="{% url 'edit destination' destination.pk %}">Edit</a> </button>
                         <button class="btn"><a href="{% url 'delete destination options' destination.pk %}">Delete</a> </button>
                     </div>
@@ -47,13 +47,13 @@
         </div>
     {% endif %}
 
-{#    {% if favorite_destinations %}#}
-{#        <div class="profile-details">#}
-{#            <p>Your favorite destinations:</p>#}
-{#            {% for destination in favorite_destinations %}#}
-{#                <h1>{{ destination.name }}, {{ destination.location }}</h1>#}
-{#                <img style="width: 200px" src="{{ destination.image.url }}">#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    {% endif %}#}
+    {% if favorite_destinations %}
+        <div class="profile-details">
+            <p>Your favorite destinations:</p>
+            {% for destination in favorite_destinations %}
+                <h1>{{ destination.name }}, {{ destination.location }}</h1>
+                <img style="width: 200px" src="{{ destination.image }}">
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

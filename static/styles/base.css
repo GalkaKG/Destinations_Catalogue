@@ -113,6 +113,16 @@ header a:hover {
     margin: 2% 20% 0 20%;
 }
 
+.destination-details {
+    max-height: 200px;
+    margin-left: 8%;
+    margin-bottom: 3%;
+}
+
+.back-btn {
+    padding: 2px 12px;
+}
+
 i {
     color: #fff;
 }
@@ -143,7 +153,6 @@ footer {
     margin-top: auto;
     gap: 4%;
     width: 100%;
-    /*position: fixed;*/
     bottom: 2%;
 }
 

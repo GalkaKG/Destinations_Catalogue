@@ -13,9 +13,7 @@ class Destination(models.Model):
 
     description = models.TextField()
 
-    image = models.ImageField(
-        upload_to='destinations/',
-    )
+    image = models.URLField()
 
     price = models.PositiveIntegerField(null=True, blank=True, verbose_name='Price per night in $:')
 

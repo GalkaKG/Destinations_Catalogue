@@ -1,7 +1,7 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-    <form class="form" method="post">
+    <form class="form" method="post" enctype="multipart/form-data">
         {{ form }}
         {% csrf_token %}
         <button type="submit">Edit</button>
