@@ -24,33 +24,26 @@ class DestinationDetailsView(DetailView):
     model = Destination
     template_name = 'destinations/details-destination.html'
     context_object_name = 'destination'
-    # GOOGLE_MAPS_API_KEY = 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = self.object.comment_set.all()
         destination = self.object
-        # FUNCTION **************************
-        GOOGLE_MAPS_API_KEY = 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM'
         url = 'https://maps.googleapis.com/maps/api/geocode/json'
         params = {
             'address': f'{destination.name},{destination.location}',
-            'key': GOOGLE_MAPS_API_KEY,
+            'key': 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM',
         }
-
         response = requests.get(url, params=params)
 
         if response.status_code == 200:
             data = response.json()
-
-            # Extract relevant information from the JSON data
-            if data['status'] == 'OK':
-                location = data['results'][0]['geometry']['location']
-                latitude = location['lat']
-                longitude = location['lng']
-                context['latitude'] = float(latitude)
-                context['longitude'] = float(longitude)
-                context['address'] = f'{latitude},{longitude}'
+            location = data['results'][0]['geometry']['location']
+            latitude = location['lat']
+            longitude = location['lng']
+            context['latitude'] = latitude
+            context['longitude'] = longitude
+            context['address'] = f'{latitude},{longitude}'
         return context
 
 
@@ -88,11 +81,10 @@ def delete_destination(request, pk):
 
 
 def show_map(request):
-    GOOGLE_MAPS_API_KEY = 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM'
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     params = {
         'address': 'Sofia, Bulgaria',
-        'key': GOOGLE_MAPS_API_KEY,
+        'key': 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM',
     }
 
     response = requests.get(url, params=params)
