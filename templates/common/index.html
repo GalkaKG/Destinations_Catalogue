@@ -33,11 +33,11 @@
           <ul role="list" class="nav-ul">
           {% if not user.is_authenticated %}
                 <li><a href="{% url 'create profile' %}">SignIn</a></li>
-                <li><a href="{% url 'login' %}">LogIn</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
           {% else %}
                 <li><a href="{% url 'create destination' %}">Add Destination</a></li>
                 <li><a href="{% url 'details profile' %}">Profile</a></li>
-                <li><a href="{% url 'logout options' %}">LogOut</a></li>
+                <li><a href="{% url 'logout options' %}">Logout</a></li>
           {% endif %}
           </ul>
       </nav>

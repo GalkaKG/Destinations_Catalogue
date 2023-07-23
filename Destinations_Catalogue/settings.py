@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'Destinations_Catalogue.common',
     'Destinations_Catalogue.destinations',
     'Destinations_Catalogue.profiles',
+    'Destinations_Catalogue.explore',
 ]
 
 MIDDLEWARE = [
