@@ -31,8 +31,9 @@ Explain how users can get started with your project. Include any prerequisites a
 
 <h2> Installation </h2>
 <ol>
-  <li>Clone the repository</li>
-  <li>Set up a virtual environment (optional, but recommended)</li>
+  <li>Clone the repository: <br/>git clone https://github.com/GalkaKG/Destinations_Catalogue.git </li>
+  <li>Set up a virtual environment (optional, but recommended) <br/>pip install virtualenv<br/>cd Destinations_Catalogue<br/>virtualenv venv
+  <br/>On Windows:<br/>venv\Scripts\activate<br/>On macOS and Linux:<br/>source venv/bin/activate</li>
   <li>Install project dependencies: <br /> pip install -r requirements.txt
   </li>
   <li>Set up environment variables</li>
