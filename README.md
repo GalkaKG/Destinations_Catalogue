@@ -5,7 +5,6 @@
 
 <h3> Table of Contents </h3>
 <ul>
-  <li>About</li>
   <li>Features</li>
   <li>Demo</li>
   <li>Getting Started</li>
@@ -13,11 +12,10 @@
   <li>Usage</li>
   <li>Technologies Used</li>
   <li>License</li>
-  <li>About</li>
+  <li>More pictures</li>
 </ul>
 
 <h2> Features </h2>
-
 <ul>
   <li>User authentication and registration</li>
   <li>Browse and search for destinations</li>
@@ -49,7 +47,7 @@ Explain how to use your project. Include instructions on how to run the developm
   <li>MIT License</li>
 </ul>
 
-<h3> More pictures: </h3>
+<h2> More pictures: </h2>
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191405.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191909.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191942.png" />
