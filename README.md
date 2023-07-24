@@ -7,7 +7,6 @@
 <ul>
   <li>Features</li>
   <li>Demo</li>
-  <li>Getting Started</li>
   <li>Installation</li>
   <li>Usage</li>
   <li>Technologies Used</li>
@@ -24,16 +23,17 @@
 </ul>
 
 <h2> Demo </h2>
-Provide a link to the live demo of your project (if available). You can host your project on platforms like Heroku and include the link here.
 
-<h2> Getting Started </h2>
-Explain how users can get started with your project. Include any prerequisites and instructions for setting up the development environment.
 
 <h2> Installation </h2>
 <ol>
   <li>Clone the repository: <br/>git clone https://github.com/GalkaKG/Destinations_Catalogue.git </li>
   <li>Set up a virtual environment (optional, but recommended) <br/>pip install virtualenv<br/>cd Destinations_Catalogue<br/>virtualenv venv
-  <br/>On Windows:<br/>venv\Scripts\activate<br/>On macOS and Linux:<br/>source venv/bin/activate</li>
+  <br/>
+    <ul>On Windows:
+    <li>venv\Scripts\activate</li></ul>
+    On macOS and Linux:
+    <br/>source venv/bin/activate</li>
   <li>Install project dependencies: <br /> pip install -r requirements.txt
   </li>
   <li>Set up environment variables</li>
