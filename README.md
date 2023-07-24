@@ -18,13 +18,15 @@
 
 <h2> Features </h2>
 
-User authentication and registration
-Browse and search for destinations
-Add, edit, and delete destinations
-User-friendly interface with a responsive design
+<ul>
+  <li>User authentication and registration</li>
+  <li>Browse and search for destinations</li>
+  <li>Add, edit, and delete destinations</li>
+  <li>User-friendly interface with a responsive design</li>
+</ul>
 
-#Demo
-#Provide a link to the live demo of your project (if available). You can host your project on platforms like Heroku and include the link here.
+<h2> Demo </h2>
+-Provide a link to the live demo of your project (if available). You can host your project on platforms like Heroku and include the link here.
 
 <h2> Getting Started </h2>
 Explain how users can get started with your project. Include any prerequisites and instructions for setting up the development environment.
@@ -36,10 +38,11 @@ Provide step-by-step instructions on how to install and set up the project local
 Explain how to use your project. Include instructions on how to run the development server and any other relevant usage details.
 
 <h2> Technologies Used </h2>
-
-Django
-HTML, CSS, JavaScript
-PostgreSQL 
+<ul>
+  <li>Django</li>
+  <li>HTML, CSS, JavaScript</li>
+  <li>PostgreSQL </li>
+</ul>
 
 <h2> License </h2>
 MIT License
