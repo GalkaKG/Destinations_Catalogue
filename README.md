@@ -8,7 +8,6 @@
   <li>Features</li>
   <li>Demo</li>
   <li>Installation</li>
-  <li>Usage</li>
   <li>Technologies Used</li>
   <li>License</li>
   <li>More pictures</li>
@@ -38,9 +37,6 @@
   <li>Create a superuser (optional) <br /> python manage.py createsuperuser </li>
   <li>Run the development server: <br />python manage.py runserver</li>
 </ol>
-
-<h2> Usage </h2>
-Explain how to use your project. Include instructions on how to run the development server and any other relevant usage details.
 
 <h2> Technologies Used </h2>
 <ul>
