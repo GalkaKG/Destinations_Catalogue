@@ -1,5 +1,4 @@
-# Destinations Catalogue
-
+# Destinations Catalogue - 
 # This is my personal Django Web Project
 
 
