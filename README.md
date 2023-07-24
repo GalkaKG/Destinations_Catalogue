@@ -6,9 +6,9 @@
 <h3> Table of Contents </h3>
 <ul>
   <li>Features</li>
-  <li>Demo</li>
   <li>Installation</li>
   <li>Technologies Used</li>
+  <li>Demo</li>
   <li>License</li>
   <li>More pictures</li>
 </ul>
@@ -20,9 +20,6 @@
   <li>Add, edit, and delete destinations</li>
   <li>User-friendly interface with a responsive design</li>
 </ul>
-
-<h2> Demo </h2>
-
 
 <h2> Installation </h2>
 <ol>
@@ -44,6 +41,8 @@
   <li>HTML, CSS, JavaScript</li>
   <li>PostgreSQL </li>
 </ul>
+
+<h2> Demo </h2>
 
 <h2> License </h2>
 <ul>
