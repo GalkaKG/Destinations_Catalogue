@@ -26,7 +26,7 @@
 </ul>
 
 <h2> Demo </h2>
--Provide a link to the live demo of your project (if available). You can host your project on platforms like Heroku and include the link here.
+Provide a link to the live demo of your project (if available). You can host your project on platforms like Heroku and include the link here.
 
 <h2> Getting Started </h2>
 Explain how users can get started with your project. Include any prerequisites and instructions for setting up the development environment.
@@ -45,7 +45,9 @@ Explain how to use your project. Include instructions on how to run the developm
 </ul>
 
 <h2> License </h2>
-MIT License
+<ul>
+  <li>MIT License</li>
+</ul>
 
 <h3> More pictures: </h3>
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191405.png" />
