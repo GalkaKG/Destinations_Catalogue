@@ -3,17 +3,18 @@
 
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/destinations_catalogue_home.png" alt="Project image" style="width: 700px"/>
 
-
-Table of Contents
-About
-Features
-Demo
-Getting Started
-Installation
-Usage
-Technologies Used
-License
-About
+<h3> Table of Contents </h3>
+<ul>
+  <li>About</li>
+  <li>Features</li>
+  <li>Demo</li>
+  <li>Getting Started</li>
+  <li>Installation</li>
+  <li>Usage</li>
+  <li>Technologies Used</li>
+  <li>License</li>
+  <li>About</li>
+</ul>
 
 <h2> Features </h2>
 
