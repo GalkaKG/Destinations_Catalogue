@@ -30,7 +30,7 @@
   <li>Clone the repository: <br/>git clone https://github.com/GalkaKG/Destinations_Catalogue.git </li>
   <li>Set up a virtual environment (optional, but recommended) <br/>pip install virtualenv<br/>cd Destinations_Catalogue<br/>virtualenv venv
   <br/>
-    <ul>On Windows:
+    <ul><h4>On Windows:</h4>
     <li>venv\Scripts\activate</li></ul>
     On macOS and Linux:
     <br/>source venv/bin/activate</li>
