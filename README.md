@@ -30,7 +30,17 @@ Provide a link to the live demo of your project (if available). You can host you
 Explain how users can get started with your project. Include any prerequisites and instructions for setting up the development environment.
 
 <h2> Installation </h2>
-Provide step-by-step instructions on how to install and set up the project locally. Include any dependencies that need to be installed and any environment variables that need to be set.
+<ol>
+  <li>Clone the repository</li>
+  <li>Set up a virtual environment (optional, but recommended)</li>
+  <li>Install project dependencies: <br /> pip install -r requirements.txt
+  </li>
+  <li>Set up environment variables</li>
+  <li> Apply database migrations: <br /> python manage.py makemigrations <br/ > python manage.py migrate
+  </li>
+  <li>Create a superuser (optional) <br /> python manage.py createsuperuser </li>
+  <li>Run the development server: <br />python manage.py runserver</li>
+</ol>
 
 <h2> Usage </h2>
 Explain how to use your project. Include instructions on how to run the development server and any other relevant usage details.
