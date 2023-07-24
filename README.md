@@ -1,5 +1,4 @@
-# Destinations Catalogue - 
-# This is my personal Django Web Project
+# Destinations Catalogue - my personal Django Web Project
 
 
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/destinations_catalogue_home.png" alt="Project image" style="width: 800px"/>
