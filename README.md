@@ -50,7 +50,7 @@
 </ul>
 
 <h2> More pictures: </h2>
-<img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191405.png" />
+<img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-25%20085603.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191909.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191942.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20192006.png" />
