@@ -40,6 +40,7 @@
   <li>Django</li>
   <li>HTML, CSS, JavaScript</li>
   <li>PostgreSQL </li>
+  <li>Google Maps API</li>
 </ul>
 
 <h2> Demo </h2>
