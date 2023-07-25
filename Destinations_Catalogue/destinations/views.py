@@ -80,28 +80,6 @@ def delete_destination(request, pk):
     return render(request, 'error_pages/permission-denied.html')
 
 
-def show_map(request):
-    url = 'https://maps.googleapis.com/maps/api/geocode/json'
-    params = {
-        'address': 'Sofia, Bulgaria',
-        'key': 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM',
-    }
 
-    response = requests.get(url, params=params)
-
-    if response.status_code == 200:
-        data = response.json()
-
-        if data['status'] == 'OK':
-            location = data['results'][0]['geometry']['location']
-            latitude = location['lat']
-            longitude = location['lng']
-
-            print(f'Latitude: {latitude}, Longitude: {longitude}')
-        else:
-            print('Error: Unable to geocode the address.')
-    else:
-        print('Error: Request failed.')
-    return render(request, 'destinations/map.html')
 
 

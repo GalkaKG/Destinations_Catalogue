@@ -10,6 +10,7 @@ urlpatterns = [
         path('', include('Destinations_Catalogue.common.urls')),
         path('destinations/', include('Destinations_Catalogue.destinations.urls')),
         path('profile/', include('Destinations_Catalogue.profiles.urls')),
+        path('explore/', include('Destinations_Catalogue.explore.url')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
