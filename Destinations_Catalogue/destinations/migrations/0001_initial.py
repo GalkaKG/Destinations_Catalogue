@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('location', models.CharField(max_length=100)),
                 ('description', models.TextField()),
+                ('hotel', models.CharField()),
                 ('image', models.ImageField(upload_to='destinations/')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
