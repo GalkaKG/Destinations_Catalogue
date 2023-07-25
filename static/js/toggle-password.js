@@ -12,7 +12,10 @@ function handleToggle(e){
             inputEl.type = 'text'
             toggleEl.setAttribute('class', 'fa-solid fa-eye')
         }
+
+
     }
 }
 
 handleToggle()
+

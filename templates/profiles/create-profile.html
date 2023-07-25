@@ -1,4 +1,5 @@
 {% extends 'common/index.html' %}
+{% load static %}
 
 {% block content %}
     <div>
@@ -17,11 +18,13 @@
                     {{ field }}
                 </div>
             {% endfor %}
-
+            <i class="fa-solid fa-eye-slash first"></i>
+            <i class="fa-solid fa-eye-slash second"></i>
             {% if form.errors %}
             {% endif %}
             {% csrf_token %}
             <button type="submit">Submit</button>
         </form>
     </div>
+    <script src="{% static 'js/toggle-password-create-profile.js' %}"></script>
 {% endblock %}

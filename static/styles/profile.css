@@ -113,3 +113,19 @@
 .btns-logout a:first-of-type {
     margin-right: 10px;
 }
+
+.fa-eye-slash.first {
+    top: 52%;
+}
+
+.fa-eye-slash.second {
+    top: 69%;
+}
+
+.fa-solid.fa-eye .first {
+    top: 52%;
+}
+
+.fa-solid .fa-eye .second {
+    top: 69%;
+}
