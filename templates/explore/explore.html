@@ -47,10 +47,10 @@
   document.querySelectorAll('.li-continent').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const continent = e.target.textContent
+      const continent = e.target.textContent.split(' ')[0]
 
         divElements.forEach((div) => {
-            if (div.classList.contains(continent.split(' ')[0])) {
+            if (div.classList.contains(continent)) {
                 div.style.display = 'flex'
             } else {
                 div.style.display = 'none'

@@ -8,9 +8,6 @@ from rest_framework.generics import UpdateAPIView
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm, EditCommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 from .serializers import CommentSerializer
 
 UserModel = get_user_model()
@@ -84,24 +81,6 @@ class EditCommentAPIView(UpdateAPIView):
         serializer.save()
 
         return redirect('catalogue')
-
-# def edit_comment(request, pk):
-#     user = request.user
-#     comment = Comment.objects.get(id=pk)
-#
-#     if request.method == 'POST':
-#         data = request.json()
-#         content = data.get('content', '')
-#         print(data)
-#         print(content)
-#             # comment.content = content
-#             # comment.save()
-#
-#
-#         return redirect('catalogue')
-#     return redirect('catalogue')
-    # elif comment.author_id != user.id:
-    #     return render(request, 'error_pages/permission-denied.html')
 
 
 def delete_comment(request, pk):

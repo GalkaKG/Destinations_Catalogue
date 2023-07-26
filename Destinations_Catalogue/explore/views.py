@@ -12,7 +12,7 @@ from Destinations_Catalogue.explore.models import Continent, ExploreDestination
 
 def explore(request):
     all_continents = Continent.objects.all()
-    all_explore_destinations = ExploreDestination.objects.all().order_by('continent_id')
+    all_explore_destinations = ExploreDestination.objects.all()
 
     context = {
         'continents': all_continents,
