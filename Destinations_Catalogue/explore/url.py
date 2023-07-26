@@ -1,7 +1,7 @@
 from django.urls import path
 
-from Destinations_Catalogue.explore.views import ExploreView
+from Destinations_Catalogue.explore.views import explore
 
 urlpatterns = (
-    path('', ExploreView.as_view(), name='explore'),
+    path('', explore, name='explore'),
 )

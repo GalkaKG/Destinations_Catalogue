@@ -3,10 +3,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic as views, View
+from rest_framework.generics import UpdateAPIView
 
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm, EditCommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import CommentSerializer
 
 UserModel = get_user_model()
 
@@ -67,26 +72,36 @@ def catalogue(request):
     return render(request, 'common/catalogue.html', context)
 
 
+class EditCommentAPIView(UpdateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+    def put(self, request, *args, **kwargs):
+        print(request)
+        comment = self.get_object()
+        serializer = self.get_serializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return redirect('catalogue')
+
 # def edit_comment(request, pk):
 #     user = request.user
 #     comment = Comment.objects.get(id=pk)
 #
-#     if user.is_authenticated:
-#         if comment.author_id == user.id:
+#     if request.method == 'POST':
+#         data = request.json()
+#         content = data.get('content', '')
+#         print(data)
+#         print(content)
+#             # comment.content = content
+#             # comment.save()
 #
-#             if request.method == 'GET':
-#                 form = EditCommentForm()
-#             else:
-#                 form = EditCommentForm(request.POST, instance=comment)
-#                 print(form)
-#                 if form.is_valid():
-#                     form.save()
-#                 return redirect('catalogue')
 #
-#         elif comment.author_id != user.id:
-#             return render(request, 'error_pages/permission-denied.html')
-#
-#     return redirect('login')
+#         return redirect('catalogue')
+#     return redirect('catalogue')
+    # elif comment.author_id != user.id:
+    #     return render(request, 'error_pages/permission-denied.html')
 
 
 def delete_comment(request, pk):

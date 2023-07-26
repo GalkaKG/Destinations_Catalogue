@@ -16,7 +16,10 @@ class ExploreDestination(models.Model):
         related_name='destinations'
     )
     # description = models.TextField()
-    # image = models.ImageField(upload_to='destination_images/')
+    image = models.ImageField(upload_to='explore/')
+
+    def __str__(self):
+        return self.name
 
 
 class Attraction(models.Model):
@@ -28,7 +31,7 @@ class Attraction(models.Model):
     )
     price = models.FloatField()
     description = models.TextField()
-    # image = models.ImageField(upload_to='attraction_images/')
+    # image = models.ImageField(upload_to='attraction_images/'
     # Add any other fields relevant to an attraction
 
     def __str__(self):

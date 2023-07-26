@@ -1,0 +1,53 @@
+.div-continents {
+    color: #00348e;
+    position: absolute;
+    left: 15%;
+    top: 18%;
+    width: 80%;
+}
+
+.div-continents h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.div-continents p {
+    font-size: 1.3rem;
+}
+
+.div-continents .ul-continents {
+    margin-top: 2%;
+
+}
+
+.li-continent #a-continent{
+    color: #b7f8f1;
+    font-size: 1.3rem;
+}
+
+.section-explore {
+    display: flex;
+    color: #fff;
+    flex-flow: wrap;
+    gap: 2%;
+    margin-top: 3%;
+}
+
+.section-show-continent {
+    position: relative;
+    margin-bottom: 3%;
+}
+
+.section-explore img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.section-explore h2 {
+    position: absolute;
+    bottom: 2px;
+    left: 5%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+

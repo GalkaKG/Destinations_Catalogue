@@ -81,9 +81,9 @@
                      {% for comment in destination|filter_comments %}
                          <div class="comment-content imessage">
                          <p class="comment-user"><i class="fa-solid fa-at" style="font-size: 15px"></i>{{ comment|filter_author_comment }}</p>
-                         <p class="from-them">{{ comment }}
+                         <p class="from-them" id="{{ comment.id }}">{{ comment }}
                              <a href="{% url 'delete comment' comment.pk %}"><i class="fa-solid fa-trash"></i></a>
-                             <a href=""><i class="fa-solid fa-pencil"></i></a>
+                             <a href="{% url 'edit comment' comment.pk %}"><i class="fa-solid fa-pencil"></i></a>
                          </p>
                          </div>
                      {% endfor %}
@@ -97,7 +97,54 @@
     {% endfor %}
 
 
-{#  Paginator -- Start #}
+    {% if not destinations %}
+        <div class="destination-catalogue">
+            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>
+        </div>
+    {% endif %}
+  </main>
+
+  <script>
+      const currentUser = '{{ user }}';
+      const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
+      const csrfToken = tokenInput.value;
+
+        document.querySelectorAll('.fa-pencil').forEach(
+            (btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const commentForm = document.querySelector('form.destination-details')
+                    const commentTextArea = document.querySelector('form.destination-details textarea')
+                    let idComment = event.target.parentNode.parentNode.id
+                    let commentUser = event.target.parentNode.parentNode.parentNode.querySelector('.comment-user').textContent
+                    let content = event.target.parentNode.parentNode.textContent
+
+                    if (currentUser === commentUser) {
+                        commentTextArea.value = content
+                    }
+
+                    document.querySelector('#comment-btn').addEventListener('click', (event) => {
+                        const updatedContent = commentTextArea.value;
+                        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`
+
+                        fetch(BASE_URL, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': csrfToken
+                            },
+                            body: JSON.stringify({
+                                "content": updatedContent,
+                            })
+                        })
+
+                    })
+                })}
+            )
+
+    </script>
+
+  {#  Paginator -- Start #}
 
 {#      <div class="pagination">#}
 {#    {% if page_obj.has_previous %}#}
@@ -124,14 +171,6 @@
 {#    {% endif %}#}
 
 {#  Paginator --End #}
-
-
-    {% if not destinations %}
-        <div class="destination-catalogue">
-            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>
-        </div>
-    {% endif %}
-  </main>
 
 <footer>
     <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>

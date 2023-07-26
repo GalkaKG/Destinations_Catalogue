@@ -1,5 +1,62 @@
 {% extends 'common/index.html' %}
+{% load static %}
 
 {% block content %}
+    <div class="div-continents">
+        <h2>Explore more destinations</h2>
+        <p>Find things to do in cities around the world<p>
+        <nav>
+            <ul role="list" class="ul-continents">
+                {% for continent in continents %}
+                    <li class="li-continent {{ continent.name|lower }}"><a href="#" id="a-continent">{{ continent }}</a> </li>
+                {% endfor %}
+{#                 <li class="li-continent"><a href="" id="a-continent">Europe</a> </li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">North America</a> </li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Asia</a> </li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Africa</a> </li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Oceania</a></li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Middle East</a></li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">South America</a></li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Caribbean</a></li>#}
+{#                 <li class="li-continent"><a href="" id="a-continent">Central America</a></li>#}
+            </ul>
+        </nav>
+        {% for continent in continents %}
+            <div class="section-explore {{ continent.name }}" style="display: none">
+            {% for destination in explore_destinations %}
+                 {% if destination.continent_id == continent.id %}
+                    <div class="section-show-continent">
+                        <h2>{{ destination.name }}</h2>
+                        <a href=""><img src="{{ destination.image.url }}"></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
 
+<script>
+    const divElements = document.querySelectorAll('.section-explore')
+    window.addEventListener("load", (event) => {
+        divElements.forEach((el) => {
+            if (el.classList.contains('Europe')) {
+                el.style.display = 'flex'
+            }
+        })
+    });
+  document.querySelectorAll('.li-continent').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const continent = e.target.textContent
+
+        divElements.forEach((div) => {
+            if (div.classList.contains(continent.split(' ')[0])) {
+                div.style.display = 'flex'
+            } else {
+                div.style.display = 'none'
+            }
+        })
+     });
+  });
+</script>
 {% endblock %}
