@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'Destinations_Catalogue.profiles',
     'Destinations_Catalogue.explore',
 
-    # Third party apps
+    # Third part apps
     'rest_framework',
     'corsheaders',
 ]
@@ -66,8 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Destinations_Catalogue.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
@@ -80,8 +78,6 @@ DATABASES = {
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,8 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
 if DEBUG:
     AUTH_PASSWORD_VALIDATORS = []
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -112,16 +106,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -138,5 +128,3 @@ LOGIN_URL = reverse_lazy('login')
 
 # LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
-
-GOOGLE_MAPS_API_KEY = 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM'
