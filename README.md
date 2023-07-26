@@ -56,3 +56,4 @@
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191909.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20191942.png" />
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/Screenshot%202023-07-24%20192006.png" />
+<img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/localhost_8000_catalogue_.png" />
