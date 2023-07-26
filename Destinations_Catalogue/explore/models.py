@@ -31,8 +31,7 @@ class Attraction(models.Model):
     )
     price = models.FloatField()
     description = models.TextField()
-    # image = models.ImageField(upload_to='attraction_images/'
-    # Add any other fields relevant to an attraction
+    image = models.ImageField(upload_to='attraction_images/')
 
     def __str__(self):
         return self.name

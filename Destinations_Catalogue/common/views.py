@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views import generic as views, View
 from rest_framework.generics import UpdateAPIView
 
@@ -97,7 +98,7 @@ def delete_comment(request, pk):
     return redirect('login')
 
 
-class AddFavoriteView(LoginRequiredMixin, View):
+class AddFavoriteView(LoginRequiredMixin, views.View):
     def get(self, request, *args, **kwargs):
         destination_id = self.kwargs.get('pk')
         destination = get_object_or_404(Destination, pk=destination_id)
@@ -109,7 +110,19 @@ class AddFavoriteView(LoginRequiredMixin, View):
         return redirect('catalogue')
 
 
-class LikeView(LoginRequiredMixin, View):
+class RemoveFavoriteView(LoginRequiredMixin, views.View):
+    def get(self, request, *args, **kwargs):
+        destination_id = self.kwargs.get('pk')
+        destination = get_object_or_404(Destination, pk=destination_id)
+        try:
+            favorite = Favorite.objects.get(user=request.user, destination=destination)
+            favorite.delete()
+        except Favorite.DoesNotExist:
+            pass
+        return redirect('details profile')
+
+
+class LikeView(LoginRequiredMixin, views.View):
     def get(self, request, *args, **kwargs):
         destination_id = self.kwargs.get('pk')
         destination = get_object_or_404(Destination, pk=destination_id)

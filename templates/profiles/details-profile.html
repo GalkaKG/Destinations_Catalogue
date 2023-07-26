@@ -48,11 +48,18 @@
     {% endif %}
 
     {% if favorite_destinations %}
-        <div class="profile-details">
+        <div class="profile-details" style="display:flex;">
             <p>Your favorite destinations:</p>
             {% for destination in favorite_destinations %}
-                <h1>{{ destination.name }}, {{ destination.location }}</h1>
-                <img style="width: 200px" src="{{ destination.image }}">
+               <div class="favorite-destinations">
+                   <div class="fav-img-details-profile">
+                        <h1>{{ destination.name }}, {{ destination.location }}</h1>
+                        <img src="{{ destination.image }}">
+                   </div>
+                   <div class="remove-fav-det-profile">
+                        <a href="{% url 'remove favorite' pk=destination.pk %}">Remove from favorite</a>
+                   </div>
+               </div>
             {% endfor %}
         </div>
     {% endif %}

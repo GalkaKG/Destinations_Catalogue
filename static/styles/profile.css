@@ -129,3 +129,27 @@
 .fa-solid .fa-eye .second {
     top: 69%;
 }
+
+.profile-details .favorite-destinations {
+    display: flex;
+    align-items: center;
+
+}
+
+.fav-img-details-profile {
+    width: 400px;
+}
+
+.fav-img-details-profile img{
+    width: 200px;
+    object-fit: contain;
+}
+
+.remove-fav-det-profile a {
+    font-size: 1.5rem;
+    color: #00348e;
+}
+
+.remove-fav-det-profile a:hover {
+    background-color: #b7f8f1;
+}

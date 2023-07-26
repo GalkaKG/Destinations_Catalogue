@@ -15,4 +15,4 @@ class ExploreDestinationAdmin(admin.ModelAdmin):
 
 @admin.register(Attraction)
 class AttractionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'destination', 'price', 'description']
