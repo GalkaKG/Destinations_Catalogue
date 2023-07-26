@@ -37,26 +37,26 @@
 
 <script>
     const divElements = document.querySelectorAll('.section-explore')
-    window.addEventListener("load", (event) => {
+    window.addEventListener("load", (e) => {
         divElements.forEach((el) => {
             if (el.classList.contains('Europe')) {
                 el.style.display = 'flex'
             }
         })
     });
-  document.querySelectorAll('.li-continent').forEach(anchor => {
+    document.querySelectorAll('.li-continent').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const continent = e.target.textContent.split(' ')[0]
+    e.preventDefault();
+    const continent = e.target.textContent.split(' ')[0]
 
-        divElements.forEach((div) => {
-            if (div.classList.contains(continent)) {
-                div.style.display = 'flex'
-            } else {
-                div.style.display = 'none'
-            }
-        })
-     });
+    divElements.forEach((div) => {
+       if (div.classList.contains(continent)) {
+           div.style.display = 'flex'
+       } else {
+            div.style.display = 'none'
+       }
+    })
+    });
   });
 </script>
 {% endblock %}
