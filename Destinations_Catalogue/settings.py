@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'Destinations_Catalogue.profiles',
     'Destinations_Catalogue.explore',
 
-    # Third part apps
+    # Third party apps
     'rest_framework',
     'corsheaders',
 ]
