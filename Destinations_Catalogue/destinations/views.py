@@ -6,8 +6,6 @@ from django.views.generic import CreateView, DetailView, UpdateView
 from Destinations_Catalogue.destinations.forms import DestinationCreateForm, DestinationEditForm
 from Destinations_Catalogue.destinations.models import Destination
 import requests
-import googlemaps
-from django.conf import settings
 
 
 class DestinationCreateView(CreateView):

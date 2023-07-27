@@ -6,8 +6,8 @@
         <form method="post">
         {% csrf_token %}
             <div class="btns-logout">
-                <button class="btn" type="submit"><a>Yes</a></button>
-                <button class="btn" type="submit"><a>No</a></button>
+                <button class="btn" type="submit"><a href="{% url 'delete profile' %}">Yes</a></button>
+                <button class="btn" type="submit"><a href="{% url 'details profile' %}">No</a></button>
             </div>
         </form>
     </div>

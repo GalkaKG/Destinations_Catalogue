@@ -10,7 +10,7 @@ class ContinentAdmin(admin.ModelAdmin):
 
 @admin.register(ExploreDestination)
 class ExploreDestinationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'continent']
 
 
 @admin.register(Attraction)

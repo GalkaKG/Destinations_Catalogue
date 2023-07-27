@@ -1,9 +1,11 @@
-from django.contrib.auth import get_user_model, login, logout
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect, render
-from django.views.generic import CreateView, DetailView, TemplateView, UpdateView, DeleteView
-from django.urls import reverse_lazy, reverse
+from django.views import View
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from Destinations_Catalogue.common.models import Favorite
 from Destinations_Catalogue.destinations.models import Destination
@@ -72,16 +74,31 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
         return current_profile
 
 
-class ProfileDeleteView(DeleteView):
-    model = CustomUser
-    template_name = 'profiles/delete-profile.html'
-    next_page = reverse_lazy('home')
+def option_delete_profile(request):
+    return render(request, 'profiles/delete-profile.html')
 
-    # success_url = reverse_lazy('home')
 
-    def get_object(self, queryset=None):
-        return self.request.user
+@login_required
+def delete_profile(request):
+    request.user.delete()
+    return redirect('details profile')
 
-    def post(self, *args, **kwargs):
-        self.request.user.delete()
-        return redirect('home')
+
+# class ProfileDeleteView(DeleteView):
+#     model = CustomUser
+#     template_name = 'profiles/delete-profile.html'
+#     next_page = reverse_lazy('home')
+#
+#     # success_url = reverse_lazy('home')
+#
+#     def get_object(self, queryset=None):
+#         return self.request.user
+#
+#     def post(self, *args, **kwargs):
+#         self.request.user.delete()
+#         return redirect('home')
+
+
+
+
+

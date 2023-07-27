@@ -3,7 +3,6 @@
     font-weight: bolder;
     font-size: 3rem;
     text-align: center;
-    margin-top: 5px;
 }
 
 .profile-details {
@@ -11,7 +10,6 @@
     width: 45%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    /*border-radius: 20px;*/
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
     margin-top: 20px;
@@ -20,7 +18,6 @@
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
     border-radius: 15px;
-    /*float: left;*/
     height: auto;
     position: relative;
     left: 25%;

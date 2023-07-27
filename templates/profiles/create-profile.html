@@ -4,7 +4,7 @@
 {% block content %}
     <div>
         <h1 class="profile">Create Profile</h1>
-        <form class="form" method="post" action="">
+        <form class="form" id="create-profile" method="post" action="">
              <div class="error-message">
                   {% for field in form %}
                     {% for error in field.errors %}

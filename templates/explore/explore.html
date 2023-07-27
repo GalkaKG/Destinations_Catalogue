@@ -8,7 +8,7 @@
         <nav>
             <ul role="list" class="ul-continents">
                 {% for continent in continents %}
-                    <li class="li-continent {{ continent.name|lower }}"><a href="#" id="a-continent">{{ continent }}</a> </li>
+                    <li class="li-continent {{ continent.name|lower }}"><a href="" id="a-continent">{{ continent }}</a> </li>
                 {% endfor %}
 {#                 <li class="li-continent"><a href="" id="a-continent">Europe</a> </li>#}
 {#                 <li class="li-continent"><a href="" id="a-continent">North America</a> </li>#}
@@ -47,6 +47,12 @@
     document.querySelectorAll('.li-continent').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
     e.preventDefault();
+    const allALinks = document.querySelectorAll('#a-continent')
+        allALinks.forEach((a) => {
+            a.style.textDecoration = 'none'
+        })
+
+    e.target.style.textDecoration = "underline"
     const continent = e.target.textContent.split(' ')[0]
 
     divElements.forEach((div) => {
