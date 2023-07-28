@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views import generic
 
-from Destinations_Catalogue.explore.models import Continent, ExploreDestination
+from Destinations_Catalogue.explore.models import Continent, ExploreDestination, Attraction
 
 
 # class ExploreView(ListView):
@@ -20,3 +20,14 @@ def explore(request):
     }
 
     return render(request, 'explore/explore.html', context)
+
+
+class ShowAttractionsView(generic.View):
+    template_name = 'explore/attractions.html'
+
+    def get(self, request, *args, **kwargs):
+        destination_id = kwargs.get('pk')
+        attractions = Attraction.objects.filter(destination_id=destination_id).all()
+
+        context = {'attractions': attractions}
+        return render(request, self.template_name, context)

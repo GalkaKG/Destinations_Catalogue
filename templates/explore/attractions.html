@@ -1,0 +1,11 @@
+{% extends 'common/index.html' %}
+
+{% block content %}
+    <div>
+        {% for attraction in attractions %}
+            {{ attraction.name }}
+            {{ attraction.description }}
+            {{ attraction.price }}
+        {% endfor %}
+    </div>
+{% endblock %}

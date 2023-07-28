@@ -27,7 +27,7 @@
                  {% if destination.continent_id == continent.id %}
                     <div class="section-show-continent">
                         <h2>{{ destination.name }}</h2>
-                        <a href=""><img src="{{ destination.image.url }}"></a>
+                        <a href="{% url 'attraction' destination.id %}"><img src="{{ destination.image.url }}"></a>
                     </div>
                 {% endif %}
             {% endfor %}
