@@ -1,6 +1,7 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
+    <a href="{% url 'explore' %}"><button class="button">Back</button></a>
     <h1 class="destination-name">{{ destination }} Attractions</h1>
     {% for attraction in attractions %}
         <div class="attractions-wrapper">

@@ -25,6 +25,12 @@
     font-size: 1.3rem;
 }
 
+.li-continent #a-continent:hover {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+}
+
 .section-explore {
     display: flex;
     color: #fff;

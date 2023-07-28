@@ -10,15 +10,7 @@
                 {% for continent in continents %}
                     <li class="li-continent {{ continent.name|lower }}"><a href="" id="a-continent">{{ continent }}</a> </li>
                 {% endfor %}
-{#                 <li class="li-continent"><a href="" id="a-continent">Europe</a> </li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">North America</a> </li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Asia</a> </li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Africa</a> </li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Oceania</a></li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Middle East</a></li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">South America</a></li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Caribbean</a></li>#}
-{#                 <li class="li-continent"><a href="" id="a-continent">Central America</a></li>#}
+                <li class="li-continent"><a href="" id="a-continent">Central America</a></li>
             </ul>
         </nav>
         {% for continent in continents %}
@@ -49,10 +41,12 @@
     e.preventDefault();
     const allALinks = document.querySelectorAll('#a-continent')
         allALinks.forEach((a) => {
-            a.style.textDecoration = 'none'
+            a.style.fontSize = '1.3rem'
+            a.style.color = '#b7f8f1'
         })
 
-    e.target.style.textDecoration = "underline"
+    e.target.style.color = '#fff'
+    e.target.style.fontSize = '1.7rem'
     const continent = e.target.textContent.split(' ')[0]
 
     divElements.forEach((div) => {

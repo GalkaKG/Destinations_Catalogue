@@ -41,3 +41,35 @@
 .attraction-content {
     margin-left: 5%;
 }
+
+.attractions-wrapper:last-of-type{
+    margin-bottom: 2%;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: white;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 13%;
+  position: relative;
+  top: 48px;
+}
+
+/* Hover effect */
+.button:hover {
+  background-color: #b7f8f1;
+  color: #00348e;
+}
+
+.button:active {
+  background-color: #00348e;
+  color: #fff;
+}
+
+
