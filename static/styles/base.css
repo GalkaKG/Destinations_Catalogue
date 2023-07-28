@@ -111,6 +111,17 @@ header a:hover {
     text-align: center;
     color: #9a5e33;
     margin: 2% 20% 0 20%;
+
+    opacity: 0;
+  transform: translateY(-50px);
+  animation: drop-down 1s forwards;
+}
+
+@keyframes drop-down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .destination-details {
