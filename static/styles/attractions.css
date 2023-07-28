@@ -1,0 +1,43 @@
+.destination-name {
+    margin-left: 20%;
+    color: #FCAB73;
+    color: #b7f8f1;
+}
+
+.attractions-wrapper {
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 8px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 55%;
+    margin-left: 23%;
+    margin-top: 2%;
+}
+
+.attractions {
+    display: flex;
+    flex: 1 1 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2rem;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.attractions img {
+    border-radius: 10px;
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+}
+
+.attraction-content {
+    margin-left: 5%;
+}

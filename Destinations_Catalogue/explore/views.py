@@ -27,7 +27,11 @@ class ShowAttractionsView(generic.View):
 
     def get(self, request, *args, **kwargs):
         destination_id = kwargs.get('pk')
+        destination_name = ExploreDestination.objects.get(id=destination_id).name
         attractions = Attraction.objects.filter(destination_id=destination_id).all()
 
-        context = {'attractions': attractions}
+        context = {
+            'attractions': attractions,
+            'destination': destination_name
+        }
         return render(request, self.template_name, context)

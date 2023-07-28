@@ -1,11 +1,19 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-    <div>
-        {% for attraction in attractions %}
-            {{ attraction.name }}
-            {{ attraction.description }}
-            {{ attraction.price }}
-        {% endfor %}
-    </div>
+    <h1 class="destination-name">{{ destination }} Attractions</h1>
+    {% for attraction in attractions %}
+        <div class="attractions-wrapper">
+            <div class="attractions">
+                <div>
+                    <img src="{{ attraction.image.url }}" />
+                </div>
+                <div class="attraction-content">
+                    <h2>{{ attraction.name }}</h2>
+                    <p>{{ attraction.description }}</p>
+                    <span>€&nbsp;{{ attraction.price }}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
