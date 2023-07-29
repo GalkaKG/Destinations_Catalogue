@@ -114,7 +114,7 @@ header a:hover {
 
     opacity: 0;
   transform: translateY(-50px);
-  animation: drop-down 1s forwards;
+  animation: drop-down 2s forwards;
 }
 
 @keyframes drop-down {
