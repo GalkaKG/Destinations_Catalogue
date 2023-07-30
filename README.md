@@ -35,7 +35,7 @@
   <li>Run the development server: <br />python manage.py runserver</li>
 </ol>
 
-<h2><span style="color: yellow;">&excl;</span>Important: Before running the project, you need to set up the database with initial data. For that, follow these steps:</h2>
+<h2 style="color: yellow;">Important: Before running the project, you need to set up the database with initial data. For that, follow these steps:</h2>
   <ul>
     <li>psql -h localhost -p 5432 -U postgres-user -d destinations_catalogue_db -f data-db.sql</li>
   </ul>
