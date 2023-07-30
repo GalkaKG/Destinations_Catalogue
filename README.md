@@ -35,6 +35,8 @@
   <li>Run the development server: <br />python manage.py runserver</li>
 </ol>
 
+<h2>&excl;</h2>
+
 <h2> Technologies Used </h2>
 <ul>
   <li>Django</li>
