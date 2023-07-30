@@ -8,12 +8,6 @@
                 <h1>{{ destination.name }}</h1>
                 <p>{{ destination.location }}</p>
                 <p class="destination-details commented-div">{{ destination.description }}</p>
-{#                {% if destination.hotel %}#}
-{#                    <p>Hotel: {{ destination.hotel }}</p>#}
-{#                {% endif %}#}
-{#                {% if destination.price %}#}
-{#                    <p>Price per night: {{ destination.price }}$</p>#}
-{#                {% endif %}#}
                 <div class="buttons-div">
                     <button class="btn back-btn"><a href="{% url 'catalogue' %}">Back</a></button>
                 </div>

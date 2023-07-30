@@ -15,7 +15,6 @@ class ExploreDestination(models.Model):
         on_delete=models.CASCADE,
         related_name='destinations'
     )
-    # description = models.TextField()
     image = models.ImageField(upload_to='explore/')
 
     def __str__(self):

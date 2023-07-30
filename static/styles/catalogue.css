@@ -37,13 +37,9 @@
     text-align: center;
     text-transform: uppercase;
     color: #fff;
-    /*margin-top: 30%;*/
-    /*margin-top: 10%;*/
 }
 
 .picture-content-catalogue img {
-    /*width: 420px;*/
-    /*height: 300px;*/
     width: 450px;
     height: 320px;
     object-fit: cover;
@@ -160,7 +156,7 @@
 .buttons-div {
     display: flex;
     justify-content: center;
-    /*margin-top: 5%;*/
+    margin-top: 5%;
 }
 
 

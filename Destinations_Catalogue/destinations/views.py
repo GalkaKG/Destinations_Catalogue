@@ -8,6 +8,27 @@ from Destinations_Catalogue.destinations.models import Destination
 import requests
 
 
+def get_landmarks(api_key, location, radius=5000, keyword=None):
+    endpoint = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    params = {
+        "location": location,
+        "radius": radius,
+        "key": api_key,
+        "type": "point_of_interest",
+    }
+    if keyword:
+        params["keyword"] = keyword
+
+    response = requests.get(endpoint, params=params)
+    data = response.json()
+
+    if data.get("status") == "OK":
+        return data["results"]
+    else:
+        print("Error occurred while fetching data:", data.get("error_message"))
+        return []
+
+
 class DestinationCreateView(CreateView):
     template_name = 'destinations/create-destination.html'
     form_class = DestinationCreateForm
@@ -39,9 +60,14 @@ class DestinationDetailsView(DetailView):
             location = data['results'][0]['geometry']['location']
             latitude = location['lat']
             longitude = location['lng']
+            location = f'{latitude},{longitude}'
             context['latitude'] = latitude
             context['longitude'] = longitude
-            context['address'] = f'{latitude},{longitude}'
+            context['address'] = location
+            api_key = "AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM"
+            landmarks = get_landmarks(api_key, location, keyword="historical sites")
+            landmarks = [l['name'] for l in landmarks]
+            context['landmarks'] = landmarks
         return context
 
 
@@ -76,8 +102,3 @@ def delete_destination(request, pk):
         return redirect('details profile')
 
     return render(request, 'error_pages/permission-denied.html')
-
-
-
-
-

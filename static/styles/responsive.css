@@ -74,5 +74,15 @@
     .profile-details p {
         text-align: center;
     }
+    .div-continents {
+        position: relative;
+        margin-top: 5%;
+    }
+    .div-continents h2, .div-continents p {
+        margin-left: 20%;
+    }
+    .li-continent #a-continent {
+        color: #fff;
+    }
 }
 

@@ -29,8 +29,7 @@
 
 .profile-details h1 {
     color: #fff;
-    font-size: 2rem;
-    text-align: center;
+    font-size: 1.5rem;
 }
 
 .profile-details h2 {
@@ -43,6 +42,10 @@
     font-size: 1.8rem;
 }
 
+body > main > div:nth-child(1) > p:nth-child(4) {
+    margin-bottom: 2%;
+}
+
 #created-destinations-p {
     margin-bottom: 30px;
     font-size: 2.1rem;
@@ -50,7 +53,6 @@
 
 .profile-details img {
     width: 300px;
-    height: 200px;
     object-fit: cover;
 }
 
@@ -68,6 +70,10 @@
     text-align: center;
 }
 
+.favorite-profile-header {
+    margin-bottom: 2%;
+}
+
 
 .created-destinations {
     display: flex;
@@ -79,7 +85,7 @@
 }
 
 .created-destinations .date-details {
-    margin-top: 15%;
+    margin-top: 12%;
     margin-left: 5%;
     text-align: center;
 }
@@ -104,11 +110,15 @@
 }
 
 .btns-logout a {
-    padding: 5px 25px 5px 25px;
+    padding: 5px 15px 5px 15px;
 }
 
 .btns-logout a:first-of-type {
     margin-right: 10px;
+}
+
+.destination-catalogue .profile {
+    font-size: 2.5rem;
 }
 
 .fa-eye-slash.first {
@@ -134,8 +144,14 @@
 }
 
 .fav-img-details-profile {
-    width: 400px;
+    width: 300px;
+    margin-bottom: 4%;
 }
+
+.fav-img-details-profile h1 {
+    margin-bottom: 2%;
+}
+
 
 .fav-img-details-profile img{
     width: 200px;
@@ -148,5 +164,6 @@
 }
 
 .remove-fav-det-profile a:hover {
-    background-color: #b7f8f1;
+    /*background-color: #b7f8f1;*/
+    text-shadow: #b7f8f1;
 }

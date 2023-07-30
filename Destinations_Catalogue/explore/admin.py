@@ -11,8 +11,10 @@ class ContinentAdmin(admin.ModelAdmin):
 @admin.register(ExploreDestination)
 class ExploreDestinationAdmin(admin.ModelAdmin):
     list_display = ['name', 'continent']
+    ordering = ('continent__name', 'name')
 
 
 @admin.register(Attraction)
 class AttractionAdmin(admin.ModelAdmin):
     list_display = ['name', 'destination', 'price', 'description']
+    ordering = ('destination__name', 'name')
