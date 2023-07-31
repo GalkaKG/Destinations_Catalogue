@@ -22,12 +22,15 @@ gmp-map {
     background: #fff;
 }
 
+.api-landmarks::-webkit-scrollbar-thumb:hover {
+    background: #00348e;
+}
+
 .api-landmarks ol {
     display: flex;
     flex-direction: column;
     color: #fff;
     font-size: 1.5rem;
-    overflow: scroll;
     text-align: center;
 }
 
@@ -45,3 +48,4 @@ gmp-map {
 .description-destination {
     width: 50%;
 }
+

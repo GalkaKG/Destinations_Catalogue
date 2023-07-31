@@ -188,7 +188,6 @@
 /*}*/
 
 
-/* ... Previous styles remain the same ... */
 
 /* New styles for the pagination links */
 .pagination {
@@ -224,6 +223,19 @@
   font-weight: bold;
 }
 
+/* Add the CSS animation */
+@keyframes slideLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
+/* Apply the animation to the "forms" div with class "animation-slide-left" */
+.img-destination {
+  animation: slideLeft 3s; /* Adjust the duration (0.5s) as needed */
+}
 
 

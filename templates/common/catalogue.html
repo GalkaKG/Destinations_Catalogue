@@ -48,7 +48,7 @@
         <div class="destination-catalogue">
             <div class="picture-content-catalogue">
                 <div class="forms">
-                    <img class="img-destination" src="{{ destination.image }}">
+                    <img class="img-destination animation-slide-left" src="{{ destination.image }}">
                     <p>Posted by {{ destination|filter_author }}</p>
                      <div class="buttons-catalogue">
                          {% if destination.id in liked_destinations %}
@@ -250,7 +250,7 @@
     {# });#}
 
 
-    </script>
+  </script>
 <footer>
     <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>
       <div id="connect">

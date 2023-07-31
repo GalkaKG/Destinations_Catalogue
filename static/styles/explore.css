@@ -55,5 +55,17 @@
     left: 5%;
     font-size: 1.5rem;
     font-weight: bolder;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.section-show-continent img {
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Add any other properties as needed */
+}
+
+.section-show-continent img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
