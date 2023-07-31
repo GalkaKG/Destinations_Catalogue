@@ -31,7 +31,7 @@
           </ul>
           <ul role="list" class="nav-ul">
           {% if not user.is_authenticated %}
-                <li><a href="{% url 'create profile' %}">SignIn</a></li>
+                <li><a href="{% url 'create profile' %}">Register</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
           {% else %}
                 <li><a href="{% url 'create destination' %}">Add Destination</a></li>

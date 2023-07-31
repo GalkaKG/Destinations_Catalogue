@@ -4,7 +4,9 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views, View
+from rest_framework import status
 from rest_framework.generics import UpdateAPIView
+from rest_framework.response import Response
 
 from Destinations_Catalogue.common.forms import SearchForm, CommentForm, EditCommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
@@ -28,15 +30,17 @@ def catalogue(request):
     search_query = request.GET.get('search', '')
     destinations = Destination.objects.all().order_by('id')
 
-    # items_per_page = 3  # Number of items to display per page
-    # queryset = Destination.objects.all()
-    #
-    # paginator = Paginator(queryset, items_per_page)
-    # page_number = request.GET.get('page')  # Get the page number from the query parameters
-    # page_obj = paginator.get_page(page_number)
+    items_per_page = 3
+    queryset = Destination.objects.all().order_by('id')
 
     if search_query:
         destinations = destinations.filter(name__icontains=search_query)
+        queryset = queryset.filter(name__icontains=search_query)
+
+    paginator = Paginator(queryset, items_per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    total_pages = paginator.num_pages
 
     context = {
         'destinations': destinations,
@@ -44,7 +48,8 @@ def catalogue(request):
         'comments': Comment.objects.all(),
         'form': CommentForm(),
         'search_query': search_query,
-        # 'page_obj': page_obj
+        'page_obj': page_obj,
+        'total_pages': total_pages
     }
 
     user = request.user
@@ -75,13 +80,13 @@ class EditCommentAPIView(UpdateAPIView):
     serializer_class = CommentSerializer
 
     def put(self, request, *args, **kwargs):
-        print(request)
         comment = self.get_object()
         serializer = self.get_serializer(comment, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        return redirect('catalogue')
+        # return redirect('catalogue')
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 def delete_comment(request, pk):

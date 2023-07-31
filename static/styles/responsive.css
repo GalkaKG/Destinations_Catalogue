@@ -80,9 +80,17 @@
     }
     .div-continents h2, .div-continents p {
         margin-left: 20%;
+        font-size: 2rem;
     }
     .li-continent #a-continent {
         color: #fff;
+        font-size: 2.2rem;
+    }
+    .button {
+        top: 0;
+    }
+    .destination-name {
+        color: #FCAB73;
     }
 }
 

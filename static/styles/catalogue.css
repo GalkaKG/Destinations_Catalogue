@@ -40,8 +40,8 @@
 }
 
 .picture-content-catalogue img {
-    width: 450px;
-    height: 320px;
+    width: 400px;
+    height: 280px;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -56,6 +56,7 @@
     font-size: 1.5rem;
     color: #fff;
     text-align: center;
+    margin-bottom: 2%;
 }
 
 .buttons-catalogue {
@@ -131,15 +132,16 @@
     position: relative;
 }
 
-/*body > main > div:nth-child(3) > div > div.comments-div > div.commented-div > div > p.from-them {*/
-/*    border: 2px gray solid;*/
-/*    border-radius: 50px 20px 20px 0;*/
-/*}*/
-
 .commented-div {
-    height: 150px;
+    height: 180px;
     overflow: scroll;
+    /*margin-left: 10%;*/
 }
+
+.comments-div .commented-div {
+    height: 160px;
+}
+
 
 .commented-div::-webkit-scrollbar {
   width: 10px;
@@ -159,103 +161,69 @@
     margin-top: 5%;
 }
 
+.destination-details > textarea {
+    border: none;
+}
 
+.destination-details > textarea:focus {
+    outline: none;
+}
+
+.main-catalogue {
+    display: flex;
+    flex-direction: column;
+}
 
 /*Paginator CSS*/
 
-.next {
-    position: absolute;
-    right: 7%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.previous {
-    position: absolute;
-    left: 7%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.page-number {
-    color: white;
-}
-
-.section {
-    position: absolute;
-    left: 20px;
-    top: 250px;
-}
-
-/*.imessage p {*/
-/*  border-radius: 1.15rem;*/
-/*  line-height: 1.25;*/
-/*  max-width: 100%;*/
-/*  padding: 0.5rem .875rem;*/
-/*  position: relative;*/
-/*  word-wrap: break-word;*/
-/*}*/
-
-/*.imessage p::before,*/
-/*.imessage p::after {*/
-/*  bottom: -0.1rem;*/
-/*  content: "";*/
-/*  height: 1rem;*/
-/*  position: absolute;*/
-/*}*/
-
-/*p.from-them {*/
-/*  align-items: flex-start;*/
-/*  background-color: #e5e5ea;*/
-/*  color: #000;*/
-/*    padding-right: 20%;*/
-/*    position: relative;*/
-/*}*/
-
-/*p.from-them:before {*/
-/*  border-bottom-right-radius: 0.8rem 0.7rem;*/
-/*  border-left: 1rem solid #e5e5ea;*/
-/*  left: -0.35rem;*/
-/*  transform: translate(0, -0.1rem);*/
-/*}*/
-
-/*p.from-them::after {*/
-/*  background-color: #fff;*/
-/*  border-bottom-right-radius: 0.5rem;*/
-/*  left: 20px;*/
-/*  transform: translate(-30px, -2px);*/
-/*  width: 10px;*/
-/*}*/
-
-.pagination-container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-
 /*.pagination {*/
-/*    display: flex;*/
-/*    justify-content: space-evenly;*/
-/*    align-items: center;*/
-/*    margin-top: 1.5rem;*/
+/*    text-align: center;*/
 /*}*/
 
-/*.pagination div {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    flex-basis: 33.33%;*/
-/*    flex-grow: 1;*/
+/*.previous, .current-page, .next {*/
+/*    font-size: 2.2rem;*/
+/*    color: #fff;*/
+/*    font-weight: bolder;*/
+/*    margin: 0 5px;*/
 /*}*/
 
-/*.pagination a,*/
-/*.pagination span {*/
-/*    text-decoration: none;*/
-/*    color: #f3efec;*/
-/*    font-size: 24px;*/
-/*    !*text-shadow: 4px 4px 8px black;*!*/
-/*    !*background-color: black;*!*/
-/*    !*border-radius: 20px 0 20px 0;*!*/
-/*    !*padding: 5px 15px;*!*/
-/*}*/
+
+/* ... Previous styles remain the same ... */
+
+/* New styles for the pagination links */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+    color: #00348e;
+}
+
+.pagination a,
+.pagination span {
+  padding: 5px 10px;
+  margin: 0 2px;
+  text-decoration: none;
+  /*color: #333;*/
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #f2f2f2;
+}
+
+.pagination .current-page {
+  background-color: #f2f2f2;
+}
+
+/* The style for the arrows */
+.pagination a:first-child,
+.pagination a:last-child {
+  font-weight: bold;
+}
+
+
+
+

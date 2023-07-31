@@ -1,5 +1,47 @@
 gmp-map {
-    height: 350px;
-    width: 80%;
-    margin: 50px 0 0 12%;
+    height: 280px;
+    width: 50%;
+    margin: 7% 2% 0 8%;
+}
+
+.api-wrapper {
+    display: flex;
+}
+
+.api-landmarks {
+    height: 200px;
+    margin-top: 5%;
+    overflow: scroll;
+}
+
+.api-landmarks::-webkit-scrollbar {
+  width: 10px;
+}
+
+.api-landmarks::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+.api-landmarks ol {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1.5rem;
+    overflow: scroll;
+    text-align: center;
+}
+
+.popular-attractions-div .popular-attractions-api {
+    color: #33fd01;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.popular-attractions-div {
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.description-destination {
+    width: 50%;
 }

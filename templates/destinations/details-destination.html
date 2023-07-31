@@ -4,18 +4,32 @@
     <div class="destination-catalogue">
         <div class="picture-content-catalogue">
             <img src="{{ destination.image }}">
-            <div>
+            <div class="description-destination">
                 <h1>{{ destination.name }}</h1>
                 <p>{{ destination.location }}</p>
                 <p class="destination-details commented-div">{{ destination.description }}</p>
-                <div class="buttons-div">
-                    <button class="btn back-btn"><a href="{% url 'catalogue' %}">Back</a></button>
-                </div>
             </div>
         </div>
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM&callback=initMap&libraries=maps,marker&v=beta">
-    </script>
-    <gmp-map center="{{ latitude }},{{ longitude }}" zoom="10" map-id="DEMO_MAP_ID" ></gmp-map>
+        <div class="api-wrapper">
+        <div class="popular-attractions-div">
+             <p class="popular-attractions-api">Popular Attractions Nearby</p>
+            <div class="api-landmarks">
+
+                <ol role="list">
+                    {% for landmark in landmarks %}
+                        <li>{{ landmark }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+
+             <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM&callback=initMap&libraries=maps,marker&v=beta">
+            </script>
+            <gmp-map center="{{ latitude }},{{ longitude }}" zoom="10" map-id="DEMO_MAP_ID" ></gmp-map>
+        </div>
+        <div class="buttons-div">
+            <button class="btn back-btn"><a href="{% url 'catalogue' %}">Back</a></button>
+        </div>
     </div>
 {% endblock %}

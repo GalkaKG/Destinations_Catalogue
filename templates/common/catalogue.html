@@ -32,7 +32,7 @@
       </ul>
       <ul role="list" class="register-btns">
       {% if not user.is_authenticated %}
-            <li><a href="{% url 'create profile' %}">Sign in</a></li>
+            <li><a href="{% url 'create profile' %}">Register</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
       {% else %}
             <li><a href="{% url 'create destination' %}">Add Destination</a></li>
@@ -43,11 +43,11 @@
     </nav>
   </header>
 
-  <main>
-    {% for destination in destinations %}
+  <main class="main-catalogue">
+    {% for destination in page_obj %}
         <div class="destination-catalogue">
             <div class="picture-content-catalogue">
-                <div>
+                <div class="forms">
                     <img class="img-destination" src="{{ destination.image }}">
                     <p>Posted by {{ destination|filter_author }}</p>
                      <div class="buttons-catalogue">
@@ -96,59 +96,33 @@
         </div>
     {% endfor %}
 
+  {#    Paginator -- Start #}
 
-    {% if not destinations %}
-        <div class="destination-catalogue">
-            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>
-        </div>
-    {% endif %}
-  </main>
 
-  <script>
-      const currentUser = '{{ user }}';
-      const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
-      const csrfToken = tokenInput.value;
+  <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; First</a>
+        <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; Previous</a>
+      {% endif %}
 
-        document.querySelectorAll('.fa-pencil').forEach(
-            (btn) => {
-                btn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    const commentForm = document.querySelector('form.destination-details')
-                    const commentTextArea = document.querySelector('form.destination-details textarea')
-                    let idComment = event.target.parentNode.parentNode.id
-                    let commentUser = event.target.parentNode.parentNode.parentNode.querySelector('.comment-user').textContent
-                    let content = event.target.parentNode.parentNode.textContent
+      {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+          <span class="current-page">{{ num }}</span>
+        {% elif num == page_obj.number|add:'1' or num == page_obj.paginator.num_pages %}
+          <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
 
-                    if (currentUser === commentUser) {
-                        commentTextArea.value = content
-                    }
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &rsaquo;</a>
+        <a href="?page={{ total_pages }}">Last &raquo;</a>
+      {% endif %}
+    </div>
 
-                    document.querySelector('#comment-btn').addEventListener('click', (event) => {
-                        const updatedContent = commentTextArea.value;
-                        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`
 
-                        fetch(BASE_URL, {
-                            method: 'PUT',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRFToken': csrfToken
-                            },
-                            body: JSON.stringify({
-                                "content": updatedContent,
-                            })
-                        })
-
-                    })
-                })}
-            )
-
-    </script>
-
-  {#  Paginator -- Start #}
-
-{#      <div class="pagination">#}
+{#    <div class="pagination">#}
 {#    {% if page_obj.has_previous %}#}
-{#        <a class="previous" href="?page={{ page_obj.previous_page_number }}">#}
+{#        <a class="previous" href="?search={{ search_query }}&page={{ page_obj.previous_page_number }}">#}
 {#            <span class="page-number">{{ page_obj.previous_page_number }}</span>#}
 {#            <i class="fa-solid fa-chevron-left"></i>#}
 {#        </a>#}
@@ -172,6 +146,111 @@
 
 {#  Paginator --End #}
 
+  </main>
+
+  <script>
+
+      const currentUser = '{{ user }}';
+      const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
+      const csrfToken = tokenInput.value;
+
+        document.querySelectorAll('.fa-pencil').forEach(
+            (btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const parentDiv = event.target.closest('.destination-catalogue');
+                    const commentText = parentDiv.querySelector('.from-them');
+                    let commentUser = parentDiv.querySelector('.comment-user').textContent;
+                    let content = commentText.textContent;
+                    let idComment = event.target.parentNode.parentNode.id
+
+
+                    if (currentUser === commentUser) {
+                        const commentTextArea = parentDiv.querySelector('form.destination-details textarea')
+                        commentTextArea.value = content
+                    }
+
+                    document.querySelector('#comment-btn').addEventListener('click', (event) => {
+                        const updatedContent = commentTextArea.value;
+                        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`
+
+                        fetch(BASE_URL, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': csrfToken
+                            },
+                            body: JSON.stringify({
+                                "content": updatedContent,
+                            })
+                        })
+
+                    })
+                })}
+            )
+
+    {#  const currentUser = '{{ user }}';#}
+    {#const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');#}
+    {#const csrfToken = tokenInput.value;#}
+    {##}
+    {#document.querySelectorAll('.fa-pencil').forEach((btn) => {#}
+    {#    btn.addEventListener('click', (event) => {#}
+    {#        event.preventDefault();#}
+    {#        const parentDiv = event.target.closest('.destination-catalogue');#}
+    {#        const commentText = parentDiv.querySelector('.from-them');#}
+    {#        let idComment = commentText.id;#}
+    {#        let commentUser = parentDiv.querySelector('.comment-user').textContent;#}
+    {#        let content = commentText.textContent;#}
+    {##}
+    {#        if (currentUser === commentUser) {#}
+    {#            const commentTextArea = parentDiv.querySelector('form.destination-details textarea');#}
+    {#            commentTextArea.value = content;#}
+    {#            // Store the comment ID in the form's data attribute for later use#}
+    {#            const commentForm = parentDiv.querySelector('form.destination-details');#}
+    {#            commentForm.dataset.commentId = idComment;#}
+    {#        }#}
+    {#    });#}
+    {# });  #}
+    {##}
+    {#// Handle the form submission#}
+    {#document.querySelectorAll('#comment-btn').forEach((button) => {#}
+    {#    button.addEventListener('click', (event) => {#}
+    {#        event.preventDefault();#}
+    {#        const commentForm = event.target.closest('.destination-catalogue').querySelector('form.destination-details');#}
+    {#        let idComment = commentForm.dataset.commentId;#}
+    {#        const updatedContent = commentForm.querySelector('textarea').value;#}
+    {#        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`;#}
+    {##}
+    {#        fetch(BASE_URL, {#}
+    {#            method: 'PUT',#}
+    {#            headers: {#}
+    {#                'Content-Type': 'application/json',#}
+    {#                'X-CSRFToken': csrfToken#}
+    {#            },#}
+    {#            body: JSON.stringify({#}
+    {#                "content": updatedContent,#}
+    {#            })#}
+    {#        })#}
+    {#        .then((response) => {#}
+    {#            // Handle the response if needed#}
+    {#            if (response.ok) {#}
+    {#                // Update the comment content on success#}
+    {#                const commentText = commentForm.closest('.destination-catalogue').querySelector('.from-them');#}
+    {#                commentText.textContent = updatedContent;#}
+    {#            } else {#}
+    {#                // Handle errors here if the edit was not successful#}
+    {#            }#}
+    {#        })#}
+    {#        .catch((error) => {#}
+    {#            // Handle fetch errors here#}
+    {#            console.error('Error during fetch:', error);#}
+    {#        });#}
+    {#    });#}
+    {# });#}
+
+
+    </script>
 <footer>
     <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>
       <div id="connect">
