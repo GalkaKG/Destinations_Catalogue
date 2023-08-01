@@ -98,11 +98,10 @@
 
   {#    Paginator -- Start #}
 
-
   <div class="pagination">
       {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; First</a>
-        <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; Previous</a>
+        <a href="?page=1">&laquo; </a>
+        <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; </a>
       {% endif %}
 
       {% for num in page_obj.paginator.page_range %}
@@ -114,38 +113,10 @@
       {% endfor %}
 
       {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next &rsaquo;</a>
-        <a href="?page={{ total_pages }}">Last &raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}"> &rsaquo;</a>
+        <a href="?page={{ total_pages }}"> &raquo;</a>
       {% endif %}
     </div>
-
-
-{#    <div class="pagination">#}
-{#    {% if page_obj.has_previous %}#}
-{#        <a class="previous" href="?search={{ search_query }}&page={{ page_obj.previous_page_number }}">#}
-{#            <span class="page-number">{{ page_obj.previous_page_number }}</span>#}
-{#            <i class="fa-solid fa-chevron-left"></i>#}
-{#        </a>#}
-{#    {% endif %}#}
-{##}
-{#    <span class="current-page">{{ page_obj.number }}</span>#}
-{##}
-{#    {% if page_obj.has_next %}#}
-{#        <a class="next" href="?page={{ page_obj.next_page_number }}">#}
-{#            <i class="fa-solid fa-chevron-right"></i>#}
-{#            <span class="page-number">{{ page_obj.next_page_number }}</span>#}
-{#        </a>#}
-{#    {% endif %}#}
-{#    </div>#}
-{##}
-{#    {% if not page_obj %}#}
-{#        <div class="destination-catalogue">#}
-{#            <p>There is no one destination at this moment <i class="fa-regular fa-face-pensive"></i></p>#}
-{#        </div>#}
-{#    {% endif %}#}
-
-{#  Paginator --End #}
-
   </main>
 
   <script>
@@ -252,7 +223,7 @@
 
   </script>
 <footer>
-    <p>&copy; 2023 Destination Catalogue. All rights reserved.</p>
+    <p>&copy; 2023 Destination Catalogue. G.Georgieva - All rights reserved.</p>
       <div id="connect">
           <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i></a>

@@ -2,13 +2,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy
-from django.views import generic as views, View
+from django.views import generic as views
 from rest_framework import status
 from rest_framework.generics import UpdateAPIView
 from rest_framework.response import Response
 
-from Destinations_Catalogue.common.forms import SearchForm, CommentForm, EditCommentForm
+from Destinations_Catalogue.common.forms import SearchForm, CommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
 from .serializers import CommentSerializer
