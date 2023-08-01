@@ -662,9 +662,18 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.common_comment (id, content, created_date, author_id, destination_id) FROM stdin;
+47	ok ok ok ok ok ok ok ok	2023-07-30 11:26:54.56511+00	9	33
+58	DA DA DA	2023-07-30 14:54:44.033453+00	9	33
+59	OK	2023-07-30 17:32:12.497965+00	9	33
+60	I want to go there	2023-07-31 11:33:23.603856+00	5	36
 26	auuuuu cool	2023-07-12 20:02:33.265999+00	5	32
+61	This place is amazing	2023-07-31 11:33:43.812838+00	5	35
+62	Looks like a paradise	2023-07-31 11:34:16.545115+00	5	34
 29	LOL	2023-07-22 10:53:18.28588+00	5	31
 27	test	2023-07-14 14:26:09.652902+00	5	31
+42	Lovely	2023-07-30 08:05:18.191493+00	9	34
+57	Very romantic place	2023-07-30 13:49:03.439317+00	9	33
+46	прекрасно е, наистина	2023-07-30 11:23:56.642468+00	9	33
 \.
 
 
@@ -673,10 +682,12 @@ COPY public.common_comment (id, content, created_date, author_id, destination_id
 --
 
 COPY public.common_favorite (id, destination_id, user_id) FROM stdin;
-25	31	9
-27	33	9
-28	31	5
 29	32	5
+31	31	5
+36	36	5
+37	34	5
+40	32	9
+41	34	9
 \.
 
 
@@ -685,8 +696,15 @@ COPY public.common_favorite (id, destination_id, user_id) FROM stdin;
 --
 
 COPY public.common_like (id, destination_id, user_id) FROM stdin;
-63	31	9
+64	34	9
+65	33	9
+66	36	9
+67	37	9
+68	36	5
+69	34	5
+70	35	5
 16	31	5
+73	31	9
 \.
 
 
@@ -695,6 +713,10 @@ COPY public.common_like (id, destination_id, user_id) FROM stdin;
 --
 
 COPY public.destinations_destination (id, name, location, description, image, created_at, updated_at, creator_id) FROM stdin;
+35	New York	USA	New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough that’s among the world’s major commercial, financial and cultural centers. Its iconic sites include skyscrapers such as the Empire State Building and sprawling Central Park. Broadway theater is staged in neon-lit Times Square.	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxL8cUOPoWQYd96gw6zutBsFYrJz8jyD45XQ&usqp=CAU	2023-07-30 15:30:39.841741+00	2023-07-30 15:30:39.841741+00	9
+36	Machu Picchu	Peru‎	Machu Picchu is an Incan citadel set high in the Andes Mountains in Peru, above the Urubamba River valley. Built in the 15th century and later abandoned, it’s renowned for its sophisticated dry-stone walls that fuse huge blocks without the use of mortar, intriguing buildings that play on astronomical alignments and panoramic views. Its exact former use remains a mystery.	https://pactodealcaldes-la.org/wp-content/uploads/2021/05/machu-picchu-istock.jpg	2023-07-30 15:33:58.596966+00	2023-07-30 15:33:58.596966+00	9
+37	Taj Mahal	India‎	The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India. It was commissioned in 1631 by the fifth Mughal emperor, Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GgjNxF6R0AEAoQrfIZbpsnAXF2MdEEpnCg&usqp=CAU	2023-07-30 15:36:46.828382+00	2023-07-30 15:36:46.828382+00	9
+34	Bandos	Maldivies	Bandos Island is one of the most famous islands in Maldives. It is located in the North Male Atoll. This charming private resort island is spread across 180,000 sqm. Enjoy the exclusivity of staying in the island resort and the chance to explore the island as you wish.	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVSlgp4XjnzFi6dURNKku-ht--dTa-5n8Njw&usqp=CAU	2023-07-30 07:50:48.851461+00	2023-07-31 12:04:00.418724+00	9
 32	Punta Cana	Dominicana	Nice beach	https://www.riu.com/blog/wp-content/uploads/2018/07/shutterstock_310904339.jpg	2023-07-12 19:12:43.812877+00	2023-07-25 05:38:42.853185+00	5
 33	Paris	France	Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture and designer boutiques along the Rue du Faubourg Saint-Honoré.	https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900	2023-07-13 09:03:13.511457+00	2023-07-25 05:38:52.356492+00	5
 31	Varna	Bulgaria	Varna is a port city and seaside resort on Bulgaria's Black Sea, next to the coastal resorts of Golden Sands, St. Konstantin and Albena. It's famous for the "Gold of Varna," 6,000-year-old Thracian jewelry discovered in a necropolis, which is displayed inside the Archaeological Museum, along with Greek, Roman and Ottoman antiquities. A bar-lined waterfront promenade fronts 19th-century Primorski Park.	https://bulgariatravel.org/wp-content/uploads/2020/imported/205_1.jpg	2023-07-12 18:55:43.563414+00	2023-07-30 05:25:18.389056+00	5
@@ -807,7 +829,8 @@ COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 gt1lhj5me57godu9dom44a9k6wb5o9fj	.eJxVjEEOwiAQRe_C2hAqdAZcuu8ZCAODVA0kpV0Z765NutDtf-_9l_BhW4vfOi9-TuIitDj9bhTig-sO0j3UW5Ox1XWZSe6KPGiXU0v8vB7u30EJvXxrRUCWKeiB9JiV0VYTa3sOQKCQAdAMwA6d4oyO7YhgMGYAaxAxOfH-ANUuNxI:1qKJk3:hjH8sVQjltmEmG-lid8L0cCR5Dmok6XwykQeYH_WMi4	2023-07-28 14:25:55.232822+00
 8msywtx85u35tr8kr2fy9ie96t3frtu1	.eJxVjDsOwjAQBe_iGlnEsR0vJX3OEK33gwPIkfKpEHeHSCmgfTPzXmbAbS3Dtsg8jGwuBszpd8tID6k74DvW22Rpqus8Zrsr9qCL7SeW5_Vw_w4KLuVbn6nTFEAbEY4uheCoUa8OkAGci76VgEC5SxiUvUbPEahlVUpIWcz7A_HSOO4:1qOw9t:w1Ed8Kesj01IODRVo2W7ZatqJC5mx0gKvMHAIKSre_s	2023-08-10 08:15:41.888838+00
 52qb7syleku1ooleovukulccpbdtk512	.eJxVjEEOwiAQRe_C2hAqdAZcuu8ZCAODVA0kpV0Z765NutDtf-_9l_BhW4vfOi9-TuIitDj9bhTig-sO0j3UW5Ox1XWZSe6KPGiXU0v8vB7u30EJvXxrRUCWKeiB9JiV0VYTa3sOQKCQAdAMwA6d4oyO7YhgMGYAaxAxOfH-ANUuNxI:1qLji6:giWeAnZtWnj7EwWc18-PVvorDMvNdMmgLSnFhDrB0d4	2023-08-01 12:21:46.648348+00
-1pxrl8c6fzwggympv2juij4jln3op1ec	.eJxVjMsOwiAQRf-FtSG8GVy69xsIA4xUDU1KuzL-uzbpQrf3nHNfLKZtbXEbdYlTYWdm2el3w5Qfte-g3FO_zTzPfV0m5LvCDzr4dS71eTncv4OWRvvW2SpIhayTQRZCyt4AgAadtEcUNaADGTS5rLwkhcJ4a5C0IiUkisLeH-Z_N6c:1qPyJD:6UKjmDm6aSfi8_AdGZITUV_hJD24JDsjEDszd6IVmNI	2023-08-13 04:45:35.023851+00
+oujubqqr0bup87vcm60mhnwbp3lnkgs8	.eJxVjDsOwjAQBe_iGlnEsR0vJX3OEK33gwPIkfKpEHeHSCmgfTPzXmbAbS3Dtsg8jGwuBszpd8tID6k74DvW22Rpqus8Zrsr9qCL7SeW5_Vw_w4KLuVbn6nTFEAbEY4uheCoUa8OkAGci76VgEC5SxiUvUbPEahlVUpIWcz7A_HSOO4:1qQ3wO:bxzb4-F3Db5Uvlzx-f-350QSOEqtOyJ3WdoTTbPcSRQ	2023-08-13 10:46:24.182671+00
+qd12qqj7hen2x4ah2514n15awcjfay65	.eJxVjDsOwjAQBe_iGlnEsR0vJX3OEK33gwPIkfKpEHeHSCmgfTPzXmbAbS3Dtsg8jGwuBszpd8tID6k74DvW22Rpqus8Zrsr9qCL7SeW5_Vw_w4KLuVbn6nTFEAbEY4uheCoUa8OkAGci76VgEC5SxiUvUbPEahlVUpIWcz7A_HSOO4:1qQnYN:ZMDbucWO6C5wI7RIbCrGQjZpw7SUdSojPbALaWqi_yA	2023-08-15 11:28:39.366624+00
 \.
 
 
@@ -915,8 +938,8 @@ COPY public.explore_exploredestination (id, name, continent_id, image) FROM stdi
 --
 
 COPY public.profiles_customuser (id, password, last_login, username, email, is_active, is_staff, is_superuser) FROM stdin;
-9	pbkdf2_sha256$600000$3IALZQTTCqk9z5IGuq0fr2$3QNUV7GoXAypFd0Os7nfIhdamzwMvk4/IgGI2yDmMEs=	2023-07-29 17:49:45.973596+00	galina		t	t	t
-5	pbkdf2_sha256$600000$AGzP8vuo0cMK6KBCrOhpTl$lB835YEmcL2MSeeJN+lO5lAPT6aGqE51K81OoICTkH8=	2023-07-30 04:45:35.01319+00	galka	galka@abv.bg	t	f	f
+5	pbkdf2_sha256$600000$AGzP8vuo0cMK6KBCrOhpTl$lB835YEmcL2MSeeJN+lO5lAPT6aGqE51K81OoICTkH8=	2023-07-31 11:30:33.641323+00	galka	galka@abv.bg	t	f	f
+9	pbkdf2_sha256$600000$3IALZQTTCqk9z5IGuq0fr2$3QNUV7GoXAypFd0Os7nfIhdamzwMvk4/IgGI2yDmMEs=	2023-08-01 11:28:39.357352+00	galina		t	t	t
 \.
 
 
@@ -942,8 +965,8 @@ COPY public.profiles_customuser_user_permissions (id, customuser_id, permission_
 --
 
 COPY public.profiles_profilemodel (id, first_name, last_name, age, gender, image, profile_id) FROM stdin;
-9	\N	\N	\N	\N		9
 5	Galina	Georgieva	32	Female	profile_pics/Mental-Strong-Women-min.jpg	5
+9	Galina	G	18	Female	profile_pics/Mental-Strong-Women-min_sGjSVre.jpg	9
 \.
 
 
@@ -972,28 +995,28 @@ SELECT pg_catalog.setval('public.auth_permission_id_seq', 56, true);
 -- Name: common_comment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres-user
 --
 
-SELECT pg_catalog.setval('public.common_comment_id_seq', 41, true);
+SELECT pg_catalog.setval('public.common_comment_id_seq', 65, true);
 
 
 --
 -- Name: common_favorite_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres-user
 --
 
-SELECT pg_catalog.setval('public.common_favorite_id_seq', 29, true);
+SELECT pg_catalog.setval('public.common_favorite_id_seq', 42, true);
 
 
 --
 -- Name: common_like_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres-user
 --
 
-SELECT pg_catalog.setval('public.common_like_id_seq', 63, true);
+SELECT pg_catalog.setval('public.common_like_id_seq', 73, true);
 
 
 --
 -- Name: destinations_destination_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres-user
 --
 
-SELECT pg_catalog.setval('public.destinations_destination_id_seq', 33, true);
+SELECT pg_catalog.setval('public.destinations_destination_id_seq', 37, true);
 
 
 --
