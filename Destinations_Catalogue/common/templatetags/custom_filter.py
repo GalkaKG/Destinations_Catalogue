@@ -13,7 +13,7 @@ def filter_likes(value):
 
 @register.filter(name="filter_comments")
 def filter_comments(value):
-    return Comment.objects.filter(destination_id=value.id).all()
+    return Comment.objects.filter(destination_id=value.id).all().order_by('id')
 
 
 @register.filter(name="filter_author_comment")

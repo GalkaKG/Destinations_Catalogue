@@ -44,7 +44,7 @@ def catalogue(request):
     context = {
         'destinations': destinations,
         'likes': Like.objects.all(),
-        'comments': Comment.objects.all(),
+        'comments': Comment.objects.all().order_by('id'),
         'form': CommentForm(),
         'search_query': search_query,
         'page_obj': page_obj,
@@ -84,8 +84,26 @@ class EditCommentAPIView(UpdateAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
+        response_data = {
+            "updated_comment": serializer.data,
+            # "all_destination_comments": all_destination_comments_serializer.data,
+        }
         # return redirect('catalogue')
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(response_data, status=status.HTTP_200_OK)
+
+
+# class EditCommentAPIView(UpdateAPIView):
+#     queryset = Comment.objects.all()
+#     serializer_class = CommentSerializer
+#
+#     def put(self, request, *args, **kwargs):
+#         comment = self.get_object()
+#         serializer = self.get_serializer(comment, data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#
+#         # return redirect('catalogue')
+#         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 def delete_comment(request, pk):
@@ -140,3 +158,7 @@ class LikeView(LoginRequiredMixin, views.View):
 
 def page_not_found(request, exception):
     return render(request, 'error_pages/404.html')
+
+
+def permission_denied_view(request):
+    return render(request, 'error_pages/permission-denied.html')

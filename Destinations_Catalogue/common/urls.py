@@ -9,6 +9,7 @@ urlpatterns = (
     path('like/<int:pk>/', views.LikeView.as_view(), name='like'),
     path('api/edit_comment/<int:pk>/', views.EditCommentAPIView.as_view(), name='edit comment'),
     path('remove_favorite/<int:pk>/', views.RemoveFavoriteView.as_view(), name='remove favorite'),
+    path('permission-denied/', views.permission_denied_view, name='permission denied'),
 )
 
 

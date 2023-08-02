@@ -1,3 +1,13 @@
+@media screen and (max-width: 1405px) {
+    header a {
+        font-size: 0.8rem;
+    }
+    #searchbar input {
+        width: 220px;
+        margin-left: 10px;
+    }
+}
+
 @media screen and (max-width: 1165px) {
   header li {
     margin: auto;
@@ -93,4 +103,3 @@
         color: #FCAB73;
     }
 }
-

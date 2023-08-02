@@ -119,109 +119,12 @@
     </div>
   </main>
 
-  <script>
+ <script>
 
-      const currentUser = '{{ user }}';
-      const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
-      const csrfToken = tokenInput.value;
-
-        document.querySelectorAll('.fa-pencil').forEach(
-            (btn) => {
-                btn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    const parentDiv = event.target.closest('.destination-catalogue');
-                    const commentText = parentDiv.querySelector('.from-them');
-                    let commentUser = parentDiv.querySelector('.comment-user').textContent;
-                    let content = commentText.textContent;
-                    let idComment = event.target.parentNode.parentNode.id
-
-
-                    if (currentUser === commentUser) {
-                        const commentTextArea = parentDiv.querySelector('form.destination-details textarea')
-                        commentTextArea.value = content
-                    }
-
-                    document.querySelector('#comment-btn').addEventListener('click', (event) => {
-                        const updatedContent = commentTextArea.value;
-                        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`
-
-                        fetch(BASE_URL, {
-                            method: 'PUT',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRFToken': csrfToken
-                            },
-                            body: JSON.stringify({
-                                "content": updatedContent,
-                            })
-                        })
-
-                    })
-                })}
-            )
-
-    {#  const currentUser = '{{ user }}';#}
-    {#const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');#}
-    {#const csrfToken = tokenInput.value;#}
-    {##}
-    {#document.querySelectorAll('.fa-pencil').forEach((btn) => {#}
-    {#    btn.addEventListener('click', (event) => {#}
-    {#        event.preventDefault();#}
-    {#        const parentDiv = event.target.closest('.destination-catalogue');#}
-    {#        const commentText = parentDiv.querySelector('.from-them');#}
-    {#        let idComment = commentText.id;#}
-    {#        let commentUser = parentDiv.querySelector('.comment-user').textContent;#}
-    {#        let content = commentText.textContent;#}
-    {##}
-    {#        if (currentUser === commentUser) {#}
-    {#            const commentTextArea = parentDiv.querySelector('form.destination-details textarea');#}
-    {#            commentTextArea.value = content;#}
-    {#            // Store the comment ID in the form's data attribute for later use#}
-    {#            const commentForm = parentDiv.querySelector('form.destination-details');#}
-    {#            commentForm.dataset.commentId = idComment;#}
-    {#        }#}
-    {#    });#}
-    {# });  #}
-    {##}
-    {#// Handle the form submission#}
-    {#document.querySelectorAll('#comment-btn').forEach((button) => {#}
-    {#    button.addEventListener('click', (event) => {#}
-    {#        event.preventDefault();#}
-    {#        const commentForm = event.target.closest('.destination-catalogue').querySelector('form.destination-details');#}
-    {#        let idComment = commentForm.dataset.commentId;#}
-    {#        const updatedContent = commentForm.querySelector('textarea').value;#}
-    {#        const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${idComment}/`;#}
-    {##}
-    {#        fetch(BASE_URL, {#}
-    {#            method: 'PUT',#}
-    {#            headers: {#}
-    {#                'Content-Type': 'application/json',#}
-    {#                'X-CSRFToken': csrfToken#}
-    {#            },#}
-    {#            body: JSON.stringify({#}
-    {#                "content": updatedContent,#}
-    {#            })#}
-    {#        })#}
-    {#        .then((response) => {#}
-    {#            // Handle the response if needed#}
-    {#            if (response.ok) {#}
-    {#                // Update the comment content on success#}
-    {#                const commentText = commentForm.closest('.destination-catalogue').querySelector('.from-them');#}
-    {#                commentText.textContent = updatedContent;#}
-    {#            } else {#}
-    {#                // Handle errors here if the edit was not successful#}
-    {#            }#}
-    {#        })#}
-    {#        .catch((error) => {#}
-    {#            // Handle fetch errors here#}
-    {#            console.error('Error during fetch:', error);#}
-    {#        });#}
-    {#    });#}
-    {# });#}
-
+      const userData = {currentUser: '{{ user }}'};
 
   </script>
+  <script src="{% static 'js/editComment.js' %}"></script>
 <footer>
     <p>&copy; 2023 Destination Catalogue. G.Georgieva - All rights reserved.</p>
       <div id="connect">
