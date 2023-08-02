@@ -34,8 +34,9 @@
   <li>Create a superuser (optional) <br /> python manage.py createsuperuser </li>
   <li>Run the development server: <br />python manage.py runserver</li>
 </ol>
-<h3><b>Important:</b> Before running the project, you need to set up the database with initial data. To do this, upload the file data-db.sql to the Docker PostgreSQL container under "Files" and then execute the following command in the Docker terminal:</h3>
+<h3><strong>Important:</strong> Before running the project, you need to set up the database with initial data. To do this, upload the file data-db.sql to the Docker PostgreSQL container under "Files" and then execute the following command in the Docker terminal:</h3>
     <p> psql -h localhost -p 5432 -U postgres-user -d destinations_catalogue_db -f data-db.sql</p>
+<p>You may need to run this command two or three times until there is data in the table "explore_attraction".</p>
 
 <h2> Technologies Used </h2>
 <ul>
