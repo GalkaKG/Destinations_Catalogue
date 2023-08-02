@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
@@ -11,8 +10,6 @@ from Destinations_Catalogue.common.forms import SearchForm, CommentForm
 from Destinations_Catalogue.common.models import Comment, Favorite, Like
 from Destinations_Catalogue.destinations.models import Destination
 from .serializers import CommentSerializer
-
-UserModel = get_user_model()
 
 
 class IndexView(views.FormView):
@@ -86,24 +83,9 @@ class EditCommentAPIView(UpdateAPIView):
 
         response_data = {
             "updated_comment": serializer.data,
-            # "all_destination_comments": all_destination_comments_serializer.data,
         }
-        # return redirect('catalogue')
+
         return Response(response_data, status=status.HTTP_200_OK)
-
-
-# class EditCommentAPIView(UpdateAPIView):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
-#
-#     def put(self, request, *args, **kwargs):
-#         comment = self.get_object()
-#         serializer = self.get_serializer(comment, data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#
-#         # return redirect('catalogue')
-#         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 def delete_comment(request, pk):

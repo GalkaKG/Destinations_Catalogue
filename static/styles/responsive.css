@@ -1,13 +1,3 @@
-@media screen and (max-width: 1405px) {
-    header a {
-        font-size: 0.8rem;
-    }
-    #searchbar input {
-        width: 220px;
-        margin-left: 10px;
-    }
-}
-
 @media screen and (max-width: 1165px) {
   header li {
     margin: auto;
@@ -102,4 +92,21 @@
     .destination-name {
         color: #FCAB73;
     }
+}
+
+
+@media  screen and (max-width: 1405px) and (min-width: 1165px) {
+    header a {
+        font-size: 1.8rem;
+    }
+    #searchbar {
+        margin-right: 0;
+    }
+     #searchbar input {
+        width: 190px;
+        margin-left: 10px;
+    }
+     .welcome-user {
+         top: 20%;
+     }
 }
