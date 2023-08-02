@@ -22,7 +22,7 @@ editButtons.forEach(editButton => {
             editButton.addEventListener('click', (event) => {
                 event?.preventDefault()
                 const updatedContent = textArea.value;
-                    const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
+                const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
 
                     fetch(BASE_URL, {
                         method: 'PUT',

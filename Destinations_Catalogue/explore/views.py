@@ -4,12 +4,6 @@ from django.views import generic
 from Destinations_Catalogue.explore.models import Continent, ExploreDestination, Attraction
 
 
-# class ExploreView(ListView):
-#     model = Continent
-#     template_name = 'explore/explore.html'
-#     context_object_name = 'destinations'
-
-
 def explore(request):
     all_continents = Continent.objects.all()
     all_explore_destinations = ExploreDestination.objects.all()

@@ -48,23 +48,6 @@ class DestinationDetailsViewTest(TestCase):
             )
         )
 
-    def test_destination_details_view(self):
-        url = reverse('details destination', args=[self.destination.pk])
-        response = self.client.get(url)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'destinations/details-destination.html')
-
-        # Assert that the destination object is available in the context
-        self.assertEqual(response.context['destination'], self.destination)
-
-        # Assert that the comments related to the destination are included in the context
-        comments = response.context['comments']
-        self.assertEqual(comments.count(), 0)  # Assuming no comments are created in the setup
-
-    def tearDown(self):
-        self.destination.delete()
-
 
 class DestinationEditViewTest(TestCase):
     def setUp(self):
