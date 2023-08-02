@@ -34,8 +34,8 @@
   <li>Create a superuser (optional) <br /> python manage.py createsuperuser </li>
   <li>Run the development server: <br />python manage.py runserver</li>
 </ol>
-<h2>Important: Before running the project, you need to set up the database with initial data. For that, use the following command in the Docker terminal:</h2>
-    <p>- psql -h localhost -p 5432 -U postgres-user -d destinations_catalogue_db -f data-db.sql</p>
+<h3>Important: Before running the project, you need to set up the database with initial data. For that, use the following command in the Docker terminal:</h3>
+    <p> psql -h localhost -p 5432 -U postgres-user -d destinations_catalogue_db -f data-db.sql</p>
 
 <h2> Technologies Used </h2>
 <ul>
