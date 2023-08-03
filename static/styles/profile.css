@@ -100,7 +100,6 @@ body > main > div:nth-child(1) > p:nth-child(4) {
 }
 
 .created-destinations div:nth-child(1) {
-    /*width: 300px;*/
     margin-bottom: 20px;
 }
 
@@ -169,6 +168,23 @@ body > main > div:nth-child(1) > p:nth-child(4) {
 }
 
 .remove-fav-det-profile a:hover {
-    /*background-color: #b7f8f1;*/
     text-shadow: #b7f8f1;
+}
+
+#change-password a p {
+    font-size: 1.2rem;
+    /*margin-left: 6%;*/
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    border: 2px solid #FCAB73;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #b7f8f1;
+}
+
+#change-password a p:hover {
+    background-color: #b7f8f1;
+    color: #00348e;
 }

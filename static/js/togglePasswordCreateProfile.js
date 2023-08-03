@@ -4,7 +4,15 @@ const inputEl1 = document.querySelector('#id_password1')
 const inputEl2 = document.querySelector('#id_password2')
 toggleEl1.addEventListener('click', handleToggleCreate)
 toggleEl2.addEventListener('click', handleToggleCreateSecond)
+const errorContent = document.querySelector('.error-message p').textContent
 
+if (errorContent !== '') {
+    toggleEl1.style.cssText = 'top:54%;'
+    toggleEl2.style.cssText = 'top:70.8%;'
+} else {
+    toggleEl1.style.cssText = 'top:52%;'
+    toggleEl2.style.cssText = 'top:69%;'
+}
 
 function handleToggleCreate(e){
     if (e) {
@@ -14,7 +22,6 @@ function handleToggleCreate(e){
         } else {
             inputEl1.type = 'text'
             toggleEl1.setAttribute('class', 'fa-solid fa-eye first')
-            toggleEl1.style.cssText = 'top:52%;'
         }
     }
 }
@@ -29,7 +36,6 @@ function handleToggleCreateSecond(e){
         } else {
             inputEl2.type = 'text'
             toggleEl2.setAttribute('class', 'fa-solid fa-eye second')
-            toggleEl2.style.cssText = 'top:69%;'
         }
     }
 }

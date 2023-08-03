@@ -44,7 +44,6 @@ class ShowAttractionsViewTest(TestCase):
         self.destination = ExploreDestination.objects.create(name="Test Destination", continent=self.continent)
 
         # Create attractions with price and images
-
         image1 = SimpleUploadedFile(name='attraction_image1.jpg', content=b'', content_type='image/jpeg')
         self.attraction1 = Attraction.objects.create(name="Attraction 1", destination=self.destination, price=10.0,
                                                      image=image1)

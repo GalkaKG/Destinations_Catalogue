@@ -7,10 +7,10 @@ function handleToggle(e){
     if (e) {
         if (inputEl.type === 'text') {
             inputEl.type = 'password'
-            toggleEl.setAttribute('class', 'fa-solid fa-eye-slash')
+            toggleEl.setAttribute('class', 'fa-solid fa-eye-slash login-eye')
         } else {
             inputEl.type = 'text'
-            toggleEl.setAttribute('class', 'fa-solid fa-eye')
+            toggleEl.setAttribute('class', 'fa-solid fa-eye login-eye')
         }
 
 

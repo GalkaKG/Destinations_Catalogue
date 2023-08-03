@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,7 +9,7 @@ from django.urls import reverse_lazy
 
 from Destinations_Catalogue.common.models import Favorite
 from Destinations_Catalogue.destinations.models import Destination
-from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm
+from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm, ChangePasswordForm
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 
@@ -83,19 +84,25 @@ def delete_profile(request):
     return redirect('details profile')
 
 
-# class ProfileDeleteView(DeleteView):
-#     model = CustomUser
-#     template_name = 'profiles/delete-profile.html'
-#     next_page = reverse_lazy('home')
-#
-#     # success_url = reverse_lazy('home')
-#
-#     def get_object(self, queryset=None):
-#         return self.request.user
-#
-#     def post(self, *args, **kwargs):
-#         self.request.user.delete()
-#         return redirect('home')
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = ChangePasswordForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            old_password = form.cleaned_data['old_password']
+            new_password = form.cleaned_data['new_password']
+            user_changed = user.check_password(old_password)
+            if user_changed:
+                user.set_password(new_password)
+                user.save()
+                messages.success(request, "Password changed successfully.")
+                return redirect('details profile')
+            else:
+                messages.error(request, "Old password is incorrect.")
+    else:
+        form = ChangePasswordForm()
+    return render(request, 'profiles/change-password.html', {'form': form})
 
 
 

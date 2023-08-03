@@ -98,12 +98,3 @@ class ProfileModel(models.Model):
 
     def __str__(self):
         return f'{self.id} {self.get_full_name()}'
-
-# class Gender(Enum):
-#     Male = 'Male'
-#     Female = 'Female'
-#     Other = 'Other'
-#
-#     @classmethod
-#     def choices(cls):
-#         return [(choice.value, choice.name) for choice in cls]

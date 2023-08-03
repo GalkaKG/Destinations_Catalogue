@@ -65,14 +65,28 @@
     color: #FF0000;
 }
 
-.fa-eye-slash,
-.fa-eye {
+.first{
+    position: absolute;
+    top: 52%;
+    right: 16%;
+    color: #3267c0;
+    cursor: pointer;
+}
+
+.second {
+    position: absolute;
+    top: 69%;
+    right: 16%;
+    color: #3267c0;
+    cursor: pointer;
+}
+
+.login-eye {
     position: absolute;
     top: 53%;
     right: 16%;
     color: #3267c0;
     cursor: pointer;
-
 }
 
 .errorlist {

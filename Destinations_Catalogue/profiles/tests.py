@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
-from Destinations_Catalogue.profiles.models import CustomUser, CustomUserManager
+from Destinations_Catalogue.profiles.models import CustomUser, CustomUserManager, ProfileModel
 from django.urls import reverse
 
 
@@ -83,4 +83,32 @@ class LogoutViewTest(TestCase):
         # Assert that the user is redirected after logout
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('login'))  # Replace 'home' with the appropriate URL name
+
+
+# Models tests
+
+class CustomUserModelTest(TestCase):
+    def test_create_user(self):
+        # Test creating a regular user without is_staff and is_superuser flags
+        user = CustomUser.objects.create_user(username='testuser', password='testpassword')
+
+        self.assertEqual(user.username, 'testuser')
+        self.assertTrue(user.is_active)
+        self.assertFalse(user.is_staff)
+        self.assertFalse(user.is_superuser)
+
+    def test_create_superuser(self):
+        # Test creating a superuser
+        superuser = CustomUser.objects.create_superuser(username='superuser', password='superpassword')
+
+        self.assertEqual(superuser.username, 'superuser')
+        self.assertTrue(superuser.is_active)
+        self.assertTrue(superuser.is_staff)
+        self.assertTrue(superuser.is_superuser)
+
+    def test_username_required(self):
+        # Test that creating a user without a username raises a ValueError
+        with self.assertRaises(ValueError):
+            CustomUser.objects.create_user(username=None, password='testpassword')
+
 

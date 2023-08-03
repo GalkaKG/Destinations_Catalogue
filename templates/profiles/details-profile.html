@@ -2,12 +2,14 @@
 {% load static %}
 
 {% block content %}
+    <div id="change-password">
+        <a href="{% url 'change password' %}"><p>Change password</p></a>
+    </div>
      <div class="profile-details">
          <h1>Profile details:</h1>
         {% if profile.get_full_name %}
             <h2>{{ profile.get_full_name }}</h2>
         {% endif %}
-{#        <p>You have liked {{  }} destinations</p>#}
          {% if profile.gender %}
             <p>Gender: {{ profile.gender }}</p>
         {% endif %}

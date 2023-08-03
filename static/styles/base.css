@@ -11,7 +11,7 @@ body {
     display: flex;
     flex: 1;
     flex-direction: column;
-    font-family: "Ysabeau Infant", sans-serif;
+    font-family: "Ysabeau Infant", 'Poppins', 'Roboto', sans-serif;
     width: 100%;
 }
 
