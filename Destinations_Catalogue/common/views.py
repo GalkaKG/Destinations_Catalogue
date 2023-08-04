@@ -128,36 +128,22 @@ class RemoveFavoriteView(LoginRequiredMixin, views.View):
         return redirect('details profile')
 
 
-# class LikeView(LoginRequiredMixin, views.View):
-#     def get(self, request, *args, **kwargs):
-#         destination_id = self.kwargs.get('pk')
-#         destination = get_object_or_404(Destination, pk=destination_id)
-#         is_liked = Like.objects.filter(user=request.user, destination=destination).all()
-#         if is_liked:
-#             is_liked.delete()
-#         else:
-#             Like.objects.get_or_create(user=request.user, destination=destination)
-#         return redirect('catalogue')
-
 class LikeView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, pk, *args, **kwargs):
+    @staticmethod
+    def post(request, pk, *args, **kwargs):
         destination = get_object_or_404(Destination, pk=pk)
         is_liked = Like.objects.filter(user=request.user, destination=destination).exists()
 
         if is_liked:
-            # Unlike the destination
             like = Like.objects.get(user=request.user, destination=destination)
             like.delete()
             total_likes = Like.objects.filter(destination=destination).count()
             return Response({"message": "Destination unliked.", "total_likes": total_likes},
                             status=status.HTTP_200_OK)
         else:
-            # Like the destination
             Like.objects.create(user=request.user, destination=destination)
-
-            # Serialize the updated destination and include it in the response
             total_likes = Like.objects.filter(destination=destination).count()
             return Response({"message": "Destination liked.", "total_likes": total_likes},
                             status=status.HTTP_201_CREATED)

@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 
 from Destinations_Catalogue.common.views import delete_comment
 from Destinations_Catalogue.destinations.views import DestinationCreateView, DestinationDetailsView, \

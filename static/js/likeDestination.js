@@ -37,12 +37,9 @@ buttonsDiv.forEach(div => {
                   break;
                 }
             }
-
         })
         .catch(error => {
             console.error('Error:', error);
         });
-
     })
-
 })

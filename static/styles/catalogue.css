@@ -19,7 +19,6 @@
     margin-bottom: 5%;
 }
 
-
 .picture-content-catalogue {
     display: flex;
     justify-content: space-evenly;
@@ -174,22 +173,6 @@
     flex-direction: column;
 }
 
-/*Paginator CSS*/
-
-/*.pagination {*/
-/*    text-align: center;*/
-/*}*/
-
-/*.previous, .current-page, .next {*/
-/*    font-size: 2.2rem;*/
-/*    color: #fff;*/
-/*    font-weight: bolder;*/
-/*    margin: 0 5px;*/
-/*}*/
-
-
-
-/* New styles for the pagination links */
 .pagination {
   display: flex;
   align-items: center;
@@ -235,7 +218,7 @@
 
 /* Apply the animation to the "forms" div with class "animation-slide-left" */
 .img-destination {
-  animation: slideLeft 3s; /* Adjust the duration (0.5s) as needed */
+  animation: slideLeft 3s;
 }
 
 
