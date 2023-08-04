@@ -14,8 +14,8 @@ if (errorContent !== '') {
     toggleEl2.style.cssText = 'top:69%;'
 }
 
-function handleToggleCreate(e){
-    if (e) {
+function handleToggleCreate(event){
+    if (event) {
         if (inputEl1.type === 'text') {
             inputEl1.type = 'password'
             toggleEl1.setAttribute('class', 'fa-solid fa-eye-slash first')
@@ -28,8 +28,8 @@ function handleToggleCreate(e){
 
 handleToggleCreate()
 
-function handleToggleCreateSecond(e){
-    if (e) {
+function handleToggleCreateSecond(event){
+    if (event) {
         if (inputEl2.type === 'text') {
             inputEl2.type = 'password'
             toggleEl2.setAttribute('class', 'fa-solid fa-eye-slash second')

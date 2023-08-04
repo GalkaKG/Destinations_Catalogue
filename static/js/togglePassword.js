@@ -3,8 +3,8 @@ const inputEl = document.querySelector('#id_password')
 toggleEl.addEventListener('click', handleToggle)
 
 
-function handleToggle(e){
-    if (e) {
+function handleToggle(event){
+    if (event) {
         if (inputEl.type === 'text') {
             inputEl.type = 'password'
             toggleEl.setAttribute('class', 'fa-solid fa-eye-slash login-eye')
@@ -12,8 +12,6 @@ function handleToggle(e){
             inputEl.type = 'text'
             toggleEl.setAttribute('class', 'fa-solid fa-eye login-eye')
         }
-
-
     }
 }
 
