@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import FileInput
 
 from Destinations_Catalogue.destinations.models import Destination
 
@@ -15,9 +14,6 @@ class DestinationCreateForm(forms.ModelForm):
             'location': forms.TextInput(
                 attrs={'placeholder': 'Country'}
             ),
-            # 'hotel': forms.TextInput(
-            #    attrs={'placeholder': 'Not required'}
-            # ),
             'description': forms.Textarea(
              attrs={'rows': 3, 'placeholder': 'Add comment...'}
             )
@@ -25,5 +21,4 @@ class DestinationCreateForm(forms.ModelForm):
 
 
 class DestinationEditForm(DestinationCreateForm):
-    # image = forms.ImageField(widget=FileInput)
     ...

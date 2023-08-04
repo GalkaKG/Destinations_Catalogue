@@ -1,5 +1,5 @@
 const divElements = document.querySelectorAll('.section-explore')
-    window.addEventListener("load", (e) => {
+    window.addEventListener("load", (event) => {
         divElements.forEach((el) => {
             if (el.classList.contains('Europe')) {
                 el.style.display = 'flex'
@@ -7,8 +7,8 @@ const divElements = document.querySelectorAll('.section-explore')
         })
     });
     document.querySelectorAll('.li-continent').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-    e.preventDefault();
+    anchor.addEventListener('click', function (event) {
+    event.preventDefault();
     const allALinks = document.querySelectorAll('#a-continent')
         allALinks.forEach((a) => {
             a.style.fontSize = '1.3rem'
@@ -17,7 +17,7 @@ const divElements = document.querySelectorAll('.section-explore')
 
     e.target.style.color = '#fff'
     e.target.style.fontSize = '1.7rem'
-    const continent = e.target.textContent.split(' ')[0]
+    const continent = event.target.textContent.split(' ')[0]
 
     divElements.forEach((div) => {
        if (div.classList.contains(continent)) {
