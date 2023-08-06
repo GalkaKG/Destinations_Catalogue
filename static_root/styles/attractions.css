@@ -1,0 +1,74 @@
+.destination-name {
+    margin-left: 20%;
+    color: #b7f8f1;
+}
+
+.attractions-wrapper {
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 8px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 55%;
+    margin-left: 23%;
+    margin-top: 2%;
+}
+
+.attractions {
+    display: flex;
+    flex: 1 1 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2rem;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.attractions img {
+    border-radius: 10px;
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+}
+
+.attraction-content {
+    margin-left: 5%;
+}
+
+.attractions-wrapper:last-of-type{
+    margin-bottom: 2%;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: white;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 13%;
+  position: relative;
+  top: 48px;
+}
+
+/* Hover effect */
+.button:hover {
+  background-color: #b7f8f1;
+  color: #00348e;
+}
+
+.button:active {
+  background-color: #00348e;
+  color: #fff;
+}
+
+

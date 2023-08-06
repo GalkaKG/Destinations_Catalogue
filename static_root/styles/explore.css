@@ -1,0 +1,71 @@
+.div-continents {
+    color: #00348e;
+    position: absolute;
+    left: 15%;
+    top: 18%;
+    width: 80%;
+}
+
+.div-continents h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.div-continents p {
+    font-size: 1.3rem;
+}
+
+.div-continents .ul-continents {
+    margin-top: 2%;
+
+}
+
+.li-continent #a-continent{
+    color: #b7f8f1;
+    font-size: 1.3rem;
+}
+
+.li-continent #a-continent:hover {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+}
+
+.section-explore {
+    display: flex;
+    color: #fff;
+    flex-flow: wrap;
+    gap: 2%;
+    margin-top: 3%;
+}
+
+.section-show-continent {
+    position: relative;
+    margin-bottom: 3%;
+}
+
+.section-explore img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.section-explore h2 {
+    position: absolute;
+    bottom: 2px;
+    left: 5%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.section-show-continent img {
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Add any other properties as needed */
+}
+
+.section-show-continent img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

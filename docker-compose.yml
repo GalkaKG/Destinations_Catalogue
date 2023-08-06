@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  web:
+    image: galka777/destinations_catalogue_2
+    command: gunicorn Destinations_Catalogue.wsgi:application --bind 0.0.0.0:8000
+    build: .
+    volumes:
+      - /tmp/Destinations_Catalogue/static:/app/static
+#      - /tmp/Destinations_Catalogue/media:/app/media
+#      - ./static:/app/static/
+      - ./media:/app/media/
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    links:
+      - postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    volumes:
+#      - /tmp/Destinations_Catalogue/static:/home/app/web/static_root
+#      - /tmp/Destinations_Catalogue/media:/home/app/web/media
+      - ./static:/app/static_root/
+      - ./media:/app/media_root/
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    links:
+      - web

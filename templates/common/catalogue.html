@@ -54,10 +54,12 @@
                     <p>Posted by {{ destination|filter_author }}</p>
                     <div class="buttons-catalogue">
                         {% if destination.id in liked_destinations %}
-                            <a href="{% url 'like' destination.pk %}"><i
+{#                            <a href="{% url 'like' destination.pk %}"><i#}
+                              <a href="" id="{{ destination.pk }}"><i
                                     class="fa-solid fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
                         {% else %}
-                            <a href="{% url 'like' destination.pk %}"><i
+{#                            <a href="{% url 'like' destination.pk %}"><i#}
+                              <a href="" id="{{ destination.pk }}"><i
                                     class="fa-regular fa-thumbs-up"></i> {{ destination|filter_likes }}</a>
                         {% endif %}
                         {% if destination.id in favorite_destinations %}
@@ -89,7 +91,8 @@
                                 <p class="from-them" id="{{ comment.id }}">{{ comment }}
                                     <a href="{% url 'delete comment' comment.pk %}"><i
                                             class="fa-solid fa-trash"></i></a>
-                                    <a href="{% url 'edit comment' comment.pk %}"><i class="fa-solid fa-pencil"></i></a>
+{#                                    <a href="{% url 'edit comment' comment.pk %}"><i class="fa-solid fa-pencil"></i></a>#}
+                                      <a href=""><i class="fa-solid fa-pencil"></i></a>
                                 </p>
                             </div>
                         {% endfor %}
@@ -103,25 +106,29 @@
         </div>
     {% endfor %}
 
-    <div class="pagination">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; </a>
-            <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; </a>
-        {% endif %}
-
-        {% for num in page_obj.paginator.page_range %}
-            {% if num == page_obj.number %}
-                <span class="current-page">{{ num }}</span>
-            {% elif num == page_obj.number|add:'1' or num == page_obj.paginator.num_pages %}
-                <a href="?page={{ num }}">{{ num }}</a>
+    {% if page_obj %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; </a>
+                <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; </a>
             {% endif %}
-        {% endfor %}
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}"> &rsaquo;</a>
-            <a href="?page={{ total_pages }}"> &raquo;</a>
-        {% endif %}
-    </div>
+            {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                    <span class="current-page">{{ num }}</span>
+                {% elif num == page_obj.number|add:'1' or num == page_obj.paginator.num_pages %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}"> &rsaquo;</a>
+                <a href="?page={{ total_pages }}"> &raquo;</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <h1 class="profile-details destination-catalogue profile">There are no destinations at the moment.</h1>
+    {% endif %}
 </main>
 
 <script>

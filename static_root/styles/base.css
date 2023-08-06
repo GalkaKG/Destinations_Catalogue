@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+    background: url(../images/jennvmy_-uWpggIb3iHs-unsplash.jpg) no-repeat;
+    background-size: cover ;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-family: "Ysabeau Infant", 'Poppins', 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.welcome-user {
+    font-size: 1.8rem;
+    color: #33fd01;
+    position: absolute;
+    left: 3%;
+    top: 14%;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 2.2rem;
+    font-weight: bolder;
+    color: #5127A0;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#logo img {
+    width: 60px;
+    margin: 10px 3px 10px 10px;
+    transition: transform .7s ease-in-out;
+}
+
+#logo img:hover {
+    transform: rotateY(360deg);
+}
+
+#searchbar {
+    display: flex;
+    margin-right: 45px;
+    margin-top: 10px;
+}
+
+#searchbar input {
+    width: 250px;
+    border-radius: 3px 0 0 3px;
+    border: none;
+    padding: 8px 0;
+}
+
+#searchbar input:focus {
+    outline: none;
+}
+
+#searchbar button {
+    border-radius:0 3px 3px 0;
+    color: #fff;
+    border: none;
+    background-color: #85D1CD;
+    padding: 4px 20px;
+}
+
+#searchbar button:hover {
+    background-color: transparent;
+    border: 5px solid #85D1CD;
+    cursor: pointer;
+    padding: 4px 15px;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 20px
+}
+
+nav a {
+    color: #5127A0;
+}
+
+header a:hover {
+    color: #00BDCD;
+}
+
+#main-content {
+    font-size: 4.5rem;
+    font-weight: bolder;
+    text-align: center;
+    color: #9a5e33;
+    margin: 2% 20% 0 20%;
+
+    opacity: 0;
+  transform: translateY(-50px);
+  animation: drop-down 2s forwards;
+}
+
+@keyframes drop-down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.destination-details {
+    max-height: 200px;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+.back-btn {
+    padding: 2px 12px;
+}
+
+i {
+    color: #fff;
+}
+
+.btn {
+    border: none;
+    background-color: #FCAB73;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border: 5px solid;
+}
+
+#connect a {
+    margin-right: 0.5rem;
+}
+
+footer {
+    font-weight: bolder;
+    font-size: 1.4rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    gap: 4%;
+    width: 100%;
+    bottom: 2%;
+}

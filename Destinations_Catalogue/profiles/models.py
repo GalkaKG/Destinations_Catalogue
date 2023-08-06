@@ -70,6 +70,7 @@ class ProfileModel(models.Model):
     )
 
     gender = models.CharField(
+        max_length=10,
         blank=True,
         null=True,
         choices=CHOICES,

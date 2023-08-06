@@ -1,3 +1,7 @@
+import os
+
+from django.conf import settings
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
@@ -51,7 +55,7 @@ class DestinationDetailsView(DetailView):
         url = 'https://maps.googleapis.com/maps/api/geocode/json'
         params = {
             'address': f'{destination.name},{destination.location}',
-            'key': 'AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM',
+            'key': settings.GOOGLE_API_KEY,
         }
         response = requests.get(url, params=params)
 
@@ -64,10 +68,11 @@ class DestinationDetailsView(DetailView):
             context['latitude'] = latitude
             context['longitude'] = longitude
             context['address'] = location
-            api_key = "AIzaSyDo2Jl-RLvS0i161gcRVmedZsNtsjLDfGM"
+            api_key = settings.GOOGLE_API_KEY
             landmarks = get_landmarks(api_key, location, keyword="historical sites")
             landmarks = [l['name'] for l in landmarks]
             context['landmarks'] = landmarks
+            context['api_key'] = os.getenv('GOOGLE_API_KEY')
         return context
 
 

@@ -1,16 +1,22 @@
 from pathlib import Path
 from django.urls import reverse_lazy
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-oujog8=gxe8bu9m9+ur%j0ut&(fxbl3x-rkb7nj32-i*8ndtc('
+
+SECRET_KEY = os.getenv('SECRET_KEY', None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.getenv('DEBUG', 1)))  # Now is True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
+CSRF_TRUSTED_ORIGINS = [f'http://{x}:80' for x in os.environ.get('ALLOWED_HOSTS', '').split(' ')]
 
 
 INSTALLED_APPS = [
@@ -45,6 +51,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+
 ROOT_URLCONF = 'Destinations_Catalogue.urls'
 
 TEMPLATES = [
@@ -70,11 +77,16 @@ WSGI_APPLICATION = 'Destinations_Catalogue.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "destinations_catalogue_db",
-        "USER": "postgres-user",
-        "PASSWORD": "password",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "NAME": os.getenv('DB_NAME', None),
+        "USER": os.getenv('DB_USER', None),
+        "PASSWORD": os.getenv('DB_PASSWORD', None),
+        "HOST": os.getenv('DB_HOST', None),
+        "PORT": os.getenv('DB_PORT', '5432'),
+        # "NAME": os.getenv('DB_NAME', 'destinations_catalogue_db'),
+        # "USER": os.getenv('DB_USER', 'postgres-user'),
+        # "PASSWORD": os.getenv('DB_PASSWORD', 'password'),
+        # "HOST": os.getenv('DB_HOST', '127.0.0.1'),
+        # "PORT": os.getenv('DB_PORT', '5432'),
     }
 }
 
@@ -108,17 +120,24 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+STATIC_ROOT = BASE_DIR / 'static_root'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
+
+# MEDIA_ROOT = (
+#         BASE_DIR / 'media_root/'
+# )
 MEDIA_ROOT = (
         BASE_DIR / 'media/'
 )
+
 
 AUTH_USER_MODEL = 'profiles.CustomUser'
 
@@ -126,5 +145,5 @@ LOGIN_REDIRECT_URL = reverse_lazy('create profile')
 
 LOGIN_URL = reverse_lazy('login')
 
-# LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')

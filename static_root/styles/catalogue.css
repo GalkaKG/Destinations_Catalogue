@@ -1,0 +1,222 @@
+.destination-catalogue {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    width: 70%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /*border-radius: 20px;*/
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    margin-top: 20px;
+    padding: 50px;
+    margin-left: 50px;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    float: left;
+    height: auto;
+    position: relative;
+    left: 12%;
+    margin-bottom: 5%;
+}
+
+.picture-content-catalogue {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.destination-catalogue h1 {
+    font-family: "Ysabeau Infant", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.picture-content-catalogue img {
+    width: 400px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.picture-content-catalogue .img-destination {
+    width: 380px;
+    height: 250px;
+
+}
+
+.destination-catalogue p {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.buttons-catalogue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons-catalogue i {
+    color: #00348e;
+    font-size: 1.8rem;
+    padding-top: 20px;
+}
+
+.buttons-catalogue i:hover {
+    cursor: pointer;
+    color: #00BDCD;
+}
+
+.destination-details {
+	border: none;
+    display: flex;
+    margin-top: 2%;
+}
+
+.destination-details button {
+    color: #fff;
+    background-color: #FCAB73;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.comments-div {
+    width: 40%;
+}
+
+.comments-header {
+    text-align: center;
+    color: #33fd01;
+    font-size: 1.6rem;
+    text-decoration: underline;
+    margin: 7% 0 3% 0;
+}
+
+.comments-div .fa-pencil {
+    font-size: 1rem;
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+    color: #00348e;
+}
+
+.comments-div .fa-trash {
+    font-size: 1rem;
+    position: absolute;
+    right: 30px;
+    bottom: 5px;
+    color: #00348e;
+}
+
+.comment-user {
+    font-size: 0.6rem;
+    line-height: 1.3rem;
+    margin-top: 3px;
+}
+
+.comment-content {
+    box-shadow: 0 24px 7px -24px #46b9d0;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+.commented-div {
+    height: 180px;
+    overflow: scroll;
+    /*margin-left: 10%;*/
+}
+
+.comments-div .commented-div {
+    height: 160px;
+}
+
+
+.commented-div::-webkit-scrollbar {
+  width: 10px;
+}
+
+.commented-div::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+.commented-div::-webkit-scrollbar-thumb:hover {
+    background: #00348e;
+}
+
+.buttons-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.destination-details > textarea {
+    border: none;
+}
+
+.destination-details > textarea:focus {
+    outline: none;
+}
+
+.main-catalogue {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+    color: #00348e;
+}
+
+.pagination a,
+.pagination span {
+  padding: 5px 10px;
+  margin: 0 2px;
+  text-decoration: none;
+  /*color: #333;*/
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #f2f2f2;
+}
+
+.pagination .current-page {
+  background-color: #f2f2f2;
+}
+
+/* The style for the arrows */
+.pagination a:first-child,
+.pagination a:last-child {
+  font-weight: bold;
+}
+
+/* Add the CSS animation */
+@keyframes slideLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Apply the animation to the "forms" div with class "animation-slide-left" */
+.img-destination {
+  animation: slideLeft 3s;
+}

@@ -221,4 +221,7 @@
   animation: slideLeft 3s;
 }
 
+.profile-details .no-destinations {
+    color: #fff;
+}
 

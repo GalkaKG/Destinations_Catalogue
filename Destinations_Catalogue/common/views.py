@@ -131,8 +131,7 @@ class RemoveFavoriteView(LoginRequiredMixin, views.View):
 class LikeView(APIView):
     permission_classes = [IsAuthenticated]
 
-    @staticmethod
-    def post(request, pk, *args, **kwargs):
+    def post(self, request, pk, *args, **kwargs):
         destination = get_object_or_404(Destination, pk=pk)
         is_liked = Like.objects.filter(user=request.user, destination=destination).exists()
 

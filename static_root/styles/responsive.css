@@ -1,0 +1,112 @@
+@media screen and (max-width: 1165px) {
+  header li {
+    margin: auto;
+  }
+
+ #searchbar input {
+   margin-left: 10%;
+ }
+
+ #searchbar input,
+ #searchbar button {
+   margin-bottom: 10%;
+ }
+
+  header, nav, nav ul , footer{
+    flex-direction: column;
+  }
+
+  .welcome-user {
+    display: none;
+  }
+
+  #main-content p {
+      font-size: 3.5rem;
+  }
+  .form{
+      width: 80%;
+  }
+
+  footer {
+    align-items: center;
+  }
+   .picture-content-catalogue {
+        flex-direction: column;
+    }
+   .picture-content-catalogue .img-destination  {
+        width: 100%;
+    }
+   .picture-content-catalogue img{
+       width: 90%;
+   }
+    .destination-catalogue {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .comments-div{
+        width: 100%;
+    }
+    .buttons-catalogue{
+        margin-left: 10%;
+    }
+    .btns-logout{
+        margin-left: 0;
+        text-align: center;
+    }
+    .footer {
+        font-size: 0.8rem;
+    }
+    body footer p {
+        text-align: center;
+    }
+    .destination-details {
+        display: flex;
+        justify-content: center;
+    }
+    .profile-details {
+        margin-left: 0;
+        width: 80%;
+        left: 10%;
+    }
+    .created-destinations {
+        flex-direction: column;
+    }
+    .profile-details p {
+        text-align: center;
+    }
+    .div-continents {
+        position: relative;
+        margin-top: 5%;
+    }
+    .div-continents h2, .div-continents p {
+        margin-left: 20%;
+        font-size: 2rem;
+    }
+    .li-continent #a-continent {
+        color: #fff;
+        font-size: 2.2rem;
+    }
+    .button {
+        top: 0;
+    }
+    .destination-name {
+        color: #FCAB73;
+    }
+}
+
+
+@media  screen and (max-width: 1405px) and (min-width: 1165px) {
+    header a {
+        font-size: 1.8rem;
+    }
+    #searchbar {
+        margin-right: 0;
+    }
+     #searchbar input {
+        width: 190px;
+        margin-left: 10px;
+    }
+     .welcome-user {
+         top: 20%;
+     }
+}
