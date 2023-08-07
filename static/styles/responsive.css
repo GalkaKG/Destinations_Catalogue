@@ -104,7 +104,13 @@
     }
     #change-password a p {
         position: inherit;
-        margin-left: 33%;
+        margin-left: 40%;
+    }
+    .profile-details h1 {
+        text-align: center;
+    }
+    .profile-details h2 {
+        font-size: 2rem;
     }
 }
 
@@ -123,5 +129,12 @@
      .welcome-user {
          top: 20%;
      }
+}
+
+@media screen and (max-width: 790px){
+    #change-password a p {
+        margin-left: 35%;
+    }
+
 }
 
