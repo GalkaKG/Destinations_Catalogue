@@ -6,7 +6,7 @@ services:
     command: gunicorn Destinations_Catalogue.wsgi:application --bind 0.0.0.0:8000
     build: .
     volumes:
-      - /tmp/Destinations_Catalogue/static:/app/static
+      - /tmp/Destinations_Catalogue/static_root:/app/static
 #      - /tmp/Destinations_Catalogue/media:/app/media
 #      - ./static:/app/static/
       - ./media:/app/media/
@@ -36,8 +36,8 @@ services:
     volumes:
 #      - /tmp/Destinations_Catalogue/static:/home/app/web/static_root
 #      - /tmp/Destinations_Catalogue/media:/home/app/web/media
-      - ./static:/app/static_root/
-      - ./media:/app/media_root/
+      - ./static_root:/app/static_root/
+      - ./media:/app/media/
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
       - ./certbot/www:/var/www/certbot/:ro

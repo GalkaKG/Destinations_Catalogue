@@ -130,7 +130,7 @@ MEDIA_URL = '/media/'
 #         BASE_DIR / 'media_root/'
 # )
 MEDIA_ROOT = (
-        BASE_DIR / 'media/'
+        BASE_DIR / '/media/'
 )
 
 
