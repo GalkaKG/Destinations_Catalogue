@@ -1,5 +1,8 @@
 # Destinations Catalogue - my personal Django Web Project
-http://3.120.130.253/
+
+## Welcome to My Awesome Project
+
+This repository contains the code for my awesome project. Check out the [live demo](http://3.120.130.253/) to see it in action!
 
 
 <img src="https://github.com/GalkaKG/Destinations_Catalogue/blob/main/images_for_github/destinations_catalogue_home.png" alt="Project image" style="width: 700px"/>
