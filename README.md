@@ -1,7 +1,5 @@
 # Destinations Catalogue - my personal Django Web Project
 
-## Welcome to My Awesome Project
-
 This repository contains the code for my awesome project. Check out the (http://3.120.130.253/) to see it in action!
 
 
