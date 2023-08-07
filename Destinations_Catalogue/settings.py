@@ -82,11 +82,6 @@ DATABASES = {
         "PASSWORD": os.getenv('DB_PASSWORD', None),
         "HOST": os.getenv('DB_HOST', None),
         "PORT": os.getenv('DB_PORT', '5432'),
-        # "NAME": os.getenv('DB_NAME', 'destinations_catalogue_db'),
-        # "USER": os.getenv('DB_USER', 'postgres-user'),
-        # "PASSWORD": os.getenv('DB_PASSWORD', 'password'),
-        # "HOST": os.getenv('DB_HOST', '127.0.0.1'),
-        # "PORT": os.getenv('DB_PORT', '5432'),
     }
 }
 

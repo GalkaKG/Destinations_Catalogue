@@ -14,7 +14,7 @@ buttonsDiv.forEach(div => {
             return;
         }
         // const BASE_URL = `http://127.0.0.1:8000/api/like/${destinationId}/`;
-        const BASE_URL = `http://destinations-catalogue.com/api/like/${destinationId}/`;
+        const BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
         fetch(BASE_URL, {
             method: 'POST',
             headers: {

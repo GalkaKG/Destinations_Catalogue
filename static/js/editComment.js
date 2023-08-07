@@ -10,8 +10,6 @@ editButtons.forEach(editButton => {
         let commentContent = commentElement.textContent.trim();
         const commentId = commentElement.id;
         const commentCreator = commentElement.previousElementSibling.textContent.trim();
-        console.log(currentUser)
-        console.log(commentCreator)
         if (currentUser === commentCreator) {
             const editForm = commentElement
                 .parentElement.parentElement.parentElement
@@ -25,7 +23,7 @@ editButtons.forEach(editButton => {
                 event?.preventDefault()
                 const updatedContent = textArea.value;
                 // const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
-                const BASE_URL = `http://destinations-catalogue.com/api/edit_comment/${commentId}/`;
+                const BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
                     fetch(BASE_URL, {
                         method: 'PUT',
                         headers: {
