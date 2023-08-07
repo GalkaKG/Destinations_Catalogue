@@ -1,7 +1,7 @@
 const buttonsDiv = document.querySelectorAll('.buttons-catalogue')
 // const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
 // const csrfToken = tokenInput.value;
-const currentUser = userData['currentUser'];
+// const currentUser = userData['currentUser'];
 
 buttonsDiv.forEach(div => {
     const likeButton = div.querySelectorAll('a')[0]
