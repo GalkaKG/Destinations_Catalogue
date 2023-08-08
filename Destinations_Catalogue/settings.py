@@ -124,13 +124,13 @@ STATIC_ROOT = BASE_DIR / 'static_root'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 # MEDIA_ROOT = (
 #         BASE_DIR / 'media_root/'
 # )
 MEDIA_ROOT = (
-        BASE_DIR / '/media/'
+        BASE_DIR / 'media/'
 )
 
 

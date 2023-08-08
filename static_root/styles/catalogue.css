@@ -99,7 +99,7 @@
     color: #33fd01;
     font-size: 1.6rem;
     text-decoration: underline;
-    margin: 7% 0 3% 0;
+    margin: 4% 0 3% 0;
 }
 
 .comments-div .fa-pencil {
@@ -220,3 +220,8 @@
 .img-destination {
   animation: slideLeft 3s;
 }
+
+.profile-details .no-destinations {
+    color: #fff;
+}
+

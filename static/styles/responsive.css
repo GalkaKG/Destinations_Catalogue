@@ -112,10 +112,19 @@
     .profile-details h2 {
         font-size: 2rem;
     }
+    .description-destination {
+         width: 100%;
+     }
+     .api-wrapper {
+         flex-direction: column;
+     }
+     gmp-map {
+         width: 85%;
+     }
 }
 
 
-@media  screen and (max-width: 1405px) and (min-width: 1165px) {
+@media screen and (max-width: 1405px) and (min-width: 1165px) {
     header a {
         font-size: 1.8rem;
     }

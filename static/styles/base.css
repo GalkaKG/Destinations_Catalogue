@@ -145,10 +145,16 @@ i {
     color: #fff;
     border-radius: 0.5rem;
     cursor: pointer;
+    padding: 4px 10px;
 }
 
 .btn:hover {
     border: 5px solid;
+    padding: 0 5px;
+}
+
+.btn a {
+    font-size: 1.8rem;
 }
 
 #connect a {
@@ -166,4 +172,8 @@ footer {
     gap: 4%;
     width: 100%;
     bottom: 2%;
+}
+
+#searchbar input::placeholder {
+    padding-left: 3px;
 }
