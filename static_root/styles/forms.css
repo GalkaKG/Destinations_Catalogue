@@ -83,7 +83,7 @@
 
 .login-eye {
     position: absolute;
-    top: 53%;
+    top: 49%;
     right: 16%;
     color: #3267c0;
     cursor: pointer;
@@ -95,3 +95,7 @@
     color: red;
 }
 
+.forgotten-password {
+    font-size: 1.2rem;
+    color: #00348e;
+}
