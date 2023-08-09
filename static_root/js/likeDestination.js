@@ -17,14 +17,15 @@ buttonsDiv.forEach(div => {
             BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
         } else if (currentHostname === 'ec2-3-120-130-253.eu-central-1.compute.amazonaws.com') {
             BASE_URL = `http://ec2-3-120-130-253.eu-central-1.compute.amazonaws.com/api/like/${destinationId}/`;
+        } else if (currentHostname === 'destinations-catalogue.eu') {
+            BASE_URL = `http://destinations-catalogue.eu/api/like/${destinationId}/`;
         }
 
         if (currentUser === 'AnonymousUser') {
             window.location.href = '/profile/login/';
             return;
         }
-        // const BASE_URL = `http://127.0.0.1:8000/api/like/${destinationId}/`;
-        // const BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
+
         fetch(BASE_URL, {
             method: 'POST',
             headers: {

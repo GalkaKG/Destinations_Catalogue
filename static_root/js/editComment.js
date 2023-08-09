@@ -31,10 +31,10 @@ editButtons.forEach(editButton => {
                     BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
                 } else if (currentHostname === 'ec2-3-120-130-253.eu-central-1.compute.amazonaws.com') {
                     BASE_URL = `http://ec2-3-120-130-253.eu-central-1.compute.amazonaws.com/api/edit_comment/${commentId}/`;
+                } else if (currentHostname === 'destinations-catalogue.eu') {
+                    BASE_URL = `http://destinations-catalogue.eu/api/edit_comment/${commentId}/`;
                 }
 
-                // const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
-                // const BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
                     fetch(BASE_URL, {
                         method: 'PUT',
                         headers: {
