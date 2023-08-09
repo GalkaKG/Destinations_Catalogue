@@ -186,3 +186,13 @@ body > main > div:nth-child(1) > p:nth-child(4) {
     background-color: #b7f8f1;
     color: #00348e;
 }
+
+.reset-done {
+    color: #9A5E33;
+    font-weight: bolder;
+    font-size: 2rem;
+    text-align: center;
+    margin: 5% auto;
+    width: 60%;
+
+}

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 from django.forms import FileInput
 
 from Destinations_Catalogue.profiles.models import ProfileModel, CustomUser
@@ -51,3 +51,9 @@ class ChangePasswordForm(forms.Form):
         if new_password and confirm_new_password and new_password != confirm_new_password:
             raise forms.ValidationError("New passwords do not match.")
         return cleaned_data
+
+
+# forms.py
+
+class CustomPasswordResetForm(PasswordResetForm):
+    ...

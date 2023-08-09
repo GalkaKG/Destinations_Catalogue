@@ -2,14 +2,15 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from Destinations_Catalogue.common.models import Favorite
 from Destinations_Catalogue.destinations.models import Destination
-from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm, ChangePasswordForm
+from Destinations_Catalogue.profiles.forms import EditProfileForm, CustomUserCreationForm, ChangePasswordForm, \
+    CustomPasswordResetForm
 from Destinations_Catalogue.profiles.models import CustomUser, ProfileModel
 
 
@@ -105,6 +106,6 @@ def change_password(request):
     return render(request, 'profiles/change-password.html', {'form': form})
 
 
-
-
-
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm
+    template_name = 'profiles/password-reset-form.html'

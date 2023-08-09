@@ -6,6 +6,7 @@
         {{ form }}
         {% csrf_token %}
         <i class="fa-solid fa-eye-slash login-eye"></i>
+    <a href="{% url 'reset_password' %}" class="forgotten-password">Forgotten password?</a>
     <button type="submit">Login</button>
     </form>
     <script src="{% static 'js/togglePassword.js' %}"></script>

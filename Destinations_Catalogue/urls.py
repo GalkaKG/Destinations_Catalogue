@@ -15,4 +15,3 @@ urlpatterns = [
 
 
 handler404 = page_not_found
-

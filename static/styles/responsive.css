@@ -144,6 +144,11 @@
     #change-password a p {
         margin-left: 35%;
     }
-
+    .attractions {
+        flex-direction: column;
+    }
+    .attractions div:first-of-type {
+        align-self: center;
+    }
 }
 

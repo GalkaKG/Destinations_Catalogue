@@ -126,9 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 
-# MEDIA_ROOT = (
-#         BASE_DIR / 'media_root/'
-# )
 MEDIA_ROOT = (
         BASE_DIR / 'media/'
 )
@@ -142,3 +139,11 @@ LOGIN_URL = reverse_lazy('login')
 
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')

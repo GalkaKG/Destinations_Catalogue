@@ -1,0 +1,11 @@
+
+{% extends 'common/index.html' %}
+
+{% block content %}
+<h2 class="profile">Set New Password</h2>
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Set Password</button>
+</form>
+{% endblock %}
