@@ -14,9 +14,12 @@ class DestinationCreateForm(forms.ModelForm):
             'location': forms.TextInput(
                 attrs={'placeholder': 'Country'}
             ),
+            'image': forms.URLInput(
+                attrs={'placeholder': 'Add link to image'}
+            ),
             'description': forms.Textarea(
-             attrs={'rows': 3, 'placeholder': 'Add comment...'}
-            )
+             attrs={'rows': 3, 'placeholder': 'Add description...'}
+            ),
         }
 
 
