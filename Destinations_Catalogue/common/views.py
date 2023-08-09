@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
@@ -47,7 +49,10 @@ def catalogue(request):
         'form': CommentForm(),
         'search_query': search_query,
         'page_obj': page_obj,
-        'total_pages': total_pages
+        'total_pages': total_pages,
+        'first_host': os.getenv('FIRST_HOST'),
+        'second_host': os.getenv('SECOND_HOST'),
+        'third_host': os.getenv('THIRD_HOST')
     }
 
     user = request.user

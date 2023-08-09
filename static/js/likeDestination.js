@@ -1,7 +1,6 @@
 const buttonsDiv = document.querySelectorAll('.buttons-catalogue')
-// const tokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
-// const csrfToken = tokenInput.value;
-// const currentUser = userData['currentUser'];
+
+
 
 buttonsDiv.forEach(div => {
     const likeButton = div.querySelectorAll('a')[0]
@@ -9,12 +8,23 @@ buttonsDiv.forEach(div => {
     likeButton.addEventListener("click", event =>{
         event?.preventDefault()
         const destinationId = Number(likeButton.id)
+
+        const currentHostname = window.location.hostname;
+        let BASE_URL = ''
+        if (currentHostname === '127.0.0.1') {
+            BASE_URL = `http://127.0.0.1:8000/api/like/${destinationId}/`;
+        } else if (currentHostname === '3.120.130.253') {
+            BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
+        } else if (currentHostname === 'ec2-3-120-130-253.eu-central-1.compute.amazonaws.com') {
+            BASE_URL = `http://ec2-3-120-130-253.eu-central-1.compute.amazonaws.com/api/like/${destinationId}/`;
+        }
+
         if (currentUser === 'AnonymousUser') {
             window.location.href = '/profile/login/';
             return;
         }
         // const BASE_URL = `http://127.0.0.1:8000/api/like/${destinationId}/`;
-        const BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
+        // const BASE_URL = `http://3.120.130.253/api/like/${destinationId}/`;
         fetch(BASE_URL, {
             method: 'POST',
             headers: {

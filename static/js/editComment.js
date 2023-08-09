@@ -22,8 +22,19 @@ editButtons.forEach(editButton => {
             editButton.addEventListener('click', (event) => {
                 event?.preventDefault()
                 const updatedContent = textArea.value;
+
+                const currentHostname = window.location.hostname;
+                let BASE_URL = ''
+                if (currentHostname === '127.0.0.1') {
+                    BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
+                } else if (currentHostname === '3.120.130.253') {
+                    BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
+                } else if (currentHostname === 'ec2-3-120-130-253.eu-central-1.compute.amazonaws.com') {
+                    BASE_URL = `http://ec2-3-120-130-253.eu-central-1.compute.amazonaws.com/api/edit_comment/${commentId}/`;
+                }
+
                 // const BASE_URL = `http://127.0.0.1:8000/api/edit_comment/${commentId}/`;
-                const BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
+                // const BASE_URL = `http://3.120.130.253/api/edit_comment/${commentId}/`;
                     fetch(BASE_URL, {
                         method: 'PUT',
                         headers: {
