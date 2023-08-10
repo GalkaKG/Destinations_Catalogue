@@ -128,6 +128,12 @@
      .section-explore {
          margin-left: 10%;
      }
+     .div-continents .explore-heading {
+         margin-left: -8%;
+     }
+     .div-continents .explore-description {
+         margin-left: -8%;
+     }
 }
 
 
