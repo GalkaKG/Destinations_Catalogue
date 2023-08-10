@@ -161,6 +161,8 @@
         margin-left: 0;
         text-align: center;
     }
-
+    .destination-catalogue .permission-denied {
+        font-size: 2.2rem;
+    }
 }
 
