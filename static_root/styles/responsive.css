@@ -79,8 +79,8 @@
         margin-top: 5%;
     }
     .div-continents h2, .div-continents p {
-        margin-left: 20%;
         font-size: 2rem;
+        text-align: center;
     }
     .li-continent #a-continent {
         color: #fff;
@@ -121,6 +121,13 @@
      gmp-map {
          width: 85%;
      }
+     .div-continents nav .ul-continents {
+         margin-right: 10%;
+     }
+
+     .section-explore {
+         margin-left: 10%;
+     }
 }
 
 
@@ -150,5 +157,10 @@
     .attractions div:first-of-type {
         align-self: center;
     }
+    .div-continents h2, .div-continents p {
+        margin-left: 0;
+        text-align: center;
+    }
+
 }
 
