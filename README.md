@@ -46,6 +46,7 @@ This repository contains the code for my awesome project. Check out the http://d
   <li>HTML, CSS, JavaScript</li>
   <li>PostgreSQL </li>
   <li>Google Maps API</li>
+  <li>SMTP server for reset password</li>
 </ul>
 
 <h2> Demo </h2>
