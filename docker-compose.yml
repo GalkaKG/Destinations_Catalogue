@@ -7,8 +7,6 @@ services:
     build: .
     volumes:
       - /tmp/Destinations_Catalogue/static_root:/app/static
-#      - /tmp/Destinations_Catalogue/media:/app/media
-#      - ./static:/app/static/
       - ./media:/app/media/
     ports:
       - "8000:8000"
@@ -34,8 +32,6 @@ services:
     depends_on:
       - web
     volumes:
-#      - /tmp/Destinations_Catalogue/static:/home/app/web/static_root
-#      - /tmp/Destinations_Catalogue/media:/home/app/web/media
       - ./static_root:/app/static_root/
       - ./media:/app/media/
       - ./nginx/conf.d:/etc/nginx/conf.d
